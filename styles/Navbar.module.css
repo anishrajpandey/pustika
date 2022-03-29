@@ -1,0 +1,70 @@
+nav.navBarMain {
+  display: flex;
+  padding: 2px 5px;
+  box-shadow: inset 0 2px 5px 0 #888888;
+  transition: height 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-block-end: 1rem;
+}
+span.blend {
+  width: 50px;
+  aspect-ratio: 1;
+  /* background-color: #6c29d8; */
+  position: absolute;
+  z-index: 2;
+  mix-blend-mode: normal;
+}
+nav.navBarMain span {
+  /* height: 100%; */
+  display: inline-block;
+  /* background-color: aliceblue; */
+  font-weight: bold;
+  padding: 2px;
+}
+nav.navBarMain > div.logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+ul.menu_items {
+  display: flex;
+  gap: 1rem;
+  overflow-y: hidden;
+}
+ul.menu_items li {
+  list-style-type: none;
+}
+ul.menu_items li * {
+  font-weight: 600;
+}
+div.cart {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+div.cart > * {
+  font-size: 25px;
+}
+div.menubtn {
+  display: none;
+}
+@media screen and (max-width: 455px) {
+  nav.navBarMain,
+  ul.menu_items {
+    flex-direction: column;
+  }
+  ul.menu_items {
+    transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  div.menubtn {
+    display: inline-block;
+    margin-inline: 1rem;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 455px) {
+  nav.navBarMain {
+    height: 50px !important;
+  }
+}
