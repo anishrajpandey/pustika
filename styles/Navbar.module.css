@@ -1,4 +1,4 @@
-nav.navBarMain {
+/* nav.navBarMain {
   display: flex;
   padding: 2px 5px;
   box-shadow: inset 0 2px 5px 0 #888888;
@@ -8,15 +8,12 @@ nav.navBarMain {
 span.blend {
   width: 50px;
   aspect-ratio: 1;
-  /* background-color: #6c29d8; */
   position: absolute;
   z-index: 2;
   mix-blend-mode: normal;
 }
 nav.navBarMain span {
-  /* height: 100%; */
   display: inline-block;
-  /* background-color: aliceblue; */
   font-weight: bold;
   padding: 2px;
 }
@@ -67,4 +64,36 @@ div.menubtn {
   nav.navBarMain {
     height: 50px !important;
   }
+} */
+div.logo {
+  display: flex;
+  /* flex: 0.3; */
+  /* display: inline-block; */
+  border: 2px solid black;
+}
+div.logo > .menubtn > * {
+  transform: scale(1.6);
+  margin-top: 6px;
+  margin-right: 1rem;
+}
+nav.navBarMain,
+.menu > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav.navBarMain {
+  justify-content: space-between;
+  margin-inline: 2rem;
+}
+.menu > ul {
+  gap: 2rem;
+  flex: 2;
+  border: 2px solid black;
+}
+.menu .cart {
+  flex: 1;
+}
+.menu > ul li {
+  list-style: none;
 }

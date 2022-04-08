@@ -6,15 +6,10 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { AiOutlineMenu } from "react-icons/ai";
 const Navbar = () => {
   const [mobileView, setMobileView] = useState(false);
-  useEffect(() => {
-    // setMobileView(window.innerWidth <= 460);
-    // todo
-    // setwinwidth(window?.innerWidth);
-  });
 
   return (
     <>
-      <style jsx>{`
+      {/* <style jsx>{`
         .menubtn {
           position: absolute;
           left: 0;
@@ -27,13 +22,12 @@ const Navbar = () => {
         nav.main-navbar {
           height: ${mobileView ? "220px" : "50px"};
         }
-      `}</style>
+      `}</style> */}
       <nav className={`${styles.navBarMain} main-navbar`}>
         <div className={styles.logo}>
           <div className={styles.menubtn}>
-            <AiOutlineMenu onClick={() => setMobileView(!mobileView)} />
+            <AiOutlineMenu />
           </div>
-          <span className={styles.blend}></span>
           <Link href={"/"}>
             <>
               <Image
