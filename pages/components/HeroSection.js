@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
 import Navbar from "./Navbar";
 
 const HeroSection = () => {
-  // const [randInd, setrandInd] = React.useState(0);
-  const getRandomIndex = (length = 17) => {
-    let num = Math.ceil(Math.random() * length);
-    console.log(num);
-    return num;
+  const [RandomIndex, setRandomIndex] = useState(false);
+
+  // scroller.current.style.transform = `translateX(${Math.ceil(
+  //   Math.random() * -17
+  // )}vw)`;
+  // setInterval(() => {
+  //   setRandomIndex(Math.ceil(Math.random() * -17));
+  //   console.log("Hellow");
+  // }, 10000);
+  const getRandomIndex = () => {
+    let num = Math.ceil(Math.random() * -17);
+    // console.log(num);
+    tochange = !tochange;
+    if (tochange) {
+      console.log(num);
+      setTimeout(getRandomIndex, 3000);
+      return num;
+    }
   };
+  // setInterval(() => setIndex(!Index), 3000);
   let imageArray = [
     "The Subtle Art of Not Giving a Fuck",
     "How to Win Friends and Influence People",
@@ -30,14 +44,14 @@ const HeroSection = () => {
     "The Little Prince",
   ];
 
-  // setInterval(getRandomIndex, 1000);
   return (
     <main className={styles.main}>
       <style jsx>{`
         div.scrollableContainer {
-          transform: translateX(calc(${getRandomIndex()}*50vw));
+          transform: translateX(${-8 * 50}vw);
         }
       `}</style>
+      {/* {console.log(getRandomIndex())} */}
       <Navbar />
       <div className={styles.imageContainer}>
         <Image
@@ -60,6 +74,7 @@ const HeroSection = () => {
                       className={`${styles.scrollableContainer} scrollableContainer`}
                     >
                       <Image
+                        priority={true}
                         src={`/book-images/${e}.webp`}
                         width={340}
                         height={450}
@@ -75,7 +90,7 @@ const HeroSection = () => {
       </div>
       <button
         onClick={() => {
-          getRandomIndex(17);
+          setRandomIndex(!RandomIndex);
         }}
       >
         Click Me{" "}

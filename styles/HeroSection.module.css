@@ -51,6 +51,6 @@ div.right .scrollingContainer > .scrollableContainer {
   justify-content: center;
   margin-top: 1rem;
 
-  transform: translateX(calc(-4 * 50vw));
+  /* transform: translateX(calc(-1 * 50vw)); */
   transition: transform 3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
