@@ -40,9 +40,7 @@ div.cart {
   right: 1rem;
 }
 
-div.cart > * {
-  font-size: 25px;
-}
+
 div.menubtn {
   display: none;
 }
@@ -69,31 +67,45 @@ div.logo {
   display: flex;
   /* flex: 0.3; */
   /* display: inline-block; */
-  border: 2px solid black;
 }
 div.logo > .menubtn > * {
   transform: scale(1.6);
   margin-top: 6px;
   margin-right: 1rem;
 }
+span.logo_text {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  color: white;
+}
 nav.navBarMain,
 .menu > ul {
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: transparent;
 }
 nav.navBarMain {
   justify-content: space-between;
   margin-inline: 2rem;
+  /* background-color: #000; */
 }
 .menu > ul {
   gap: 2rem;
   flex: 2;
-  border: 2px solid black;
 }
 .menu .cart {
   flex: 1;
 }
 .menu > ul li {
   list-style: none;
+  color: white;
+}
+.menu > ul li Link {
+  color: white;
+  font-family: sans-serif;
+}
+div.cart > * {
+  fill: red;
 }

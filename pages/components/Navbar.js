@@ -2,41 +2,26 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import styles from "../../styles/Navbar.module.css";
 import Link from "next/link";
-import { HiOutlineShoppingCart } from "react-icons/hi";
 import { AiOutlineMenu } from "react-icons/ai";
 const Navbar = () => {
-  const [mobileView, setMobileView] = useState(false);
-
   return (
     <>
-      {/* <style jsx>{`
-        .menubtn {
-          position: absolute;
-          left: 0;
-          top: 50px;
-          font-size: 2rem;
-        }
-        ul.menu-items {
-          transform: ${!mobileView ? "translateX(-20rem)" : "translateX(0rem)"};
-        }
-        nav.main-navbar {
-          height: ${mobileView ? "220px" : "50px"};
-        }
-      `}</style> */}
+      <style jsx>{``}</style>
       <nav className={`${styles.navBarMain} main-navbar`}>
-        <div className={styles.logo}>
+        <div className={styles.logo} style={{ cursor: "pointer" }}>
           <div className={styles.menubtn}>
-            <AiOutlineMenu />
+            <AiOutlineMenu fill="white" />
           </div>
           <Link href={"/"}>
             <>
               <Image
-                src={"/open-book.png"}
+                src={"/white-address-book-svgrepo-com.svg"}
                 id={styles.logo}
-                width={40}
-                height={40}
+                width={25}
+                height={20}
+                layout={"fixed"}
               ></Image>
-              <span>pustika</span>
+              <span className={styles.logo_text}>pustika</span>
             </>
           </Link>
         </div>
@@ -52,12 +37,22 @@ const Navbar = () => {
               <Link href={"/"}>Categories</Link>
             </li>
             <li>
-              <Link href={"/"}>profile</Link>
+              <Link href={"/"}>Profile</Link>
             </li>
           </ul>
         </div>
         <div className={styles.cart}>
-          <HiOutlineShoppingCart />
+          <Link href={"#"}>
+            <a>
+              <Image
+                className={styles.cartImage}
+                src={"/cart.svg"}
+                width={20}
+                height={20}
+                layout={"fixed"}
+              ></Image>
+            </a>
+          </Link>
         </div>
       </nav>
     </>
