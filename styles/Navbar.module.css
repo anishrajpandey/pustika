@@ -65,6 +65,7 @@ div.menubtn {
 } */
 div.logo {
   display: flex;
+  align-items: center;
   /* flex: 0.3; */
   /* display: inline-block; */
 }

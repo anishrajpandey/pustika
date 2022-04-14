@@ -7,10 +7,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <Image
-        src={"/book-images/How to Win Friends and Influence People.webp"}
-        layout={"fill"}
-      ></Image>
     </>
   );
 }
