@@ -60,13 +60,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// function getWindowDimension() {
-// let { innerWidth: width, innerHeight: height } = window;
-//   let width = window?.innerWidth;
-//   let height = window?.innerHeight;
-//   return {
-//     width,
-//     height,
-//   };
-// }

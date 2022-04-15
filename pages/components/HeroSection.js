@@ -13,17 +13,16 @@ const HeroSection = () => {
   //   setRandomIndex(Math.ceil(Math.random() * -17));
   //   console.log("Hellow");
   // }, 10000);
-  const getRandomIndex = () => {
-    let num = Math.ceil(Math.random() * -17);
-    // console.log(num);
-    tochange = !tochange;
-    if (tochange) {
-      console.log(num);
-      setTimeout(getRandomIndex, 3000);
-      return num;
-    }
-  };
-  // setInterval(() => setIndex(!Index), 3000);
+  // const getRandomIndex = () => {
+  //   let num = Math.ceil(Math.random() * -17);
+  //   tochange = !tochange;
+  //   if (tochange) {
+  //     console.log(num);
+  //     setTimeout(getRandomIndex, 3000);
+  //     return num;
+  //   }
+  // };
+
   let imageArray = [
     "The Subtle Art of Not Giving a Fuck",
     "How to Win Friends and Influence People",
@@ -43,12 +42,12 @@ const HeroSection = () => {
     "The Lords of the Rings",
     "The Little Prince",
   ];
-
+  console.log(RandomIndex);
   return (
     <main className={styles.main}>
       <style jsx>{`
         div.scrollableContainer {
-          transform: translateX(${-8 * 50}vw);
+          transform: translateX(${-11 * 50}vw);
         }
       `}</style>
       {/* {console.log(getRandomIndex())} */}
