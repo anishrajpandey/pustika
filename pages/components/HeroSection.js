@@ -1,29 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
 import Navbar from "./Navbar";
 
 const HeroSection = () => {
-  const [changed, setchanged] = useState(false);
-  // setInterval(() => {
-  //   setRandomIndex(Math.ceil(Math.random() * -17));
-  // }, 3000);
-  // let varRandomIndex;
-  let changeBtn = useRef();
-
-  const RandomIndex = () => {
-    let num = Math.ceil(Math.random() * -17);
-    console.log(num);
-    return num;
-  };
-  setInterval(RandomIndex, 52000);
-  setInterval(() => {
-    console.log(changeBtn);
-    changeBtn?.current?.click();
-  }, 5000);
-
-  // console.log(RandomIndex());
-
   let imageArray = [
     "The Subtle Art of Not Giving a Fuck",
     "How to Win Friends and Influence People",
@@ -43,15 +23,28 @@ const HeroSection = () => {
     "The Lords of the Rings",
     "The Little Prince",
   ];
-  console.log(RandomIndex);
+
+  const [RandomIndex, setRandomIndex] = useState(
+    Math.ceil(Math.random() * -1 * imageArray.length)
+  );
+  let changeBtn = useRef();
+  useEffect(() => {
+    const StartInternal = setInterval(() => {
+      setRandomIndex(Math.ceil(Math.random() * -1 * imageArray.length));
+    }, 10000);
+    return () => {
+      clearInterval(StartInternal);
+    };
+  }, []);
+
   return (
     <main className={styles.main}>
       <style jsx>{`
         div.scrollableContainer {
-          transform: translateX(${RandomIndex() * 50}vw);
+          transform: translateX(${RandomIndex * 50}vw);
         }
       `}</style>
-      {/* {console.log(getRandomIndex())} */}
+
       <Navbar />
       <div className={styles.imageContainer}>
         <Image
@@ -64,7 +57,9 @@ const HeroSection = () => {
         <div className={styles.contentBox}>
           <h1>Bibliophile</h1>
           <section className={styles.productShowcase}>
-            <div className={styles.left}></div>
+            <div className={styles.left}>
+              <p>{imageArray[-1 * RandomIndex]}</p>
+            </div>
             <div className={styles.right}>
               <div className={styles.scrollingContainer}>
                 {imageArray.map((e) => {
@@ -88,14 +83,6 @@ const HeroSection = () => {
           </section>
         </div>
       </div>
-      <button
-        ref={changeBtn}
-        onClick={() => {
-          setchanged(!changed);
-        }}
-      >
-        Click Me
-      </button>
     </main>
   );
 };
