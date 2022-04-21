@@ -5,29 +5,98 @@ import Navbar from "./Navbar";
 
 const HeroSection = () => {
   let imageArray = [
-    "The Subtle Art of Not Giving a Fuck",
-    "How to Win Friends and Influence People",
-    "Outliers The Story of Success",
-    "The 7 Habits of Highly Effective People",
-    "Who Moved My Cheese",
-    "The Power of Habit Why We Do What We Do in Life and Business",
-    "The Secret",
-    "Thinking, Fast and Slow",
-    "Quiet The Power of Introverts in a World That Can't Stop Talking",
-    "Think and Grow Rich",
-    "The Power of Now",
-    "Atomic Habits",
-    "Harry Potter",
-    "A Brief History of Time",
-    "Our Little World",
-    "The Lords of the Rings",
-    "The Little Prince",
+    {
+      name: "The Subtle Art of Not Giving a Fuck",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "How to Win Friends and Influence People",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Outliers The Story of Success",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "The 7 Habits of Highly Effective People",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Who Moved My Cheese",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "The Power of Habit Why We Do What We Do in Life and Business",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "The Secret",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Thinking, Fast and Slow",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Quiet The Power of Introverts in a World That Can't Stop Talking",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Think and Grow Rich",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "The Power of Now",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Atomic Habits",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+
+    {
+      name: "Harry Potter",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "A Brief History of Time",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "Our Little World",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "The Lords of the Rings",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
+    {
+      name: "The Little Prince",
+      description: "Hello guys this is a description",
+      author: "Anish Raj Pandey",
+    },
   ];
 
   const [RandomIndex, setRandomIndex] = useState(
     Math.ceil(Math.random() * -1 * imageArray.length)
   );
-  let changeBtn = useRef();
+
   useEffect(() => {
     const StartInternal = setInterval(() => {
       setRandomIndex(Math.ceil(Math.random() * -1 * imageArray.length));
@@ -58,7 +127,10 @@ const HeroSection = () => {
           <h1>Bibliophile</h1>
           <section className={styles.productShowcase}>
             <div className={styles.left}>
-              <p>{imageArray[-1 * RandomIndex]}</p>
+              <p>Name Of Book:{imageArray[-1 * RandomIndex].name}</p>
+              {/* imageArray[-1 * RandomIndex] gives the book which is selected */}
+              <p>{imageArray[-1 * RandomIndex].description}</p>{" "}
+              <p>{imageArray[-1 * RandomIndex].author}</p>
             </div>
             <div className={styles.right}>
               <div className={styles.scrollingContainer}>
@@ -70,7 +142,7 @@ const HeroSection = () => {
                     >
                       <Image
                         priority={true}
-                        src={`/book-images/${e}.webp`}
+                        src={`/book-images/${e.name}.webp`}
                         width={340}
                         height={450}
                         layout={"intrinsic"}

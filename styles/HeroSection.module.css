@@ -21,7 +21,7 @@ main .imageContainer > div.contentBox h1 {
 section.productShowcase {
   width: 100%;
   height: 80%;
-  /* background-color: aqua; */
+
   gap: 0.5rem;
   display: flex;
 }
