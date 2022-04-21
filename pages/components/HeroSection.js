@@ -4,24 +4,25 @@ import styles from "./../../styles/HeroSection.module.css";
 import Navbar from "./Navbar";
 
 const HeroSection = () => {
-  const [RandomIndex, setRandomIndex] = useState(false);
-
-  // scroller.current.style.transform = `translateX(${Math.ceil(
-  //   Math.random() * -17
-  // )}vw)`;
+  const [changed, setchanged] = useState(false);
   // setInterval(() => {
   //   setRandomIndex(Math.ceil(Math.random() * -17));
-  //   console.log("Hellow");
-  // }, 10000);
-  // const getRandomIndex = () => {
-  //   let num = Math.ceil(Math.random() * -17);
-  //   tochange = !tochange;
-  //   if (tochange) {
-  //     console.log(num);
-  //     setTimeout(getRandomIndex, 3000);
-  //     return num;
-  //   }
-  // };
+  // }, 3000);
+  // let varRandomIndex;
+  let changeBtn = useRef();
+
+  const RandomIndex = () => {
+    let num = Math.ceil(Math.random() * -17);
+    console.log(num);
+    return num;
+  };
+  setInterval(RandomIndex, 52000);
+  setInterval(() => {
+    console.log(changeBtn);
+    changeBtn?.current?.click();
+  }, 5000);
+
+  // console.log(RandomIndex());
 
   let imageArray = [
     "The Subtle Art of Not Giving a Fuck",
@@ -47,7 +48,7 @@ const HeroSection = () => {
     <main className={styles.main}>
       <style jsx>{`
         div.scrollableContainer {
-          transform: translateX(${-11 * 50}vw);
+          transform: translateX(${RandomIndex() * 50}vw);
         }
       `}</style>
       {/* {console.log(getRandomIndex())} */}
@@ -88,11 +89,12 @@ const HeroSection = () => {
         </div>
       </div>
       <button
+        ref={changeBtn}
         onClick={() => {
-          setRandomIndex(!RandomIndex);
+          setchanged(!changed);
         }}
       >
-        Click Me{" "}
+        Click Me
       </button>
     </main>
   );
