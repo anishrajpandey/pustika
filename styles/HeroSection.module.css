@@ -31,6 +31,9 @@ section.productShowcase .left {
   border: 1px solid red;
   min-width: 50%;
 }
+section.productShowcase .left > .BookListHeading {
+  text-align: center;
+}
 section.productShowcase .right {
   flex: 0.5;
   border: 1px solid blue;
