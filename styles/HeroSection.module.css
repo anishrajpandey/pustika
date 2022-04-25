@@ -3,9 +3,9 @@ main .imageContainer {
   height: 80vh;
   position: relative;
   top: -60px;
-  z-index: -1;
+  z-index: -9;
+  user-select: none;
 }
-
 main .imageContainer > div.contentBox {
   position: absolute;
   top: 0;
@@ -14,6 +14,7 @@ main .imageContainer > div.contentBox {
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
   padding: 60px 20px;
+  z-index: 999;
 }
 main .imageContainer > div.contentBox h1 {
   text-align: center;
@@ -98,7 +99,19 @@ div.left p.authName::before {
     text-align: left;
   }
 }
-div.left .btnArea > button {
-  width: 30%;
-  background-color: black;
+div.left .btnArea :is(:first-child, :last-child) {
+  width: 20%;
+  margin: 12px;
+  border: none;
+  height: 40px;
+}
+/* button. {
+    background-color: aliceblue;
+  } */
+div.left .btnArea :first-child {
+  background-color: var(--clr-primary);
+  cursor: pointer;
+}
+div.left .btnArea :first-child:hover {
+  background-color: var(--clr-primary-light);
 }

@@ -15,5 +15,6 @@ a {
   box-sizing: border-box;
 }
 :root {
-  --clr-primary: rgb(209, 43, 209);
+  --clr-primary: rgb(207, 4, 207);
+  --clr-primary-light: rgb(246, 116, 246);
 }

@@ -33,10 +33,11 @@ const HeroSection = () => {
         <Image
           src={"/hero-image.jpg"}
           layout={"fill"}
-          width={"1000"}
-          height={450}
+          // width={"1000"}
+          // height={450}
           priority={false}
         ></Image>
+
         <div className={styles.contentBox}>
           <h1>Join the Community of Bibliophile,today</h1>
           <section className={styles.productShowcase}>
@@ -52,8 +53,10 @@ const HeroSection = () => {
               <p className={styles.authName}>
                 {imageArray[-1 * RandomIndex].author}
               </p>
-              <button>Buy Now</button>
-              <button>Add To Cart</button>
+              <div className={styles.btnArea}>
+                <button>Buy Now</button>
+                <button>Add To Cart</button>
+              </div>
             </div>
             <div className={styles.right}>
               <div className={styles.scrollingContainer}>
