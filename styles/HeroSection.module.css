@@ -55,5 +55,20 @@ div.right .scrollingContainer > .scrollableContainer {
   margin-top: 1rem;
 
   /* transform: translateX(calc(-1 * 50vw)); */
-  transition: transform 3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* .left {
+  position: relative;
+} */
+div.left > h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+}
+div.left > h2 > span {
+  position: absolute;
+  left: 2rem;
+  font-size: 1rem;
+  /* top: 5px; */
+  margin-top: 5px;
 }
