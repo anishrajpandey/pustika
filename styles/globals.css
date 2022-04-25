@@ -14,3 +14,6 @@ a {
 * {
   box-sizing: border-box;
 }
+:root {
+  --clr-primary: rgb(209, 43, 209);
+}

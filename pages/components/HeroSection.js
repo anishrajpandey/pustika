@@ -32,13 +32,13 @@ const HeroSection = () => {
       <div className={styles.imageContainer}>
         <Image
           src={"/hero-image.jpg"}
-          layout={"responsive"}
+          layout={"fill"}
           width={"1000"}
           height={450}
           priority={false}
         ></Image>
         <div className={styles.contentBox}>
-          <h1>A community of Bibliophile</h1>
+          <h1>Join the Community of Bibliophile,today</h1>
           <section className={styles.productShowcase}>
             <div className={styles.left}>
               <h2 className={styles.BookListHeading}>
@@ -46,8 +46,14 @@ const HeroSection = () => {
                 {imageArray[-1 * RandomIndex].name}
               </h2>
               {/* imageArray[-1 * RandomIndex] gives the book which is selected */}
-              <p>{imageArray[-1 * RandomIndex].description}</p>{" "}
-              <p>{imageArray[-1 * RandomIndex].author}</p>
+              <p classNmae={styles.bookDesc}>
+                {imageArray[-1 * RandomIndex].description}
+              </p>{" "}
+              <p className={styles.authName}>
+                {imageArray[-1 * RandomIndex].author}
+              </p>
+              <button>Buy Now</button>
+              <button>Add To Cart</button>
             </div>
             <div className={styles.right}>
               <div className={styles.scrollingContainer}>

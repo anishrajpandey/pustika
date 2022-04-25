@@ -17,6 +17,10 @@ main .imageContainer > div.contentBox {
 }
 main .imageContainer > div.contentBox h1 {
   text-align: center;
+  color: var(--clr-primary);
+  letter-spacing: 3p x;
+
+  font-size: x-large;
 }
 section.productShowcase {
   width: 100%;
@@ -28,7 +32,7 @@ section.productShowcase {
 
 section.productShowcase .left {
   flex: 0.5;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   min-width: 50%;
 }
 section.productShowcase .left > .BookListHeading {
@@ -36,7 +40,7 @@ section.productShowcase .left > .BookListHeading {
 }
 section.productShowcase .right {
   flex: 0.5;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   overflow: hidden;
 }
 div.right .scrollingContainer {
@@ -57,13 +61,17 @@ div.right .scrollingContainer > .scrollableContainer {
   /* transform: translateX(calc(-1 * 50vw)); */
   transition: transform 35s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-/* .left {
+.left {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
   position: relative;
-} */
+}
 div.left > h1 {
   font-size: 1rem;
   font-weight: 500;
   position: relative;
+  width: 60%;
 }
 div.left > h2 > span {
   position: absolute;
@@ -71,4 +79,26 @@ div.left > h2 > span {
   font-size: 1rem;
   /* top: 5px; */
   margin-top: 5px;
+}
+div.left p.bookDesc {
+  text-align: center;
+}
+div.left p.authName {
+  position: relative;
+  /* top: 100px; */
+  left: 50%;
+}
+div.left p.authName::before {
+  content: "-";
+}
+@media screen and (max-width: 1138px) {
+  div.left > h2 > span {
+    position: static;
+    display: block;
+    text-align: left;
+  }
+}
+div.left .btnArea > button {
+  width: 30%;
+  background-color: black;
 }
