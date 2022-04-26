@@ -3,18 +3,18 @@ main .imageContainer {
   height: 80vh;
   position: relative;
   top: -60px;
-  z-index: -9;
+  z-index: -2;
   user-select: none;
 }
-main .imageContainer > div.contentBox {
+div.contentBox {
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
   padding: 60px 20px;
-  z-index: 999;
+  z-index: 3;
 }
 main .imageContainer > div.contentBox h1 {
   text-align: center;
@@ -98,19 +98,31 @@ div.left p.authName::before {
     text-align: left;
   }
 }
+div.left .btnArea {
+  display: flex;
+  align-items: center;
+}
 div.left .btnArea :is(:first-child, :last-child) {
   width: 20%;
   margin: 12px;
   border: none;
   height: 40px;
+  transition: background-color 100ms linear;
+  border-radius: 2px;
 }
 /* button. {
     background-color: aliceblue;
   } */
-div.left .btnArea :first-child {
+div.left .btnArea > :first-child {
   background-color: var(--clr-primary);
   cursor: pointer;
 }
-div.left .btnArea :first-child:hover {
+div.left .btnArea > :first-child:hover {
   background-color: var(--clr-primary-light);
+}
+div.left .btnArea > :nth-child(2) img {
+  filter: invert(0.91);
+}
+button i.cartLogo::before {
+  background-color: black;
 }
