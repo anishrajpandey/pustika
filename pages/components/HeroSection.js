@@ -11,11 +11,10 @@ const HeroSection = () => {
 
   useEffect(() => {
     const StartInternal = setInterval(() => {
-      //todo set random letter
       setRandomIndex(Math.ceil(Math.random() * -1 * imageArray.length));
       // setRandomIndex(RandomIndex > -17 ? RandomIndex - 1 : RandomIndex + 1);
       // setRandomIndex();
-    }, 40000);
+    }, 4000);
     return () => {
       clearInterval(StartInternal);
     };

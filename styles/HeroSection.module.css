@@ -57,9 +57,10 @@ div.right .scrollingContainer > .scrollableContainer {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-
+  --transition-duration: 1s;
   /* transform: translateX(calc(-1 * 50vw)); */
-  transition: transform 35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform var(--transition-duration)
+    cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .left {
   display: flex;
@@ -101,6 +102,7 @@ div.left p.authName::before {
 div.left .btnArea {
   display: flex;
   align-items: center;
+  /* margin: 0 auto; */
 }
 div.left .btnArea :is(:first-child, :last-child) {
   width: 20%;
@@ -109,6 +111,7 @@ div.left .btnArea :is(:first-child, :last-child) {
   height: 40px;
   transition: background-color 100ms linear;
   border-radius: 2px;
+  font-weight: 700;
 }
 /* button. {
     background-color: aliceblue;
@@ -116,9 +119,20 @@ div.left .btnArea :is(:first-child, :last-child) {
 div.left .btnArea > :first-child {
   background-color: var(--clr-primary);
   cursor: pointer;
+  width: max-content;
+}
+div.left .btnArea button {
+  margin: 2px 12px;
 }
 div.left .btnArea > :first-child:hover {
   background-color: var(--clr-primary-light);
+}
+div.left .btnArea > :nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  width: max-content;
 }
 div.left .btnArea > :nth-child(2) img {
   filter: invert(0.91);
