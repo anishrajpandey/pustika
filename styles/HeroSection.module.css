@@ -19,8 +19,7 @@ main .imageContainer > div.contentBox {
 main .imageContainer > div.contentBox h1 {
   text-align: center;
   color: var(--clr-primary);
-  letter-spacing: 3p x;
-
+  letter-spacing: 2px;
   font-size: x-large;
 }
 section.productShowcase {
