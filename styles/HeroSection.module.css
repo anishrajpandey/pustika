@@ -151,6 +151,9 @@ div.left .btnArea > :nth-child(2) {
 div.left .btnArea > :nth-child(2) img {
   filter: invert(0.91);
 }
+div.left .btnArea > :nth-child(2):hover {
+  background-color: var(--clr-primary);
+}
 button i.cartLogo::before {
   background-color: black;
 }
@@ -176,5 +179,8 @@ button i.cartLogo::before {
     transition-duration: 31s;
     transition-timing-function: linear;
     /* transform: translateX(100%); */
+  }
+  .left {
+    padding: 0;
   }
 }
