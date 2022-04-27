@@ -119,7 +119,7 @@ div.left .btnArea :is(:first-child, :last-child) {
 div.left .btnArea > :first-child {
   background-color: var(--clr-primary);
   cursor: pointer;
-  width: max-content;
+  min-width: 60px;
 }
 div.left .btnArea button {
   margin: 2px 12px;

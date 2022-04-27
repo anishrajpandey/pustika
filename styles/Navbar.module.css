@@ -36,11 +36,34 @@ nav.navBarMain {
 }
 .menu > ul li {
   list-style: none;
-  color: white;
+  transition: all 50ms ease;
+  position: relative;
 }
-.menu > ul li Link {
-  color: white;
+.menu > ul li:hover::after {
+  content: "lorem";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  animation: hover 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  z-index: 1;
+  background-color: var(--clr-primary-light);
+
+  border-radius: 0.5px;
+}
+@keyframes hover {
+  to {
+    width: 100%;
+  }
+}
+.menu > ul li a {
+  color: rgb(255, 255, 255);
   font-family: sans-serif;
+  font-weight: 400;
+}
+.menu > ul li a:hover {
+  color: var(--clr-primary-light);
 }
 div.cart > * {
   fill: red;
