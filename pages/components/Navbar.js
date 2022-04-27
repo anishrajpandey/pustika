@@ -37,16 +37,16 @@ const Navbar = () => {
         </div>
         <div className={styles.menu}>
           <ul className={`${styles.menu_items} menu-items`}>
-            <li onClick={() => setToggleMenu(!ToggleMenu)}>
+            <li onClick={() => setToggleMenu(false)}>
               <Link href={"/"}>Home</Link>
             </li>
-            <li onClick={() => setToggleMenu(!ToggleMenu)}>
+            <li onClick={() => setToggleMenu(false)}>
               <Link href={"/"}>Store</Link>
             </li>
-            <li onClick={() => setToggleMenu(!ToggleMenu)}>
+            <li onClick={() => setToggleMenu(false)}>
               <Link href={"/"}>Categories</Link>
             </li>
-            <li onClick={() => setToggleMenu(!ToggleMenu)}>
+            <li onClick={() => setToggleMenu(false)}>
               <Link href={"/"}>Profile</Link>
             </li>
           </ul>
