@@ -16,11 +16,23 @@ div.contentBox {
   padding: 60px 20px;
   z-index: 3;
 }
-main .imageContainer > div.contentBox h1 {
-  text-align: center;
+div.contentBox h1 {
+  text-align: left;
+  padding-left: 12px;
+  padding-block: 0;
+  margin-block: 0;
   color: var(--clr-primary);
-  letter-spacing: 2px;
-  font-size: x-large;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  position: relative;
+}
+div.contentBox h1::before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  background-color: var(--clr-primary);
+  left: 0;
 }
 section.productShowcase {
   width: 100%;
@@ -40,12 +52,10 @@ section.productShowcase .left > .BookListHeading {
 }
 section.productShowcase .right {
   flex: 0.5;
-  /* border: 1px solid blue; */
   overflow: hidden;
 }
 div.right .scrollingContainer {
   overflow-x: hidden;
-
   height: fit-content;
   width: fit-content;
   display: flex;
@@ -70,7 +80,7 @@ div.right .scrollingContainer > .scrollableContainer {
 }
 div.left > h1 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: lighter;
   position: relative;
   width: 60%;
 }
@@ -83,11 +93,11 @@ div.left > h2 > span {
 }
 div.left p.bookDesc {
   text-align: center;
+  height: 12rem;
+  overflow-y: hidden;
 }
 div.left p.authName {
-  position: relative;
-  /* top: 100px; */
-  left: 50%;
+  text-align: right;
 }
 div.left p.authName::before {
   content: "-";
@@ -112,18 +122,17 @@ div.left .btnArea :is(:first-child, :last-child) {
   transition: background-color 100ms linear;
   border-radius: 2px;
   font-weight: 700;
+  cursor: pointer;
 }
-/* button. {
-    background-color: aliceblue;
-  } */
+
 div.left .btnArea > :first-child {
   background-color: var(--clr-primary);
-  cursor: pointer;
-  min-width: 60px;
+  width: 120px;
 }
 div.left .btnArea button {
   margin: 2px 12px;
 }
+
 div.left .btnArea > :first-child:hover {
   background-color: var(--clr-primary-light);
 }
@@ -133,6 +142,9 @@ div.left .btnArea > :nth-child(2) {
   align-items: center;
   gap: 2px;
   width: max-content;
+  padding: 0 5px;
+  font-size: 0.7rem;
+  width: 120px;
 }
 div.left .btnArea > :nth-child(2) img {
   filter: invert(0.91);

@@ -9,6 +9,7 @@ export default function Home() {
         crossorigin="anonymous"
         strategy="lazyOnload"
       ></Script>
+
       <HeroSection />
     </>
   );

@@ -12,9 +12,7 @@ const HeroSection = () => {
   useEffect(() => {
     const StartInternal = setInterval(() => {
       setRandomIndex(Math.ceil(Math.random() * -1 * imageArray.length));
-      // setRandomIndex(RandomIndex > -17 ? RandomIndex - 1 : RandomIndex + 1);
-      // setRandomIndex();
-    }, 4000);
+    }, 40000);
     return () => {
       clearInterval(StartInternal);
     };
@@ -39,11 +37,10 @@ const HeroSection = () => {
       </div>
 
       <div className={styles.contentBox}>
-        <h1>Join the Community of Bibliophile,today</h1>
+        <h1>Trending Books:</h1>
         <section className={styles.productShowcase}>
           <div className={styles.left}>
             <h2 className={styles.BookListHeading}>
-              <span>Trending Books: </span>
               {imageArray[-1 * RandomIndex].name}
             </h2>
             {/* imageArray[-1 * RandomIndex] gives the book which is selected */}

@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;700&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-primary);
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -17,4 +17,5 @@ a {
 :root {
   --clr-primary: rgb(207, 4, 207);
   --clr-primary-light: rgb(246, 116, 246);
+  --font-primary: "Hind Siliguri", sans-serif;
 }
