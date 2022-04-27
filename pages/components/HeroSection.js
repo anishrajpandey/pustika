@@ -12,7 +12,7 @@ const HeroSection = () => {
   useEffect(() => {
     const StartInternal = setInterval(() => {
       setRandomIndex(Math.ceil(Math.random() * -1 * imageArray.length));
-    }, 40000);
+    }, 30000);
     return () => {
       clearInterval(StartInternal);
     };
