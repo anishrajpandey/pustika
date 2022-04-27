@@ -44,7 +44,7 @@ section.productShowcase {
 
 section.productShowcase .left {
   flex: 0.5;
-  /* border: 1px solid red; */
+
   min-width: 50%;
 }
 section.productShowcase .left > .BookListHeading {
@@ -91,9 +91,10 @@ div.left > h2 > span {
   /* top: 5px; */
   margin-top: 5px;
 }
+/* book description */
 div.left p.bookDesc {
   text-align: center;
-  height: 12rem;
+  height: 8rem;
   overflow-y: hidden;
 }
 div.left p.authName {
@@ -133,7 +134,7 @@ div.left .btnArea button {
   margin: 2px 12px;
 }
 
-div.left .btnArea > :first-child:hover {
+div.left .btnArea > :is(:first-child, :nth-child(2)):hover {
   background-color: var(--clr-primary-light);
 }
 div.left .btnArea > :nth-child(2) {
@@ -151,4 +152,22 @@ div.left .btnArea > :nth-child(2) img {
 }
 button i.cartLogo::before {
   background-color: black;
+}
+@media screen and (max-width: 1500px) {
+  div.left p.bookDesc {
+    height: 10rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  div.left p.bookDesc {
+    height: 15rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  section.productShowcase {
+    flex-direction: column;
+  }
+  div.left p.bookDesc {
+    height: 7rem;
+  }
 }
