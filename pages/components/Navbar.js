@@ -1,16 +1,30 @@
 import Image from "next/image";
-// import React from "react";
+import { useState, useEffect } from "react";
 import styles from "../../styles/Navbar.module.css";
 import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
 const Navbar = () => {
+  const [ToggleMenu, setToggleMenu] = useState(false);
+  useEffect(() => {
+    ToggleMenu
+      ? document.bodystyle.setProperty("--translateOffset", "-270px")
+      : document.body.style.setProperty("--translateOffset", "-32px");
+
+    return () => {
+      second;
+    };
+  }, [ToggleMenu]);
+
   return (
     <>
       <style jsx>{``}</style>
       <nav className={`${styles.navBarMain} main-navbar`}>
         <div className={styles.logo} style={{ cursor: "pointer" }}>
           <div className={styles.menubtn}>
-            <AiOutlineMenu fill="white" />
+            <AiOutlineMenu
+              fill="white"
+              onClick={() => setToggleMenu(!ToggleMenu)}
+            />
           </div>
           <Link href={"/"}>
             <>
