@@ -7,12 +7,8 @@ const Navbar = () => {
   const [ToggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
     ToggleMenu
-      ? document.bodystyle.setProperty("--translateOffset", "-270px")
-      : document.body.style.setProperty("--translateOffset", "-32px");
-
-    return () => {
-      second;
-    };
+      ? document.body.style.setProperty("--translateOffset", "-32px")
+      : document.body.style.setProperty("--translateOffset", "-410px");
   }, [ToggleMenu]);
 
   return (
@@ -41,16 +37,16 @@ const Navbar = () => {
         </div>
         <div className={styles.menu}>
           <ul className={`${styles.menu_items} menu-items`}>
-            <li>
+            <li onClick={() => setToggleMenu(!ToggleMenu)}>
               <Link href={"/"}>Home</Link>
             </li>
-            <li>
+            <li onClick={() => setToggleMenu(!ToggleMenu)}>
               <Link href={"/"}>Store</Link>
             </li>
-            <li>
+            <li onClick={() => setToggleMenu(!ToggleMenu)}>
               <Link href={"/"}>Categories</Link>
             </li>
-            <li>
+            <li onClick={() => setToggleMenu(!ToggleMenu)}>
               <Link href={"/"}>Profile</Link>
             </li>
           </ul>

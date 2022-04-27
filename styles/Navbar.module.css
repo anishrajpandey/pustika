@@ -71,7 +71,7 @@ div.cart > * {
 @media (max-width: 600px) {
   .menu > ul {
     position: absolute;
-    padding: 50px 10px;
+    padding: 50px 30px;
     left: var(--translateOffset);
     z-index: 99;
     top: 20px;
@@ -79,10 +79,11 @@ div.cart > * {
     width: 80%;
     flex-direction: column;
 
-    /* display: flex; */
+    transition: all 200ms ease-in-out;
     align-items: flex-start;
     background-color: rgb(0, 0, 0);
-    border: 1px solid red;
+
+    border-radius: 12px;
   }
   div.logo > .menubtn > * {
     display: initial;
