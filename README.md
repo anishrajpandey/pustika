@@ -4,6 +4,6 @@ If you wanna support me, or my work,follow me or star this repo!
 
 ## Made With ❤️ using NEXT JS
 
-[Visit Here](pustika.vercel.app)
+[Visit Here](www.pustika.vercel.app)
 
 <!-- This is a comment in markdown file -->
