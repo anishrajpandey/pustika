@@ -38,7 +38,7 @@ const HeroSection = () => {
       </div>
 
       <div className={styles.contentBox}>
-        <h1>Trending Books:</h1>
+        <h1>Trending Books Today:</h1>
         <section className={styles.productShowcase}>
           <div className={styles.left}>
             <h2 className={styles.BookListHeading}>
