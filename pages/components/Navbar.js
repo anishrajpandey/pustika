@@ -25,6 +25,7 @@ const Navbar = () => {
           <Link href={"/"}>
             <>
               <Image
+                alt="Error"
                 src={"/white-address-book-svgrepo-com.svg"}
                 id={styles.logo}
                 width={25}
@@ -55,6 +56,7 @@ const Navbar = () => {
           <Link href={"#"}>
             <a>
               <Image
+                alt="Error"
                 className={styles.cartImage}
                 src={"/cart.svg"}
                 width={20}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
 import Navbar from "./Navbar";
-import imageArray from "./BooksData";
+import imageArray from "../../public/BooksData";
 
 const HeroSection = () => {
   const [RandomIndex, setRandomIndex] = useState(
@@ -28,6 +28,7 @@ const HeroSection = () => {
       <Navbar />
       <div className={styles.imageContainer}>
         <Image
+          alt="Error"
           src={"/hero-image.jpg"}
           layout={"fill"}
           // width={"1000"}
@@ -54,6 +55,7 @@ const HeroSection = () => {
               <button>Buy Now</button>
               <button>
                 <Image
+                  alt="Error"
                   className={styles.cartImage}
                   src={"/cart.svg"}
                   width={20}
@@ -73,6 +75,7 @@ const HeroSection = () => {
                     className={`${styles.scrollableContainer} scrollableContainer`}
                   >
                     <Image
+                      alt="Error"
                       priority={true}
                       src={`/book-images/${e.name}.webp`}
                       width={340}
