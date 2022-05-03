@@ -20,7 +20,8 @@ nav.navBarMain,
   flex-direction: row;
   align-items: center;
   background-color: transparent;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 99;
 }
 nav.navBarMain {
@@ -71,12 +72,12 @@ div.cart > * {
 }
 @media (max-width: 600px) {
   div.logo {
-    position: relative;
+    position: fixed;
     z-index: 3;
     margin-top: 12px;
   }
   .menu > ul {
-    position: absolute;
+    position: fixed;
     padding: 50px 30px;
     left: var(--translateOffset);
     top: -12px;

@@ -7,8 +7,8 @@ const Navbar = () => {
   const [ToggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
     ToggleMenu
-      ? document.body.style.setProperty("--translateOffset", "-32px")
-      : document.body.style.setProperty("--translateOffset", "-410px");
+      ? document.body.style.setProperty("--translateOffset", "-35px")
+      : document.body.style.setProperty("--translateOffset", "-475px");
   }, [ToggleMenu]);
 
   return (

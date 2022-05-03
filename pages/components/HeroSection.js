@@ -12,7 +12,7 @@ const HeroSection = () => {
   useEffect(() => {
     const StartInternal = setInterval(() => {
       setRandomIndex(Math.ceil(Math.random() * -1 * imageArray.length));
-    }, 3000);
+    }, 30000);
     return () => {
       clearInterval(StartInternal);
     };
@@ -24,19 +24,15 @@ const HeroSection = () => {
           transform: translateX(${RandomIndex * 50}vw);
         }
       `}</style>
-
       <Navbar />
-      <div className={styles.imageContainer}>
+      <div id={styles.imageContainer}>
         <Image
           alt="Error"
           src={"/hero-image.jpg"}
           layout={"fill"}
-          // width={"1000"}
-          // height={450}
           priority={false}
         ></Image>
       </div>
-
       <div className={styles.contentBox}>
         <h1>Trending Books Today:</h1>
         <section className={styles.productShowcase}>
