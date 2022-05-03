@@ -13,7 +13,6 @@ const Navbar = () => {
 
   return (
     <>
-      <style jsx>{``}</style>
       <nav className={`${styles.navBarMain} main-navbar`}>
         <div className={styles.logo} style={{ cursor: "pointer" }}>
           <div className={styles.menubtn}>
