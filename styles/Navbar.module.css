@@ -25,8 +25,9 @@ nav.navBarMain,
   z-index: 99;
 }
 nav.navBarMain {
+  background-color: rgba(0, 0, 0, 0.88);
   justify-content: space-between;
-  margin-inline: 2rem;
+  padding-inline: 2rem;
 }
 .menu > ul {
   gap: 2rem;

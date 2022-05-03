@@ -41,10 +41,10 @@ const Navbar = () => {
               <Link href={"/"}>Home</Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href={"/"}>Store</Link>
+              <Link href={"/components/Store"}>Store</Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href={"/"}>Categories</Link>
+              <Link href={"/components/Categories"}>Categories</Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
               <Link href={"/"}>Profile</Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.cart}>
-          <Link href={"#"}>
+          <Link href={"/components/Cart"}>
             <a>
               <Image
                 alt="Error"

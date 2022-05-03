@@ -24,7 +24,7 @@ const HeroSection = () => {
           transform: translateX(${RandomIndex * 50}vw);
         }
       `}</style>
-      <Navbar />
+      {/* <Navbar /> */}
       <div id={styles.imageContainer}>
         <Image
           alt="Error"
