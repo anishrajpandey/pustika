@@ -21,18 +21,18 @@ const Navbar = () => {
               onClick={() => setToggleMenu(!ToggleMenu)}
             />
           </div>
+          <Link href={"/  "}>
+            <Image
+              alt="Error"
+              src={"/white-address-book-svgrepo-com.svg"}
+              id={styles.logo}
+              width={25}
+              height={20}
+              layout={"fixed"}
+            ></Image>
+          </Link>
           <Link href={"/"}>
-            <>
-              <Image
-                alt="Error"
-                src={"/white-address-book-svgrepo-com.svg"}
-                id={styles.logo}
-                width={25}
-                height={20}
-                layout={"fixed"}
-              ></Image>
-              <span className={styles.logo_text}>pustika</span>
-            </>
+            <span className={styles.logo_text}>pustika</span>
           </Link>
         </div>
         <div className={styles.menu}>

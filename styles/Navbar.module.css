@@ -28,6 +28,7 @@ nav.navBarMain {
   background-color: rgba(0, 0, 0, 0.88);
   justify-content: space-between;
   padding-inline: 2rem;
+  height: 45px;
 }
 .menu > ul {
   gap: 2rem;
