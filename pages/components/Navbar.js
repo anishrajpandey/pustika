@@ -54,14 +54,14 @@ const Navbar = () => {
         <div className={styles.cart}>
           <Link href={"/components/Cart"}>
             <a>
-              <Image
+              <img
                 alt="Error"
                 className={styles.cartImage}
                 src={"/cart.svg"}
                 width={20}
                 height={20}
                 layout={"fixed"}
-              ></Image>
+              ></img>
             </a>
           </Link>
         </div>
