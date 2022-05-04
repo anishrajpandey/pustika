@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
-import Navbar from "./Navbar";
+import Link from "next/link";
 import imageArray from "../../public/BooksData";
 
 const HeroSection = () => {
@@ -48,7 +48,9 @@ const HeroSection = () => {
               {imageArray[-1 * RandomIndex].author}
             </p>
             <div className={styles.btnArea}>
-              <button>Buy Now</button>
+              <Link href={"./components/Store"}>
+                <button>Buy Now</button>
+              </Link>
               <button>
                 <Image
                   alt="Error"
