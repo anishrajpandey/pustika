@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
 import Link from "next/link";
@@ -17,6 +17,7 @@ const HeroSection = () => {
       clearInterval(StartInternal);
     };
   }, []);
+
   return (
     <main className={styles.main}>
       <style jsx>{`
