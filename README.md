@@ -6,4 +6,4 @@ If you wanna support me, or my work,follow me or star this repo!
 
 [Visit Here](https://pustika.vercel.app)
 
-<!-- This is a comment in markdown file -->
+<!-- This is a chhomment in markdown file -->
