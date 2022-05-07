@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import imageArray from "../../public/BooksData";
+import styles from "./../../styles/Store.module.css";
+import Image from "next/image";
+import DummyImage from "../../public/book-images/Atomic Habits.webp";
 
 const Store = () => {
   var [datajson, setdatajson] = useState("");
@@ -8,10 +10,14 @@ const Store = () => {
     let { imageArray } = await data.json();
     setdatajson(imageArray);
   }, []);
-  console.log(datajson, "sd");
+  console.log(datajson);
   return (
     <>
-      <div className="store"></div>
+      <div className={styles.AllItems}>
+        <div className={styles.item}>
+          <Image src={DummyImage} />
+        </div>
+      </div>
     </>
   );
 };
