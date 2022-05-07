@@ -8,7 +8,7 @@ const Store = () => {
     let { imageArray } = await data.json();
     setdatajson(imageArray);
   }, []);
-  console.log(datajson);
+  console.log(datajson, "sd");
   return (
     <>
       <div className="store"></div>
