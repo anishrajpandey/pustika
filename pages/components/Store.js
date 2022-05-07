@@ -5,6 +5,13 @@ import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
 import DummyImage from "../../public/book-images/Atomic Habits.webp";
 
+import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
+import {
+  faSearch,
+  faAmbulance,
+  faAnchor,
+} from "@fortawesome/free-solid-svg-icons";
+
 const Store = () => {
   var [datajson, setdatajson] = useState("");
   useEffect(async () => {
@@ -26,7 +33,7 @@ const Store = () => {
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <button>Buy</button>
-          <i class="fa-solid fa-cart-shopping">sd</i>
+          <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
         </div>
       </div>
     </>

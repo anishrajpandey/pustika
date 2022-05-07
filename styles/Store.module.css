@@ -19,8 +19,6 @@ div.AllItems .item > p.price {
   text-align: center;
   font-weight: 600;
 }
-div.AllItems .item i:is(::after, ::before) {
-  width: 50px;
-  margin-left: 33px;
-  display: block;
+div.AllItems path.cartIcon {
+  color: red;
 }
