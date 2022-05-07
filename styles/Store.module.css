@@ -1,13 +1,16 @@
 div.AllItems {
   padding: 20px;
   width: 100%;
+  place-content: center;
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  gap: 1.5rem;
 }
 div.AllItems .item {
-  width: 11rem;
+  width: 12rem;
   height: 230x;
   transition: box-shadow 100ms linear;
-  padding: 1rem;
+  padding: 1rem 0rem;
   box-sizing: content-box;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
@@ -27,8 +30,11 @@ div.AllItems .item > p.price {
   font-weight: 600;
 }
 div.AllItems svg {
-  display: inline-block;
+  /* display: inline-block; */
   color: var(--clr-primary);
+}
+div.AllItems svg:hover {
+  color: var(--clr-primary-light);
 }
 div.AllItems .item .buttons {
   display: flex;
@@ -42,6 +48,9 @@ div.AllItems .item button {
   font-size: 1rem;
   font-weight: 600;
   padding: 0.3rem 1rem;
-  width: 8rem;
+  width: 65%;
   /* margin-block: 12px; */
+}
+div.AllItems .item button:hover {
+  background-color: var(--clr-primary-light);
 }

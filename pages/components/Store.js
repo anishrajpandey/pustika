@@ -41,6 +41,58 @@ const Store = () => {
             ></FontAwesomeIcon>
           </div>
         </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
       </div>
     </>
   );

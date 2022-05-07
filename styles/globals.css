@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 :root {
-  --clr-primary: rgb(207, 4, 207);
-  --clr-primary-light: rgb(246, 116, 246);
+  --clr-primary: hsl(300, 96%, 41%);
+  --clr-primary-light: hsl(300, 96%, 60%);
   --font-primary: "Hind Siliguri", sans-serif;
 }
