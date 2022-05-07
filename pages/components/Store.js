@@ -6,11 +6,6 @@ import Image from "next/image";
 import DummyImage from "../../public/book-images/Atomic Habits.webp";
 
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
-import {
-  faSearch,
-  faAmbulance,
-  faAnchor,
-} from "@fortawesome/free-solid-svg-icons";
 
 const Store = () => {
   var [datajson, setdatajson] = useState("");
@@ -21,12 +16,11 @@ const Store = () => {
   }, []);
   return (
     <>
-      <Head>
-        <Script
-          src={"https://kit.fontawesome.com/3d2f093b4a.js"}
-          strategy={"lazyOnload"}
-        ></Script>
-      </Head>
+      <Script
+        src={"https://kit.fontawesome.com/3d2f093b4a.js"}
+        strategy={"lazyOnload"}
+      ></Script>
+
       <div className={styles.AllItems}>
         <div className={styles.item}>
           <Image src={DummyImage} width={200} height={230} />
