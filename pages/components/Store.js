@@ -15,7 +15,7 @@ const Store = () => {
     <>
       <div className={styles.AllItems}>
         <div className={styles.item}>
-          <Image src={DummyImage} />
+          <Image src={DummyImage} layout={"intrinsic"} />
         </div>
       </div>
     </>
