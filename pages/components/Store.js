@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Head from "next/head";
+import Script from "next/script";
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
 import DummyImage from "../../public/book-images/Atomic Habits.webp";
@@ -10,12 +12,21 @@ const Store = () => {
     let { imageArray } = await data.json();
     setdatajson(imageArray);
   }, []);
-  console.log(datajson);
   return (
     <>
+      <Head>
+        <Script
+          src={"https://kit.fontawesome.com/3d2f093b4a.js"}
+          strategy={"lazyOnload"}
+        ></Script>
+      </Head>
       <div className={styles.AllItems}>
         <div className={styles.item}>
-          <Image src={DummyImage} layout={"intrinsic"} />
+          <Image src={DummyImage} width={200} height={270} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <button>Buy</button>
+          <i class="fa-solid fa-cart-shopping">sd</i>
         </div>
       </div>
     </>
