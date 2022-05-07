@@ -8,10 +8,7 @@ const Store = () => {
     let { imageArray } = await data.json();
     setdatajson(imageArray);
   }, []);
-  console.log(typeof datajson);
-  // for (let element of {datajson}) {
-  //   console.log(element);
-  // }
+  console.log(datajson);
   return (
     <>
       <div className="store"></div>
