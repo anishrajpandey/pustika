@@ -1,13 +1,15 @@
 div.AllItems {
   padding: 20px;
   width: 100%;
-
   display: grid;
 }
 div.AllItems .item {
-  width: 200px;
-  height: 350px;
-  /* background-color: red; */
+  width: 11rem;
+  height: 230x;
+  transition: box-shadow 100ms linear;
+}
+div.AllItems .item:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
 }
 div.AllItems .item > p.BookName {
   margin: 0;
@@ -19,6 +21,22 @@ div.AllItems .item > p.price {
   text-align: center;
   font-weight: 600;
 }
-div.AllItems path.cartIcon {
-  color: red;
+div.AllItems svg {
+  display: inline-block;
+  color: var(--clr-primary);
+}
+div.AllItems .item .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+div.AllItems .item button {
+  background-color: var(--clr-primary);
+  color: rgb(210, 204, 204);
+  border: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  width: 5rem;
+  /* margin-block: 12px; */
 }
