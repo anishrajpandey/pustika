@@ -7,12 +7,17 @@ div.AllItems .item {
   width: 11rem;
   height: 230x;
   transition: box-shadow 100ms linear;
+  padding: 1rem;
+  box-sizing: content-box;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
 }
 div.AllItems .item:hover {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  outline: 1px solid rgba(0, 0, 0, 0.3);
 }
 div.AllItems .item > p.BookName {
   margin: 0;
+  margin-top: -10px;
   text-align: center;
   font-weight: 400;
 }
@@ -32,11 +37,11 @@ div.AllItems .item .buttons {
 }
 div.AllItems .item button {
   background-color: var(--clr-primary);
-  color: rgb(210, 204, 204);
+  color: rgb(243, 243, 243);
   border: 0;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.3rem 1rem;
-  width: 5rem;
+  width: 8rem;
   /* margin-block: 12px; */
 }

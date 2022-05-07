@@ -34,6 +34,7 @@ const Store = () => {
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
             <button>Buy</button>
+
             <FontAwesomeIcon
               className={styles.cartIcon}
               icon={faCartShopping}
