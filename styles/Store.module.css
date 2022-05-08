@@ -10,13 +10,13 @@ div.AllItems .item {
   width: 12rem;
   height: 230x;
   transition: box-shadow 100ms linear;
-  padding: 1rem 0rem;
+  padding-block-end: 1rem;
   box-sizing: content-box;
   border-radius: 0.5rem;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0);
 }
 div.AllItems .item:hover {
-  outline: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
 }
 div.AllItems .item > p.BookName {
   margin: 0;
@@ -32,6 +32,7 @@ div.AllItems .item > p.price {
 div.AllItems svg {
   /* display: inline-block; */
   color: var(--clr-primary);
+  cursor: pointer;
 }
 div.AllItems svg:hover {
   color: var(--clr-primary-light);
@@ -49,6 +50,7 @@ div.AllItems .item button {
   font-weight: 600;
   padding: 0.3rem 1rem;
   width: 65%;
+  cursor: pointer;
   /* margin-block: 12px; */
 }
 div.AllItems .item button:hover {
