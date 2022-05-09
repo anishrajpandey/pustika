@@ -50,7 +50,7 @@ const HeroSection = () => {
             </p>
             <div className={styles.btnArea}>
               <Link href={"./components/Store"}>
-                <button>Buy Now</button>
+                <button className="btn-primary">Buy Now</button>
               </Link>
               <button>
                 <Image

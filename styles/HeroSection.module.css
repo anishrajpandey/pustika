@@ -124,14 +124,7 @@ div.left .btnArea {
   /* margin: 0 auto; */
 }
 div.left .btnArea :is(:first-child, :last-child) {
-  width: 20%;
-  margin: 12px;
-  border: none;
   height: 40px;
-  transition: background-color 100ms linear;
-  border-radius: 2px;
-  font-weight: 700;
-  cursor: pointer;
 }
 
 div.left .btnArea > :first-child {
@@ -154,6 +147,8 @@ div.left .btnArea > :nth-child(2) {
   padding: 0 5px;
   font-size: 0.7rem;
   width: 120px;
+  border: 0;
+  cursor: pointer;
 }
 div.left .btnArea > :nth-child(2) img {
   filter: invert(0.91);

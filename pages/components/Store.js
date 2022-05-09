@@ -79,8 +79,8 @@ const Store = () => {
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
+            this is a bi
             <button>Buy</button>
-
             <FontAwesomeIcon
               className={styles.cartIcon}
               icon={faCartShopping}

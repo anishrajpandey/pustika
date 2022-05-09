@@ -15,7 +15,23 @@ a {
   box-sizing: border-box;
 }
 :root {
-  --clr-primary: hsl(300, 96%, 41%);
-  --clr-primary-light: hsl(300, 96%, 60%);
+  --clr-primary: hsl(300, 100%, 41%);
+  --clr-primary-light: hsl(300, 100%, 70%);
   --font-primary: "Hind Siliguri", sans-serif;
+}
+.btn-primary {
+  padding: 8px;
+  border: none;
+  /* height: 40px; */
+  background-color: var(--clr-primary);
+  transition: background-color 100ms linear;
+  border-radius: 2px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+}
+.btn-primary:hover {
+  background-color: var(--clr-primary-light);
 }
