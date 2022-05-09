@@ -52,7 +52,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.cart}>
-          <button className={`${styles.sellbtn}"btn-primary"`}>
+          <button
+            className={`${styles.sellbtn} btn-primary`}
+            id={styles.sellbtn}
+          >
             Sell your Book
           </button>
           <Link href={"/components/Cart"}>
