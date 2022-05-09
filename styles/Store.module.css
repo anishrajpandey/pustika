@@ -51,7 +51,6 @@ div.AllItems .item button {
   padding: 0.3rem 1rem;
   width: 65%;
   cursor: pointer;
-  /* margin-block: 12px; */
 }
 div.AllItems .item button:hover {
   background-color: var(--clr-primary-light);
