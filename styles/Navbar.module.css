@@ -39,7 +39,7 @@ nav.navBarMain {
 }
 .menu > ul li {
   list-style: none;
-  transition: all 50ms ease;
+  transition: color 50ms linear;
   position: relative;
   margin-left: 50px;
 }
@@ -79,7 +79,7 @@ div.cart > * {
   .menu > .menu_items {
     gap: 0rem;
     padding: 0;
-    background-color: blue;
+
     width: min-content;
   }
 }
@@ -111,6 +111,7 @@ div.cart > * {
     padding-right: 1rem;
   }
 }
+
 .sellbtn {
   margin-right: 1rem;
 }

@@ -16,11 +16,6 @@ const Store = () => {
   }, []);
   return (
     <>
-      <Script
-        src={"https://kit.fontawesome.com/3d2f093b4a.js"}
-        strategy={"lazyOnload"}
-      ></Script>
-
       <div className={styles.AllItems}>
         <div className={styles.item}>
           <Image src={DummyImage} width={200} height={230} />
@@ -79,7 +74,42 @@ const Store = () => {
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
-            this is a bi
+            <button>Buy</button>
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+            <FontAwesomeIcon
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Image src={DummyImage} width={200} height={230} />
+          <p className={styles.BookName}>Atomic Habits</p>
+          <p className={styles.price}>$2.99</p>
+          <div className={styles.buttons}>
             <button>Buy</button>
             <FontAwesomeIcon
               className={styles.cartIcon}
@@ -90,6 +120,18 @@ const Store = () => {
       </div>
     </>
   );
+  <div className={styles.item}>
+    <Image src={DummyImage} width={200} height={230} />
+    <p className={styles.BookName}>Atomic Habits</p>
+    <p className={styles.price}>$2.99</p>
+    <div className={styles.buttons}>
+      <button>Buy</button>
+      <FontAwesomeIcon
+        className={styles.cartIcon}
+        icon={faCartShopping}
+      ></FontAwesomeIcon>
+    </div>
+  </div>;
 };
 
 export default Store;
