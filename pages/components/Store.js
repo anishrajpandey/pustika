@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
+
 import Script from "next/script";
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";

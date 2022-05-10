@@ -121,7 +121,6 @@ div.left p.authName::before {
 div.left .btnArea {
   display: flex;
   align-items: center;
-  /* margin: 0 auto; */
 }
 div.left .btnArea :is(:first-child, :last-child) {
   height: 40px;
