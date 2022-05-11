@@ -21,3 +21,7 @@ form.form > :is(input, textarea) {
   font-size: 1.2rem;
   box-sizing: content-box;
 }
+div.MainContainer > h1 + img {
+  margin: auto;
+  background-color: red;
+}
