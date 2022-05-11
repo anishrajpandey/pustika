@@ -52,12 +52,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.cart}>
-          <button
-            className={`${styles.sellbtn} btn-primary`}
-            id={styles.sellbtn}
-          >
-            Sell your Book
-          </button>
+          <Link href={"/components/SellBooks"}>
+            <button
+              className={`${styles.sellbtn} btn-primary`}
+              id={styles.sellbtn}
+            >
+              Sell your Book
+            </button>
+          </Link>
           <Link href={"/components/Cart"}>
             <a>
               <img
