@@ -1,3 +1,23 @@
-label.label {
-  display: block;
+label.label + input {
+  height: 30px;
+}
+.sellbtn {
+  width: auto;
+  margin-top: 1rem;
+}
+form.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  column-gap: 1rem;
+}
+h1.heading {
+  text-align: center;
+}
+
+form.form > :is(input, textarea) {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  box-sizing: content-box;
 }
