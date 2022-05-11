@@ -41,11 +41,16 @@ const SellBooks = () => {
           <label className={styles.label} htmlFor="image">
             Image<i> (portrait)</i>
           </label>
-          <input type="file" id="image" />
+          <input type="file" id="image" accept="image/*" />
           <label className={styles.label} htmlFor="price">
-            Price<i>(in numbers)</i>
+            Price<i>(in USD)</i>
           </label>
-          <input type="number" className={`${styles.price}`} id="price" />
+          <input
+            type="number"
+            className={`${styles.price}`}
+            id="price"
+            placeholder="$XXX"
+          />
 
           <button type={"submit"} className={`${styles.sellbtn} btn-primary`}>
             Add to selling list

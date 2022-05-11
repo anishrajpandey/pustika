@@ -14,6 +14,7 @@ form.form {
 }
 h1.heading {
   text-align: center;
+  margin: 0;
 }
 
 form.form > :is(input, textarea) {
@@ -29,6 +30,19 @@ form.form > :is(input, textarea) {
   margin: auto;
   display: flex;
   align-items: center;
-  /* background-color: red; */
+
   height: 80vh;
+}
+@media (max-width: 650px) {
+  form.form {
+    width: 70%;
+  }
+}
+@media (max-width: 400px) {
+  form.form {
+    width: 90%;
+  }
+  h1.heading {
+    font-size: 1.5rem;
+  }
 }
