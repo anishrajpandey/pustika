@@ -17,9 +17,17 @@ const SellBooks = () => {
   };
   return (
     <div className={styles.mainContainer}>
-      {/* <Image src={"/loader.gif"} width={300} height={400}></Image> */}
       <h1 className={styles.heading}>Add your Book to Store</h1>
-      {Loading && <Image src={"/loader.gif"} width={500} height={500}></Image>}
+      {Loading && (
+        <div className={styles.loaderContainer}>
+          <Image
+            src={"/loader.gif"}
+            width={700}
+            height={500}
+            id={styles.loaderImage}
+          ></Image>
+        </div>
+      )}
       {!Loading && (
         <form className={styles.form} action="/" onSubmit={handleSubmit}>
           <label className={styles.label} htmlFor="name">
