@@ -54,7 +54,7 @@ db.comments.insert({
 
 
 
- 
+
 Insert many Rows
 db.comments.insertMany([{
     'name': 'Harry',
@@ -70,8 +70,18 @@ db.comments.insertMany([{
     'member_since': 4
 }])
 
+
+
+
 Search in a MongoDb Database
 db.comments.find({lang:'Python'})
+
+
+
+
+
+
+
 Limit the number of rows in output
 db.comments.find().limit(2)
 Count the number of rows in the output
