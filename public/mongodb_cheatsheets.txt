@@ -116,8 +116,16 @@ db.comments.update({name: 'Rohan'},
 {$rename:{
     member_since: 'member'
 }})
+
+
+
 Delete Row 
 db.comments.remove({name: 'Harry'})
+
+
+
+
+
 Less than/Greater than/ Less than or Eq/Greater than or Eq
 db.comments.find({member_since: {$lt: 90}})
 db.comments.find({member_since: {$lte: 90}})
