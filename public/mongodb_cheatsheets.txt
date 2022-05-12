@@ -91,6 +91,10 @@ db.comments.find().limit(2)
 
 Count the number of rows in the output
 db.comments.find().count()
+
+
+
+
 Update a row
 db.comments.update({name: 'Shubham'},
 {'name': 'Harry',
