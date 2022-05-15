@@ -95,7 +95,7 @@ db.comments.find().count()
 
 
 
-Update a row
+This is to Update a row in MongoDb
 db.comments.update({name: 'Shubham'},
 {'name': 'Harry',
     'lang': 'JavaScript',
