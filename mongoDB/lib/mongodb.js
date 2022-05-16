@@ -46,3 +46,4 @@ export async function connectToDatabase() {
     db: cachedDb,
   };
 }
+// I do not know how thr fuck it works
