@@ -8,7 +8,7 @@ if (!MONGODB_URI) {
   throw new Error("Define the MONGODB_URI environmental variable");
 }
 
-// check the MongoDB DB
+// check the  MongoDB DB
 if (!MONGODB_DB) {
   throw new Error("Define the MONGODB_DB environmental variable");
 }
