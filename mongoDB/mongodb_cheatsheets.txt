@@ -15,6 +15,8 @@ db
 
 sdh sadiasas
 Delete Database 
+
+
 db.dropDatabase()
 
 
