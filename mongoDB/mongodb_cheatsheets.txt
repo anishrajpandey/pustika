@@ -11,8 +11,6 @@ use dbName
 View current Database
 db
 
-
-
 sdh sadiasas
 Delete Database 
 
