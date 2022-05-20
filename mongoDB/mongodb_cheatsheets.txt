@@ -66,10 +66,11 @@ db.comments.insert({
 
 Insert many Rows
 db.comments.insertMany([{
+    
     'name': 'Harry',
     'lang': 'JavaScript',
     'member_since': 5
-    
+
     }, 
     {'name': 'Rohan',
     'lang': 'Python',
