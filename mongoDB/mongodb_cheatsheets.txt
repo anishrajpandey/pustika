@@ -54,6 +54,7 @@ db.comments.findOne({name: 'Harry'})
 Insert One Row
 db.comments.insert({
     'name': 'Harry',
+
     'lang': 'JavaScript',
     
 
@@ -68,6 +69,7 @@ db.comments.insertMany([{
     'name': 'Harry',
     'lang': 'JavaScript',
     'member_since': 5
+    
     }, 
     {'name': 'Rohan',
     'lang': 'Python',
