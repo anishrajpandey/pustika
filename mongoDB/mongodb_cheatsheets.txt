@@ -95,7 +95,6 @@ db.comments.find({lang:'Python'})
 
 
 
-
 Limit the number of rows in output
 db.comments.find().limit(2)
 
