@@ -22,14 +22,14 @@ const Navbar = () => {
             />
           </div>
           <Link href={"/  "}>
-            <Image
+            <img
               alt="Error"
               src={"/white-address-book-svgrepo-com.svg"}
               id={styles.logo}
               width={25}
               height={20}
               layout={"fixed"}
-            ></Image>
+            ></img>
           </Link>
           <Link href={"/"}>
             <span className={styles.logo_text}>pustika</span>

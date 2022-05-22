@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import Script from "next/script";
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
 import DummyImage from "../../public/book-images/Atomic Habits.webp";

@@ -1,8 +1,9 @@
 import HeroSection from "./components/HeroSection";
 import Head from "next/head";
-import { connectToDatabase } from "../mongoDB/lib/mongodb";
+import main from "../models/order";
+
 export default function Home() {
-  // connectToDatabase();
+  console.log(main);
   return (
     <>
       <Head>
