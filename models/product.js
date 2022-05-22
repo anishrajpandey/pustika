@@ -5,16 +5,11 @@ const productSchema = new mongoose.Schema(
     bookName: { type: String, required: true },
     price: { type: Number, required: true },
     imageURL: { type: String },
+    rating: { type: Number },
   },
   {
     timestamps: true,
   }
 );
-// export default mongoose.model("Products", productSchema);
-// const main = async () => {
-//   await mongoose.connect(
-//     "mongodb+srv://anishrajpandey:anishrajpandey@cluster0.xaa3c.mongodb.net/test"
-//   );
-//   return "here";
-// };
-export default main;
+
+export default mongoose.model("product", productSchema);
