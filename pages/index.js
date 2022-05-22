@@ -1,9 +1,10 @@
 import HeroSection from "./components/HeroSection";
 import Head from "next/head";
 import main from "../models/order";
+const mongoose = require("mongoose");
 
 export default function Home() {
-  console.log(main);
+  // console.log(main);
   return (
     <>
       <Head>
