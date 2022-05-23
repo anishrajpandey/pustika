@@ -6,8 +6,6 @@ show dbs
 Create a new or switch databases 
 use dbName
 
-
-
 View current Database
 db
 
