@@ -26,8 +26,6 @@ Show Collections
 show collections
 
 
-
-
 Create a collection named 'comments'
 db.createCollection('comments')
 
