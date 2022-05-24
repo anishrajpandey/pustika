@@ -28,7 +28,6 @@ db.createCollection('comments')
 
 
 Drop a collection named 'comments'
-a
 db.comments.drop()
 
 
