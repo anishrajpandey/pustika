@@ -19,6 +19,7 @@ db.dropDatabase()
 
 2. Collection Commands
 Show Collections
+
 show collections
 
 
