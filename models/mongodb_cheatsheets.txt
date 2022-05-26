@@ -53,8 +53,6 @@ Insert One Row
 db.comments.insert({
     'name': 'Harry',
     'lang': 'JavaScript',
-    
-
     'member_since': 5
  })
 
