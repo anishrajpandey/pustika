@@ -41,7 +41,7 @@ Show all Rows in a Collection
 db.comments.find()
 
 
-Show all Rows in a Collection (Prettified)
+Show all Rows in a Collections (Prettified)
 db.comments.find().pretty()
 
 
