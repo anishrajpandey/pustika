@@ -98,7 +98,7 @@ const imageArray = [
   {
     name: "The Little Prince",
     description:
-      "A pilot, stranded in the desert, meets a little boy who is a prince on a planet. Based on the story by Antoine de Saint-Exupery, this magical musical fable begins as a pilot makes a forced landing on the barren Sahara Desert. He is befriended by a 'little' prince from the planet Asteroid B-612.",
+      "The future of civilization rests in the fate of the One Ring, which has been lost for centuries. Powerful forces are unrelenting in their search for it. But fate has placed it in the hands of a young Hobbit named Frodo Baggins (Elijah Wood), who inherits the Ring and steps into legend. A daunting task lies ahead for Frodo when he becomes the Ringbearer - to destroy the One Ring in the fires of Mount Doom where it was forged.    ",
     author: "Antoine de Saint-Exupéry",
   },
 ];
