@@ -93,7 +93,7 @@ const imageArray = [
   {
     name: "The Lords of the Rings",
     description: "Hello guys this is a descriptionsaewtr",
-    author: "Anish Raj Panadawedey",
+    author: "J. R. R. Tolkien",
   },
   {
     name: "The Little Prince",
