@@ -131,6 +131,7 @@ const Store = () => {
       ></FontAwesomeIcon>
     </div>
   </div>;
+  // comments
   // A omment inside
 };
 // This is a comment
