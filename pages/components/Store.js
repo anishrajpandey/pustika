@@ -132,6 +132,6 @@ const Store = () => {
     </div>
   </div>;
 };
-// ds asdzmNxb  skds kj
+// ds asdzmNxb  skds kj Thus us is a commrny
 
 export default Store;
