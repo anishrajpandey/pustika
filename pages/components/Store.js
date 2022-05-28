@@ -131,6 +131,7 @@ const Store = () => {
       ></FontAwesomeIcon>
     </div>
   </div>;
+  // A omment inside
 };
 // This is a comment
 export default Store;
