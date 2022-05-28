@@ -132,6 +132,5 @@ const Store = () => {
     </div>
   </div>;
 };
-// ds asdzmNxb  skds kj Thus us is a commrny
-
+// This is a comment
 export default Store;
