@@ -42,8 +42,6 @@ db.comments.find()
 Show all Rows in a Collections (Prettified)
 db.comments.find().pretty()
 
-
-
 Find the first row matching the object
 db.comments.findOne({name: 'Harry'})
 Insert One Row
