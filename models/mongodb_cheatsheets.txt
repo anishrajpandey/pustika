@@ -35,7 +35,6 @@ db.comments.drop()
 Show all Rows in a Collection 
 
 
-
 db.comments.find()
 
 
