@@ -23,6 +23,7 @@ Show Collections
 
 
 show collections
+\
 
 
 Create a collection named 'comments'
