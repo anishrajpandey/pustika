@@ -52,7 +52,6 @@ db.comments.insert({
 
 
 
-
 Insert many Rows
 db.comments.insertMany([{
 
