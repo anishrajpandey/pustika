@@ -75,6 +75,8 @@ db.comments.insertMany([{
 
 
 
+
+
 Search in a MongoDb Database
 db.comments.find({lang:'Python'})
 
