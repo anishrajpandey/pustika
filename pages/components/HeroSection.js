@@ -54,7 +54,7 @@ const HeroSection = () => {
               {imageArray[-1 * RandomIndex].author}
             </p>
             <div className={styles.btnArea}>
-              <Link href={"./components/Store"}>
+              <Link href={"./components/Store"} passHref>
                 <button className="btn-primary">Buy Now</button>
               </Link>
               <button>

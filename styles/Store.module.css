@@ -5,6 +5,11 @@ div.AllItems {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   gap: 1.5rem;
+
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-size: 10px 10px;
 }
 div.AllItems .item {
   width: 12rem;
@@ -12,9 +17,10 @@ div.AllItems .item {
   transition: box-shadow 100ms linear;
   padding-block-end: 1rem;
   box-sizing: content-box;
-  border-radius: 0.5rem;
+  border-radius: 0.125rem;
   overflow: hidden;
   border: 1px solid rgb(156, 15, 188);
+  background-color: white;
 }
 div.AllItems .item:hover {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
