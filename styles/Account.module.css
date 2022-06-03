@@ -1,27 +1,54 @@
-div.main {
-  width: 100%;
-  height: 93vh;
-  border: 2px solid black;
-  display: flex;
+main.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
 
-  justify-content: center;
-  align-items: center;
+  width: 50%;
+  height: 70%;
+  /* grid-auto-flow: column; */
+  grid-template-columns: 1fr 1fr;
+  overflow-x: scroll;
+}
+.switch {
+  display: flex;
+  background-color: grey;
+  position: relative;
+}
+.switch span.label {
+  position: absolute;
+  width: 50%;
+  background-color: green;
+}
+.switch > span {
+  flex: 1;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+div.cover {
+  height: 100%;
+  background-color: black;
+  width: 50%;
+  position: absolute;
+  left: 50;
+  transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
 }
 .login {
-  /* position: absolute; */
+  /* flex-grow: 1; */
   background-color: rgb(201, 0, 0);
-  order: 2;
-  width: 100px;
-  height: 20px;
-  transition: all 5s linear;
+  transition: all 2s linear;
+  width: 100%;
 }
 
 .signup {
-  /* position: absolute; */
-  background-color: rgb(0, 0, 0);
-  left: 20px;
-  width: 100px;
-  height: 20px;
-  order: 1;
-  transition: all 5s linear;
+  /* flex-grow: 0; */
+  background-color: rgb(46, 210, 255);
+
+  width: 100%;
+  transition: all 2s linear;
+}
+.mainBox {
+  display: flex;
 }
