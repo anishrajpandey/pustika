@@ -8,16 +8,24 @@ import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
 
 const Store = () => {
   var [datajson, setdatajson] = useState("");
-  useEffect(async () => {
-    let data = await fetch("http://localhost:3000/api/books");
-    let { imageArray } = await data.json();
-    setdatajson(imageArray);
+  useEffect(() => {
+    const fetchData = async () => {
+      let data = await fetch("http://localhost:3000/api/books");
+      let { imageArray } = await data.json();
+      setdatajson(imageArray);
+    };
+    fetchData();
   }, []);
   return (
     <>
       <div className={styles.AllItems}>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -30,7 +38,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -43,7 +56,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -56,7 +74,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -69,7 +92,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -81,7 +109,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -93,7 +126,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -105,7 +143,12 @@ const Store = () => {
           </div>
         </div>
         <div className={styles.item}>
-          <Image src={DummyImage} width={200} height={230} />
+          <Image
+            src={DummyImage}
+            width={200}
+            height={230}
+            alt="Product image not available"
+          />
           <p className={styles.BookName}>Atomic Habits</p>
           <p className={styles.price}>$2.99</p>
           <div className={styles.buttons}>
@@ -120,7 +163,7 @@ const Store = () => {
     </>
   );
   <div className={styles.item}>
-    <Image src={DummyImage} width={200} height={230} />
+    <Image src={DummyImage} width={200} height={230} alt="Image" />
     <p className={styles.BookName}>Atomic Habits</p>
     <p className={styles.price}>$2.99</p>
     <div className={styles.buttons}>
