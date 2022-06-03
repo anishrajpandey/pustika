@@ -21,6 +21,7 @@ const SellBooks = () => {
       {Loading && (
         <div className={styles.loaderContainer}>
           <Image
+            alt="sd"
             src={"/loader.gif"}
             width={700}
             height={500}

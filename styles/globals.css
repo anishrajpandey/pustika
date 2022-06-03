@@ -22,7 +22,7 @@ a {
 .btn-primary {
   padding: 8px;
   border: none;
-  /* height: 40px; */
+
   background-color: var(--clr-primary);
   transition: background-color 100ms linear;
   border-radius: 2px;

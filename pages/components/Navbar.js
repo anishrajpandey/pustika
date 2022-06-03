@@ -21,17 +21,17 @@ const Navbar = () => {
               onClick={() => setToggleMenu(!ToggleMenu)}
             />
           </div>
-          <Link href={"/  "}>
-            <img
+          <Link href={"/  "} passHref>
+            <Image
               alt="Error"
               src={"/white-address-book-svgrepo-com.svg"}
               id={styles.logo}
               width={25}
               height={20}
               layout={"fixed"}
-            ></img>
+            ></Image>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} passHref>
             <span className={styles.logo_text}>pustika</span>
           </Link>
         </div>
@@ -47,12 +47,12 @@ const Navbar = () => {
               <Link href={"/components/Categories"}>Categories</Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href={"/"}>Profile</Link>
+              <Link href={"/components/Account"}>Account</Link>
             </li>
           </ul>
         </div>
         <div className={styles.cart}>
-          <Link href={"/components/SellBooks"}>
+          <Link href={"/components/SellBooks"} passHref>
             <button
               className={`${styles.sellbtn} btn-primary`}
               id={styles.sellbtn}
@@ -62,14 +62,14 @@ const Navbar = () => {
           </Link>
           <Link href={"/components/Cart"}>
             <a>
-              <img
+              <Image
                 alt="Error"
                 className={styles.cartImage}
                 src={"/cart.svg"}
                 width={20}
                 height={20}
                 layout={"fixed"}
-              ></img>
+              ></Image>
             </a>
           </Link>
         </div>
