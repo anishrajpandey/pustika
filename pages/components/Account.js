@@ -38,3 +38,4 @@ const Account = () => {
     </main>
   );
 };
+export default Account;
