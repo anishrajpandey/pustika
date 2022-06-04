@@ -39,5 +39,3 @@ const Account = () => {
   );
 };
 export default Account;
-// This is a comment
-// Also this is an comment i am sorry a comment
