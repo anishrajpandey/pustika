@@ -38,6 +38,3 @@ const Account = () => {
     </main>
   );
 };
-
-export default Account;
-// dsf s  hekli hello my name is Anish raj Pandey
