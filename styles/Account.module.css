@@ -7,7 +7,7 @@ main.main {
 
   width: 50%;
   height: 70%;
-  /* grid-aut-flow: column; */
+  /* grid-aut-flow: coumn; */
   grid-template-columns: 1fr 1fr;
   overflow-x: scroll;
 }
