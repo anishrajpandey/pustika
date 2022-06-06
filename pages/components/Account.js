@@ -30,7 +30,13 @@ const Account = () => {
           SIGN UP
         </span>
       </div>
-      <div className={`${styles.cover} cover`}></div>
+      <div className={`${styles.cover} cover`}>
+        <div className={styles.signupInfo}>
+          <h2>Create an Account</h2>
+          <h5>Its free and It just takes couple of seconds</h5>
+        </div>
+        {/* <div className={styles.loginInfo}></div> */}
+      </div>
       <div className={styles.mainBox}>
         <div className={styles.signup}>
           <h3>SIGN UP HERE</h3>

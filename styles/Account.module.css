@@ -8,6 +8,10 @@ main.main {
   /* height: 70%; */
   grid-template-columns: 1fr 1fr;
   overflow-y: hidden;
+  outline: 2px solid black;
+  border-radius: 0.4rem;
+  box-shadow: 2px 2px 5px rgb(147, 147, 147);
+  padding-bottom: 1rem;
 }
 .switch {
   display: flex;
@@ -18,7 +22,7 @@ main.main {
 .switch span.label {
   position: absolute;
   width: 50%;
-  background-color: rgb(251, 255, 0);
+  background-color: rgb(2, 255, 27);
   pointer-events: none;
   height: 100%;
   transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
@@ -33,23 +37,26 @@ main.main {
 }
 div.cover {
   height: 100%;
-  background-color: var(--clr-primary);
+  background: rgb(255, 255, 255);
+  outline: 1px double var(--clr-primary);
   width: 50%;
   position: absolute;
   left: 50;
   transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
 }
 .login {
-  background-color: var(--clr-primary);
-  transition: all 2s linear;
+  /* background-color: var(--clr-primary-light);
+  background-color: white; */
+  /* transition: all 2s linear; */
   width: 100%;
 }
 
 .signup {
-  background-color: var(--clr-primary);
+  /* background-color: var(--clr-primary-light);
+  background-color: white; */
 
   width: 100%;
-  transition: all 2s linear;
+  /* transition: all 2s linear; */
   height: 100%;
 }
 .mainBox {
@@ -74,4 +81,16 @@ div.cover {
 .main h3 {
   text-align: center;
   margin: 1em 0 0 0;
+}
+/* For sign up info */
+.cover > :is(.signUpInfo, .loginInfo) {
+  display: flex;
+  flex-direction: column;
+}
+.cover h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+.cover h5 {
+  text-align: center;
 }
