@@ -43,6 +43,7 @@ div.cover {
   position: absolute;
   left: 50;
   transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
+  background-image: url("./../public//coverBackground.jpg");
 }
 .login {
   /* background-color: var(--clr-primary-light);
@@ -86,6 +87,8 @@ div.cover {
 .cover > :is(.signUpInfo, .loginInfo) {
   display: flex;
   flex-direction: column;
+
+  background-color: red;
 }
 .cover h2 {
   text-align: center;
