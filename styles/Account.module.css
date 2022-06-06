@@ -3,22 +3,27 @@ main.main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: blue;
 
   width: 50%;
-  height: 70%;
+  /* height: 70%; */
   grid-template-columns: 1fr 1fr;
-  overflow-x: scroll;
+  overflow-y: hidden;
 }
 .switch {
   display: flex;
-  background-color: grey;
+  background-color: rgb(198, 154, 214);
   position: relative;
+  border-radius: 0.4rem;
 }
 .switch span.label {
   position: absolute;
   width: 50%;
-  background-color: green;
+  background-color: rgb(251, 255, 0);
+  pointer-events: none;
+  height: 100%;
+  transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: 0;
+  border-radius: 0.4rem;
 }
 .switch > span {
   flex: 1;
@@ -28,26 +33,45 @@ main.main {
 }
 div.cover {
   height: 100%;
-  background-color: black;
+  background-color: var(--clr-primary);
   width: 50%;
   position: absolute;
   left: 50;
   transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
 }
 .login {
-  /* flex-grow: 1; */
-  background-color: rgb(201, 0, 0);
+  background-color: var(--clr-primary);
   transition: all 2s linear;
   width: 100%;
 }
 
 .signup {
-  /* flex-grow: 0; */
-  background-color: rgb(46, 210, 255);
+  background-color: var(--clr-primary);
 
   width: 100%;
   transition: all 2s linear;
+  height: 100%;
 }
 .mainBox {
   display: flex;
+}
+.loginText,
+.signupText {
+  position: relative;
+}
+.signup label {
+  display: block;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+}
+.signup label input {
+  display: inline-block;
+  width: 90%;
+  height: 40px;
+  margin-right: 1rem;
+  padding: 0.5em;
+}
+.main h3 {
+  text-align: center;
+  margin: 1em 0 0 0;
 }

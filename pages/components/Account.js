@@ -16,23 +16,47 @@ const Account = () => {
         .cover {
           left: ${TranslateProperties.coverOffset};
         }
+
+        .label {
+          left: ${TranslateProperties.coverOffset};
+        }
       `}</style>
       <div className={styles.switch}>
-        <span className={styles.label}></span>
-        <span onClick={handleClick} id="login">
+        <span className={`${styles.label} label`}></span>
+        <span onClick={handleClick} id="login" className={styles.loginText}>
           LOGIN
         </span>
-        <span onClick={handleClick} id="signup">
+        <span onClick={handleClick} id="signup" className={styles.signupText}>
           SIGN UP
         </span>
       </div>
       <div className={`${styles.cover} cover`}></div>
       <div className={styles.mainBox}>
-        <div className={styles.login}>
-          <h1>LOGIN HERE</h1>
-        </div>
         <div className={styles.signup}>
-          <h1>SIGN UP HERE</h1>
+          <h3>SIGN UP HERE</h3>
+          <label htmlFor="name">
+            Name
+            <input id="name" type="text" placeholder="John Doe"></input>
+          </label>
+          <label htmlFor="email">
+            Email
+            <input id="email" type="text" placeholder="example@xyz.com"></input>
+          </label>
+          <label htmlFor="password">
+            Password
+            <input id="password" type="password" placeholder="*****"></input>
+          </label>
+          <label htmlFor="confirmPassword">
+            Confirm Password
+            <input
+              id="confirmPassword"
+              type="password"
+              placeholder="******"
+            ></input>
+          </label>
+        </div>
+        <div className={styles.login}>
+          <h3>LOGIN HERE</h3>
         </div>
       </div>
     </main>
