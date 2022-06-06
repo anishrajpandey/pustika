@@ -6,7 +6,7 @@ const Account = () => {
   });
   const handleClick = (e) => {
     console.log(e.target.id);
-    e.target.id === "login"
+    e.target.id === "signup"
       ? setTranslateProperties({ coverOffset: "50%" })
       : setTranslateProperties({ coverOffset: "0%" });
   };
