@@ -33,7 +33,7 @@ const Account = () => {
       <div className={`${styles.cover} cover`}>
         <div className={styles.signupInfo}>
           <h2>Create an Account</h2>
-          <h5>Its free and It just takes couple of seconds</h5>
+          <p>Its free and It just takes couple of seconds. </p>
         </div>
         {/* <div className={styles.loginInfo}></div> */}
       </div>

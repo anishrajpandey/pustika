@@ -87,13 +87,15 @@ div.cover {
 .cover > :is(.signUpInfo, .loginInfo) {
   display: flex;
   flex-direction: column;
-
-  background-color: red;
+  color: white;
 }
 .cover h2 {
   text-align: center;
   font-size: 2rem;
+  color: rgb(0, 0, 0);
 }
-.cover h5 {
+.cover p {
   text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
 }
