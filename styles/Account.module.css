@@ -83,7 +83,7 @@ div.cover {
   text-align: center;
   margin: 1em 0 0 0;
 }
-/* For sign up info */
+/* For sign up info and login info */
 .cover > :is(.signUpInfo, .loginInfo) {
   display: flex;
   flex-direction: column;
