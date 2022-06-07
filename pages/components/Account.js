@@ -1,5 +1,6 @@
 import styles from "./../../styles/Account.module.css";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Account = () => {
   const [TranslateProperties, setTranslateProperties] = useState({
     coverOffset: "0",
@@ -34,6 +35,7 @@ const Account = () => {
         <div className={styles.signupInfo}>
           <h2>Create an Account</h2>
           <p>Its free and It just takes couple of seconds. </p>
+          <FontAwesomeIcon icon="fa-solid fa-arrow-left-long-to-line" />
         </div>
         {/* <div className={styles.loginInfo}></div> */}
       </div>
