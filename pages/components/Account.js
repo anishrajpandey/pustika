@@ -1,8 +1,9 @@
 import styles from "./../../styles/Account.module.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import FontAwesomeIcon, { faArrowLeft } from "./assets/FontAwesome";
 const Account = () => {
   const coverRef = useRef();
+
   const [TranslateProperties, setTranslateProperties] = useState({
     coverOffset: "0",
   });
@@ -11,6 +12,9 @@ const Account = () => {
     description: "Login with your Enail Id and Password to buy or sell books",
     rotate: "180deg",
   });
+  useEffect(() => {
+    coverRef.current.style.setProperty("--rotateDegree", "180deg");
+  }, []);
   const handleClick = (e) => {
     console.log(e.target.id);
 
@@ -67,7 +71,6 @@ const Account = () => {
           />
           {console.log(DescriptionProperties.rotate)}
         </div>
-        {/* <div className={styles.loginInfo}></div> */}
       </div>
       <div className={styles.mainBox}>
         <div className={styles.signup}>
