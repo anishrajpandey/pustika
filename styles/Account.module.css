@@ -84,10 +84,11 @@ div.cover {
   margin: 1em 0 0 0;
 }
 /* For sign up info and login info */
-.cover > :is(.signUpInfo, .loginInfo) {
+.cover > .signUpInfo {
   display: flex;
   flex-direction: column;
-  color: white;
+
+  justify-content: center;
 }
 .cover h2 {
   text-align: center;
@@ -98,4 +99,8 @@ div.cover {
   text-align: center;
   color: rgb(0, 0, 0);
   font-size: 1.1rem;
+}
+.arrow {
+  transform: rotate(180deg);
+  font-size: 2rem;
 }

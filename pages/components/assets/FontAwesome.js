@@ -1,4 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-export { faCartShopping };
+import { faCartShopping, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+export { faCartShopping, faArrowLeft };
 export default FontAwesomeIcon;
