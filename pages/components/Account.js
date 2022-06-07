@@ -9,7 +9,7 @@ const Account = () => {
   });
   const [DescriptionProperties, setDescriptionProperties] = useState({
     title: "Login To Your Account",
-    description: "Login with your Enail Id and Password to buy or sell books",
+    description: "Login with your Email Id and Password to buy or sell books",
     rotate: "180deg",
   });
   useEffect(() => {
@@ -95,6 +95,11 @@ const Account = () => {
               placeholder="******"
             ></input>
           </label>
+          <div className={styles.buttonContainer}>
+            <button className={`btn-primary ${styles.signUpButton}`}>
+              Create Account
+            </button>
+          </div>
         </div>
         <div className={styles.login}>
           <h3>LOGIN HERE</h3>

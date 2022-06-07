@@ -22,7 +22,7 @@ main.main {
 .switch span.label {
   position: absolute;
   width: 50%;
-  background-color: red;
+  background-color: rgb(128, 255, 0);
   pointer-events: none;
   height: 100%;
   transition: left 200ms cubic-bezier(0.86, 0, 0.07, 1);
@@ -53,9 +53,6 @@ div.cover {
 }
 
 .signup {
-  /* background-color: var(--clr-primary-light);
-  background-color: white; */
-
   width: 100%;
   /* transition: all 2s linear; */
   height: 100%;
@@ -113,4 +110,10 @@ div.cover {
   to {
     transform: rotate(var(--rotateDegree)) translateX(10px);
   }
+}
+.signup .buttonContainer {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
