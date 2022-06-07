@@ -32,7 +32,7 @@ const Account = () => {
       setDescriptionProperties({
         title: "Login To Your Account",
         description:
-          "Login with your Enail Id and Password to buy or sell books",
+          "Login with your Email Id and Password to buy or sell books",
         rotate: "180deg",
       });
       coverRef.current.style.setProperty("--rotateDegree", "180deg");
