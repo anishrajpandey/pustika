@@ -108,5 +108,4 @@ const Account = () => {
     </main>
   );
 };
-export default Account;
 / tell my
