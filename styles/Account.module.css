@@ -46,9 +46,6 @@ div.cover {
   background-image: url("./../public//coverBackground.jpg");
 }
 .login {
-  /* background-color: var(--clr-primary-light);
-  background-color: white; */
-  /* transition: all 2s linear; */
   width: 100%;
 }
 
