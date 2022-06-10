@@ -140,3 +140,27 @@ div.cover {
 .login button {
   width: max(30%, 50px);
 }
+@media (max-width: 600px) {
+  main.main {
+    padding-top: 12rem;
+    background-color: transparent;
+    width: 100%;
+  }
+  .mainBox {
+    flex-direction: column;
+  }
+  .cover {
+    display: none;
+  }
+  .switch {
+    width: 100%;
+    /* display: none; */
+  }
+  :is(.signup, .login) :is(label, input) {
+    overflow-x: hidden;
+    margin-right: 0;
+  }
+  .btn-primary {
+    background-color: yellow;
+  }
+}
