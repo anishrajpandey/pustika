@@ -142,25 +142,43 @@ div.cover {
 }
 @media (max-width: 600px) {
   main.main {
-    padding-top: 12rem;
     background-color: transparent;
     width: 100%;
+    outline: 0;
+    position: relative;
+    border-radius: 0;
   }
   .mainBox {
     flex-direction: column;
+    border-radius: 0;
   }
   .cover {
     display: none;
   }
   .switch {
     width: 100%;
-    /* display: none; */
+    /* position: absolute; */
+    top: 0;
+    border-radius: 0;
+  }
+  .switch span {
+    font-size: 1.5rem;
+    border-radius: 0 !important;
   }
   :is(.signup, .login) :is(label, input) {
     overflow-x: hidden;
     margin-right: 0;
   }
-  .btn-primary {
+  .buttonContainer .signUpButton {
     background-color: yellow;
+    color: black;
+  }
+  .login {
+    display: var(--displayPropLogin);
+    height: 80vh;
+  }
+  .signup {
+    display: var(--displayPropSignup);
+    height: 80vh;
   }
 }

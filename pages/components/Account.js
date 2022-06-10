@@ -14,6 +14,8 @@ const Account = () => {
   });
   useEffect(() => {
     coverRef.current.style.setProperty("--rotateDegree", "180deg");
+    document.documentElement.style.setProperty("--displayPropSignup", "none");
+    document.documentElement.style.setProperty("--displayPropLogin", "block");
   }, []);
   const handleClick = (e) => {
     console.log(e.target.id);
@@ -25,8 +27,13 @@ const Account = () => {
         description: "Its absolutely free and It just takes couple of seconds.",
         rotate: "0deg",
       });
+      console.log(document);
+      document.documentElement.style.setProperty(
+        "--displayPropSignup",
+        "block"
+      );
+      document.documentElement.style.setProperty("--displayPropLogin", "none");
       coverRef.current.style.setProperty("--rotateDegree", "0deg");
-      console.log(coverRef.current);
     } else {
       setTranslateProperties({ coverOffset: "0%" });
       setDescriptionProperties({
@@ -36,6 +43,8 @@ const Account = () => {
         rotate: "180deg",
       });
       coverRef.current.style.setProperty("--rotateDegree", "180deg");
+      document.documentElement.style.setProperty("--displayPropSignup", "none");
+      document.documentElement.style.setProperty("--displayPropLogin", "block");
     }
   };
   return (
