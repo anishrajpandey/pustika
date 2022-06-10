@@ -63,17 +63,21 @@ div.cover {
 .signupText {
   position: relative;
 }
-.signup label {
+:is(.signup, .login) label {
   display: block;
   margin-left: 1rem;
   font-size: 1.1rem;
 }
-.signup label input {
-  display: inline-block;
+.signup input,
+.login input {
+  display: block;
   width: 90%;
   height: 40px;
   margin-right: 1rem;
   padding: 0.5em;
+}
+.login input {
+  margin-right: 4rem;
 }
 .main h3 {
   text-align: center;
@@ -109,7 +113,7 @@ div.cover {
     transform: rotate(var(--rotateDegree)) translateX(10px);
   }
 }
-.signup .buttonContainer {
+:is(.signup, .login) .buttonContainer {
   margin-top: 1rem;
   width: 100%;
   display: flex;

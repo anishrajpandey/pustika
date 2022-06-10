@@ -103,6 +103,19 @@ const Account = () => {
         </div>
         <div className={styles.login}>
           <h3>LOGIN HERE</h3>
+          <label htmlFor="loginName">Enter Your Email Id</label>
+          <input type="email" placeholder="your email" id="loginName"></input>
+          <label htmlFor="passwordLogin">Enter Your Password</label>
+          <input
+            type="password"
+            placeholder="your password"
+            id="passwordLogin"
+          ></input>
+          <div className={styles.buttonContainer}>
+            <button className={`btn-primary ${styles.signUpButton}`}>
+              Create Account
+            </button>
+          </div>
         </div>
       </div>
     </main>
