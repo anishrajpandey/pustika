@@ -49,6 +49,8 @@ const Account = () => {
   };
   return (
     <div className={styles.maincontainer}>
+      <div className={styles.accountDashBoard}></div>
+      {/* todo later 😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢 */}
       <div className={styles.signupOrLogin}>
         <main className={styles.main}>
           <style jsx>{`
