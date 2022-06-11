@@ -67,7 +67,7 @@ const HeroSection = () => {
                   layout={"fixed"}
                 ></Image>
                 Add To Cart
-                {/* gjhg js */}
+                {/* gj hg js */}
               </button>
             </div>
           </div>
