@@ -3,13 +3,8 @@ import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
 import Link from "next/link";
 import imageArray from "../../public/BooksData";
-import mongoose from "mongoose";
+
 const HeroSection = () => {
-  const connectToDatabase = async () => {
-    await mongoose.connect(
-      "mongodb+srv://anishrajpandey:anishrajpandey@cluster0.xaa3c.mongodb.net/test"
-    )();
-  };
   const [RandomIndex, setRandomIndex] = useState(
     Math.ceil(Math.random() * -1 * imageArray.length)
   );
