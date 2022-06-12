@@ -10,7 +10,7 @@ const SellBooks = () => {
   const [Description, setDescription] = useState("");
   const [image, setimage] = useState("");
   const [Price, setPrice] = useState(0);
-  const [CloudImageSource, setCloudImageSource] = useState();
+  const [CloudImageSource, setCloudImageSource] = useState("link");
   const previewImageRef = useRef();
   const inputFileRef = useRef();
   const handleSubmit = async (e) => {
@@ -20,16 +20,25 @@ const SellBooks = () => {
 
     formData.append("file", inputFileRef.current.files[0]);
     formData.append("upload_preset", "my-uploads");
-    await fetch("https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload", {
-      method: "POST",
-      body: formData,
-    }).then((res) => setCloudImageSource(res.secure_url));
+    let data = await fetch(
+      "https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    let jsondata = await data.json();
+    setCloudImageSource(jsondata.secure_url);
+
     // .then((res) => {
-    //   res.json();
-    // })
+    //   setCloudImageSource(res.secure_url);
+    //   console.log(CloudImageSource, res);
+    // });
+
     // .then((res) => {
     //   console.log("cloudinary", res);
     // });
+    console.log(CloudImageSource);
     await fetch("http://localhost:3000/api/addBook", {
       method: "POST",
       headers: {
@@ -130,6 +139,3 @@ const SellBooks = () => {
 };
 
 export default SellBooks;
-/*
-curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg&public_id=olympic_flag&timestamp=12345678&api_key=98765432&signature=a123456f987664af'
-*/
