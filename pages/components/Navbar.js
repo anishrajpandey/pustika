@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/Navbar.module.css";
 import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -21,16 +21,20 @@ const Navbar = () => {
               onClick={() => setToggleMenu(!ToggleMenu)}
             />
           </div>
+
           <Link href={"/  "} passHref>
-            <Image
-              alt="Error"
-              src={"/white-address-book-svgrepo-com.svg"}
-              id={styles.logo}
-              width={25}
-              height={20}
-              layout={"fixed"}
-            ></Image>
+            <a>
+              <Image
+                alt="Error"
+                src={"/white-address-book-svgrepo-com.svg"}
+                id={styles.logo}
+                width={25}
+                height={20}
+                layout={"fixed"}
+              ></Image>
+            </a>
           </Link>
+
           <Link href={"/"} passHref>
             <span className={styles.logo_text}>pustika</span>
           </Link>

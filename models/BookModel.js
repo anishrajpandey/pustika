@@ -7,10 +7,9 @@ const BookSchema = new Schema(
     imageURL: { type: String },
     rating: { type: Number },
   },
-  // { collection: "bookData" }, // argument for preventing of appending "s " automatically
   { timestamps: true }
 );
 mongoose.pluralize(null);
 
-let bookData = models.bookData || model("bookData", BookSchema);
+let bookData = models.bookData || model("bookData", BookSchema, "bookData");
 export default bookData;
