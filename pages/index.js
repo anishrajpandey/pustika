@@ -2,7 +2,7 @@ import HeroSection from "./components/HeroSection";
 import Head from "next/head";
 
 export default function Home() {
-  // console.log(main);
+  console.log(process.env.MONGODB_URI);
 
   return (
     <>
