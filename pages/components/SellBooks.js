@@ -26,18 +26,12 @@ const SellBooks = () => {
         method: "POST",
         body: formData,
       }
-    );
-    let jsondata = await data.json();
-    setCloudImageSource(jsondata.secure_url);
+    )
+      .then((r) => r.json())
+      .then((res) => {
+        setCloudImageSource(res.secure_url);
+      });
 
-    // .then((res) => {
-    //   setCloudImageSource(res.secure_url);
-    //   console.log(CloudImageSource, res);
-    // });
-
-    // .then((res) => {
-    //   console.log("cloudinary", res);
-    // });
     console.log(CloudImageSource);
     await fetch("http://localhost:3000/api/addBook", {
       method: "POST",
@@ -55,8 +49,6 @@ const SellBooks = () => {
       .then((r) => r.json())
       .then((r) => console.log("mongodb", r))
       .then(() => setLoading(false));
-
-    // console.log(formData);
   };
   const handleChange = (e) => {
     let reader = new FileReader();
