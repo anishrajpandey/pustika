@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 const BookSchema = new Schema(
   {
     id: String,
@@ -7,9 +7,10 @@ const BookSchema = new Schema(
     imageURL: { type: String },
     rating: { type: Number },
   },
-  {
-    timestamps: true,
-  }
+  // { collection: "bookData" }, // argument for preventing of appending "s " automatically
+  { timestamps: true }
 );
-let finalModel = models.finalModel || model("finalModel", BookSchema);
-export default finalModel;
+mongoose.pluralize(null);
+
+let bookData = models.bookData || model("bookData", BookSchema);
+export default bookData;
