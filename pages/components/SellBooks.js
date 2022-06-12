@@ -10,27 +10,51 @@ const SellBooks = () => {
   const [Description, setDescription] = useState("");
   const [image, setimage] = useState("");
   const [Price, setPrice] = useState(0);
-  const [LocalImageSource, setLocalImageSource] = useState();
+  const [CloudImageSource, setCloudImageSource] = useState();
   const previewImageRef = useRef();
   const inputFileRef = useRef();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", `inputFileRef.current.files[0]`);
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    console.log(formData);
+    const formData = new FormData();
+
+    formData.append("file", inputFileRef.current.files[0]);
+    formData.append("upload_preset", "my-uploads");
+    await fetch("https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload", {
+      method: "POST",
+      body: formData,
+    }).then((res) => setCloudImageSource(res.secure_url));
+    // .then((res) => {
+    //   res.json();
+    // })
+    // .then((res) => {
+    //   console.log("cloudinary", res);
+    // });
+    await fetch("http://localhost:3000/api/addBook", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        bookName: Name,
+        description: Description,
+        price: Price,
+        imageURL: CloudImageSource,
+      }),
+    })
+      .then((r) => r.json())
+      .then((r) => console.log("mongodb", r))
+      .then(() => setLoading(false));
+
+    // console.log(formData);
   };
   const handleChange = (e) => {
     let reader = new FileReader();
-    const file = e.target.files[0];
-    console.log(file);
+    let file = e.target.files[0];
+
     reader.onloadend = () => {
       previewImageRef.current.src = reader.result;
-      console.log(reader.result);
-      setLocalImageSource(reader.result);
     };
     reader.readAsDataURL(file);
   };
@@ -53,11 +77,24 @@ const SellBooks = () => {
           <label className={styles.label} htmlFor="name">
             Name Of Book
           </label>
-          <input type="text" id="name" />
+          <input
+            type="text"
+            id="name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
           <label className={styles.label} htmlFor="description">
             Description Of Book
           </label>
-          <textarea rows="8" cols="40" id="description" />
+          <textarea
+            rows="8"
+            cols="40"
+            id="description"
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          />
           <label className={styles.label} htmlFor="image">
             Image<i> (portrait)</i>
           </label>
@@ -79,6 +116,9 @@ const SellBooks = () => {
             className={`${styles.price}`}
             id="price"
             placeholder="Rs.XXX"
+            onChange={(e) => {
+              setPrice(e.target.value);
+            }}
           />
           <button type={"submit"} className={`${styles.sellbtn} btn-primary`}>
             Add to selling list
