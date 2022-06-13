@@ -7,10 +7,10 @@ import Image from "next/image";
 const SellBooks = () => {
   const [Loading, setLoading] = useState(false);
   const [Name, setName] = useState("");
-  const [Description, setDescription] = useState("");
-  const [image, setimage] = useState("");
+  const [Description, setDescription] = useState();
+  const [image, setimage] = useState();
   const [Price, setPrice] = useState(0);
-  const [CloudImageSource, setCloudImageSource] = useState("link");
+
   const previewImageRef = useRef();
   const inputFileRef = useRef();
   const handleSubmit = async (e) => {
@@ -18,6 +18,7 @@ const SellBooks = () => {
     setLoading(true);
     const imgUrl = await postToCloudinary(); //idk how but postToCloudinary returns a promise instead of string
     postToMongoDb(imgUrl);
+    console.log("Successfully posted");
   };
 
   const postToCloudinary = async () => {
@@ -25,6 +26,7 @@ const SellBooks = () => {
 
     formData.append("file", inputFileRef.current.files[0]);
     formData.append("upload_preset", "my-uploads");
+    setimage(formData.file);
     let data = await fetch(
       "https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload",
       {
@@ -63,6 +65,25 @@ const SellBooks = () => {
       previewImageRef.current.src = reader.result;
     };
     reader.readAsDataURL(file);
+  };
+  //function for validating the user Entered Data
+  const validateData = (e) => {
+    if (!Name) {
+      e.preventDefault();
+      alert("Enter The Book Name");
+    } else if (!Description) {
+      e.preventDefault();
+      alert("Enter The Book Description");
+    } else if (!Image) {
+      e.preventDefault();
+      alert("Please upload an image");
+    } else if (!Image) {
+      e.preventDefault();
+      alert("Please upload an image");
+    } else if (!Price) {
+      e.preventDefault();
+      alert("Specify the price");
+    }
   };
 
   return (
@@ -127,7 +148,11 @@ const SellBooks = () => {
               setPrice(e.target.value);
             }}
           />
-          <button type={"submit"} className={`${styles.sellbtn} btn-primary`}>
+          <button
+            type={"submit"}
+            className={`${styles.sellbtn} btn-primary`}
+            onClick={validateData}
+          >
             Add to selling list
           </button>
         </form>
