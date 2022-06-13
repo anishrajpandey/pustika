@@ -118,7 +118,7 @@ db.comments.update({name: 'Rohan'},
 Delete Row 
 db.comments.remove({name: 'Harry'})
 
-
+zd
 
 
 
