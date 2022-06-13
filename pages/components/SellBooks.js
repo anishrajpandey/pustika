@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import styles from "./../../styles/SellBooks.module.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 const SellBooks = () => {
@@ -16,6 +16,12 @@ const SellBooks = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const imgUrl = await postToCloudinary();
+    postToMongoDb(imgUrl);
+    console.log(imgUrl);
+  };
+
+  const postToCloudinary = async () => {
     const formData = new FormData();
 
     formData.append("file", inputFileRef.current.files[0]);
@@ -26,14 +32,15 @@ const SellBooks = () => {
         method: "POST",
         body: formData,
       }
-    )
-      .then((r) => r.json())
-      .then((res) => {
-        setCloudImageSource(res.secure_url);
-      });
+    );
+    let datajson = await data.json();
 
-    console.log(CloudImageSource);
-    await fetch("http://localhost:3000/api/addBook", {
+    console.log("type of imgurl outside function,", typeof datajson.secure_url);
+
+    return datajson.secure_url;
+  };
+  const postToMongoDb = async (imgurl) => {
+    let res = await fetch("http://localhost:3000/api/addBook", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -43,12 +50,13 @@ const SellBooks = () => {
         bookName: Name,
         description: Description,
         price: Price,
-        imageURL: CloudImageSource,
+        imageURL: imgurl,
       }),
-    })
-      .then((r) => r.json())
-      .then((r) => console.log("mongodb", r))
-      .then(() => setLoading(false));
+    });
+
+    let resjson = await res.json();
+    console.log("mongodb", resjson);
+    setLoading(false);
   };
   const handleChange = (e) => {
     let reader = new FileReader();
@@ -59,6 +67,7 @@ const SellBooks = () => {
     };
     reader.readAsDataURL(file);
   };
+
   return (
     <div className={styles.mainContainer}>
       <h1 className={styles.heading}>Add your Book to Store</h1>
