@@ -60,7 +60,7 @@ const SellBooks = () => {
   const handleChange = (e) => {
     let reader = new FileReader();
     let file = e.target.files[0];
-    setimage(file.nameN);
+    setimage(file.name);
     reader.onloadend = () => {
       previewImageRef.current.src = reader.result;
     };
@@ -68,7 +68,6 @@ const SellBooks = () => {
   };
   //function for validating the user Entered Data
   const validateData = (e) => {
-    console.log(image);
     if (!Name) {
       e.preventDefault();
       alert("Enter The Book Name");
@@ -86,7 +85,6 @@ const SellBooks = () => {
       alert("Specify the price");
     }
   };
-  useEffect(() => setLoading(true), []);
   return (
     <div className={styles.mainContainer}>
       <h1 className={styles.heading}>Add your Book to Store</h1>
