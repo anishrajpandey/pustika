@@ -16,6 +16,7 @@ const SellBooks = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setimage(inputFileRef.current);
     const imgUrl = await postToCloudinary(); //idk how but postToCloudinary returns a promise instead of string
     postToMongoDb(imgUrl);
     console.log("Successfully posted");
@@ -26,7 +27,7 @@ const SellBooks = () => {
 
     formData.append("file", inputFileRef.current.files[0]);
     formData.append("upload_preset", "my-uploads");
-    setimage(formData.file);
+
     let data = await fetch(
       "https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload",
       {
@@ -39,7 +40,7 @@ const SellBooks = () => {
     return datajson.secure_url; //returning the public image uri to use in connectToMongoDB function
   };
   const postToMongoDb = async (imgurl) => {
-    let res = await fetch("http://localhost:3000/api/addBook", {
+    await fetch("http://localhost:3000/api/addBook", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -54,13 +55,12 @@ const SellBooks = () => {
       }),
     });
 
-    let resjson = await res.json();
     setLoading(false);
   };
   const handleChange = (e) => {
     let reader = new FileReader();
     let file = e.target.files[0];
-
+    setimage(file.nameN);
     reader.onloadend = () => {
       previewImageRef.current.src = reader.result;
     };
@@ -68,6 +68,7 @@ const SellBooks = () => {
   };
   //function for validating the user Entered Data
   const validateData = (e) => {
+    console.log(image);
     if (!Name) {
       e.preventDefault();
       alert("Enter The Book Name");
@@ -77,7 +78,7 @@ const SellBooks = () => {
     } else if (!Image) {
       e.preventDefault();
       alert("Please upload an image");
-    } else if (!Image) {
+    } else if (!image) {
       e.preventDefault();
       alert("Please upload an image");
     } else if (!Price) {
@@ -85,7 +86,7 @@ const SellBooks = () => {
       alert("Specify the price");
     }
   };
-
+  useEffect(() => setLoading(true), []);
   return (
     <div className={styles.mainContainer}>
       <h1 className={styles.heading}>Add your Book to Store</h1>
@@ -98,6 +99,8 @@ const SellBooks = () => {
             height={500}
             id={styles.loaderImage}
           ></Image>
+          <br />
+          <p> Loading...</p>
         </div>
       )}
       {!Loading && (

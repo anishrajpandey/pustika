@@ -30,8 +30,24 @@ form.form > :is(input, textarea) {
   margin: auto;
   display: flex;
   align-items: center;
-
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
   height: 80vh;
+}
+.loaderContainer p {
+  position: absolute;
+  top: 55%;
+  font-size: larger;
+  color: rgb(20, 20, 20);
+  font-size: 2rem;
+  font-weight: bold;
+  animation: colorFade 500ms linear infinite alternate;
+}
+@keyframes colorFade {
+  to {
+    color: rgb(181, 181, 181);
+  }
 }
 @media (max-width: 650px) {
   form.form {
