@@ -16,9 +16,8 @@ const SellBooks = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const imgUrl = await postToCloudinary();
+    const imgUrl = await postToCloudinary(); //idk how but postToCloudinary returns a promise instead of string
     postToMongoDb(imgUrl);
-    console.log(imgUrl);
   };
 
   const postToCloudinary = async () => {
@@ -35,9 +34,7 @@ const SellBooks = () => {
     );
     let datajson = await data.json();
 
-    console.log("type of imgurl outside function,", typeof datajson.secure_url);
-
-    return datajson.secure_url;
+    return datajson.secure_url; //returning the public image uri to use in connectToMongoDB function
   };
   const postToMongoDb = async (imgurl) => {
     let res = await fetch("http://localhost:3000/api/addBook", {
@@ -47,6 +44,7 @@ const SellBooks = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        //setting the contents of collection (document)
         bookName: Name,
         description: Description,
         price: Price,
@@ -55,7 +53,6 @@ const SellBooks = () => {
     });
 
     let resjson = await res.json();
-    console.log("mongodb", resjson);
     setLoading(false);
   };
   const handleChange = (e) => {
