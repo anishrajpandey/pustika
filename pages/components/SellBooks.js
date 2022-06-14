@@ -66,7 +66,7 @@ const SellBooks = () => {
     };
     reader.readAsDataURL(file);
   };
-  //function for validating the user Entered Data
+  //function for validating the user Entered Data in form
   const validateData = (e) => {
     if (!Name) {
       e.preventDefault();
