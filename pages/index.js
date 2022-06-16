@@ -12,4 +12,4 @@ export default function Home() {
     </>
   );
 }
-// coing this is sooo cool and what do you think aboyt it and is
+// coing this is sooo cool and what do you think aboyt 
