@@ -4,7 +4,7 @@ import styles from "./../../styles/SellBooks.module.css";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
-const SellBooks = () => {
+const SellBooks = ({ pageURL }) => {
   const [Loading, setLoading] = useState(false);
   const [Name, setName] = useState("");
   const [Description, setDescription] = useState();
@@ -40,7 +40,7 @@ const SellBooks = () => {
     return datajson.secure_url; //returning the public image uri to use in connectToMongoDB function
   };
   const postToMongoDb = async (imgurl) => {
-    await fetch("http://localhost:3000/api/addBook", {
+    await fetch(`${pageURL}/api/addBook`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -163,5 +163,12 @@ const SellBooks = () => {
     </div>
   );
 };
+export async function getServerSideProps() {
+  return {
+    props: {
+      pageURL: process.env.PAGE_URL,
+    },
+  };
+}
 
 export default SellBooks;
