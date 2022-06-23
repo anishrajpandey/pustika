@@ -62,7 +62,7 @@
     position: relative;
     height: 400px;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     .mainContainer {
       flex-direction: column;
       position: relative;
