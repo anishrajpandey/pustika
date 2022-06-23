@@ -1,0 +1,86 @@
+.mainContainer {
+  width: 100%;
+
+  height: calc(100vh - 45px);
+  display: flex;
+  flex-wrap: wrap;
+}
+.mainContainer .left {
+  flex: 0.5;
+  background-color: rgb(219, 219, 219);
+  display: flex;
+  align-items: center;
+}
+.mainContainer .right {
+  flex: 0.5;
+  /* background-color: rgb(153, 102, 14); */
+  display: flex;
+  flex-direction: column;
+  padding-block: 5rem;
+}
+.mainContainer .right > :is(h1, h3, p) {
+  text-align: center;
+}
+.mainContainer .right > p {
+  text-align: justify;
+  width: 60%;
+  margin: 0 auto;
+  overflow-y: hidden;
+}
+.right h3 {
+  font-size: 1.3rem;
+  color: rgb(68, 0, 255);
+}
+.mainContainer .right > p {
+  height: 16rem;
+  /* background-color: red; */
+}
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.btns button:first-child {
+  width: max(40%, 200px);
+  height: 50px;
+  font-size: 1.3rem;
+}
+.btns button:last-child {
+  width: 3rem;
+}
+.mainContainer .left .imgContainer {
+  position: relative;
+  height: 500px;
+  width: max(50%, 300px);
+  margin: auto;
+}
+@media (max-width: 700px) {
+  .mainContainer .right {
+    padding-block-start: 0;
+  }
+  .mainContainer .left .imgContainer {
+    position: relative;
+    height: 400px;
+  }
+  @media (max-width: 400px) {
+    .mainContainer {
+      flex-direction: column;
+      position: relative;
+    }
+    .mainContainer .left {
+      position: absolute;
+      width: 100%;
+      top: 7rem;
+      z-index: -1;
+      background-color: transparent;
+    }
+    .mainContainer .right > p {
+      position: relative;
+      user-select: none;
+      pointer-events: none;
+      height: 25rem;
+      bottom: -100vh;
+      /* z-index: -1; */
+    }
+  }
+}
