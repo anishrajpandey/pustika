@@ -137,8 +137,9 @@ const SellBooks = ({ pageURL }) => {
             onChange={handleChange}
             ref={inputFileRef}
           />
-
-          <img src="" ref={previewImageRef} width={400}></img>
+          <div className={styles.imageContainer}>
+            <img src="" ref={previewImageRef} width={400}></img>
+          </div>
           <label className={styles.label} htmlFor="price">
             Price
           </label>

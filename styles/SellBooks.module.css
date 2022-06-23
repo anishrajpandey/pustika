@@ -44,6 +44,14 @@ form.form > :is(input, textarea) {
   font-weight: bold;
   animation: colorFade 500ms linear infinite alternate;
 }
+.imageContainer {
+  width: 100%;
+}
+.imageContainer img {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+}
 @keyframes colorFade {
   to {
     color: rgb(181, 181, 181);
@@ -60,5 +68,11 @@ form.form > :is(input, textarea) {
   }
   h1.heading {
     font-size: 1.5rem;
+  }
+  .imageContainer {
+    width: 100%;
+  }
+  .imageContainer img {
+    width: 100%;
   }
 }
