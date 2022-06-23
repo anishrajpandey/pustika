@@ -2,17 +2,16 @@ import { useEffect, useState } from "react";
 
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
-import DummyImage from "../../public/book-images/Atomic Habits.webp";
 
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
 
-const Store = (data) => {
+const Store = () => {
   var [ImageArray, setImageArray] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      let data = await fetch("http://localhost:3000/api/books");
-      let { imageArray: a } = await data.json();
-      setImageArray(a);
+      let res = await fetch("http://localhost:3000/api/getBooks");
+      let { data } = await res.json();
+      setImageArray(data);
     };
     fetchData();
   }, []);
@@ -21,20 +20,18 @@ const Store = (data) => {
       <div className={styles.AllItems}>
         {console.log(ImageArray)}
         {ImageArray.map((e) => {
+          console.log(e.imageURL);
           return (
             <div className={styles.item} key={Math.random()}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={`/book-images/${e.name}.webp`}
+                  src={e.imageURL}
                   layout={"fill"}
-                  // objectFit={"contain"}
                   alt="Product image not available"
-                />
+                ></Image>
               </div>
-              <p className={styles.BookName}>
-                <>{e.name}</>
-              </p>
-              <p className={styles.price}>$2.99</p>
+              <p className={styles.BookName}>{e.bookName}</p>
+              <p className={styles.price}>Rs.{e.price}</p>
               <div className={styles.buttons}>
                 <button>Buy</button>
 
@@ -47,7 +44,6 @@ const Store = (data) => {
           );
         })}
       </div>
-      ;
     </>
   );
 };
