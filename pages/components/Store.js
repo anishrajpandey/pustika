@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-
+import Head from "next/head";
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
 
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
 
-const Store = () => {
+const Store = ({ url }) => {
   var [ImageArray, setImageArray] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      let res = await fetch("http://localhost:3000/api/getBooks");
+      let res = await fetch(`${url}/api/getBooks`);
       let { data } = await res.json();
       setImageArray(data);
     };
@@ -17,8 +17,10 @@ const Store = () => {
   }, []);
   return (
     <>
+      <Head>
+        <title>Store-pustika</title>
+      </Head>
       <div className={styles.AllItems}>
-        {console.log(ImageArray)}
         {ImageArray.map((e) => {
           console.log(e.imageURL);
           return (
@@ -47,15 +49,11 @@ const Store = () => {
     </>
   );
 };
+export async function getServerSideProps() {
+  return {
+    props: {
+      url: process.env.PAGE_URL,
+    },
+  };
+}
 export default Store;
-// export async function getServerSideProps() {
-//   let client = await clientPromise;
-//   let db = client.db("BooksDatabase");
-//   let data = await db.collection("bookData");
-//   console.log(data);
-//   return {
-//     props: {
-//       data: "hello",
-//     },
-//   };
-// }
