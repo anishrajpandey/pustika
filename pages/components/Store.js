@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
 
@@ -25,13 +26,15 @@ const Store = ({ url }) => {
           console.log(e.imageURL);
           return (
             <div className={styles.item} key={Math.random()}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={e.imageURL}
-                  layout={"fill"}
-                  alt="Product image not available"
-                ></Image>
-              </div>
+              <Link href={`/buy/${e._id}`} passHref>
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={e.imageURL}
+                    layout={"fill"}
+                    alt="Product image not available"
+                  ></Image>
+                </div>
+              </Link>
               <p className={styles.BookName}>{e.bookName}</p>
               <p className={styles.price}>Rs.{e.price}</p>
               <div className={styles.buttons}>
