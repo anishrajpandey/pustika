@@ -3,7 +3,7 @@ div.AllItems {
   width: 100%;
   place-content: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 15rem));
   gap: 1.5rem;
 
   background-color: #e5e5f7;
@@ -12,15 +12,24 @@ div.AllItems {
   background-size: 10px 10px;
 }
 div.AllItems .item {
-  width: 12rem;
-  height: 230x;
+  cursor: pointer;
+  width: clamp(15rem, fit-content, 20rem);
+  min-height: fit-content;
+
   transition: box-shadow 100ms linear;
   padding-block-end: 1rem;
   box-sizing: content-box;
   border-radius: 0.125rem;
-  overflow: hidden;
+
   border: 1px solid rgb(156, 15, 188);
   background-color: white;
+}
+div.AllItems .item .imageContainer {
+  width: 100%;
+  height: 325px;
+  position: relative;
+  outline: 200px red;
+  /* display: none; */
 }
 div.AllItems .item:hover {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
