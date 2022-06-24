@@ -30,11 +30,11 @@ div.AllItems .item .imageContainer {
   width: 100%;
   height: 300px;
   position: relative;
-  outline: 200px red;
-  /* display: none; */
 }
 div.AllItems .item:hover {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  transition: transform 100ms linear;
 }
 div.AllItems .item > p.BookName {
   margin: 0;
@@ -47,7 +47,6 @@ div.AllItems .item > p.price {
   font-weight: 600;
 }
 div.AllItems svg {
-  /* display: inline-block; */
   color: var(--clr-primary);
   cursor: pointer;
 }
