@@ -7,7 +7,12 @@
 }
 .mainContainer .left {
   flex: 0.5;
-  background-color: rgb(219, 219, 219);
+  background: url("/wave-haikei.svg") no-repeat;
+  background-color: var(--clr-primary);
+  background-position-x: 290px;
+  background-position-y: center;
+  background-size: cover;
+
   display: flex;
   align-items: center;
 }
@@ -52,35 +57,84 @@
   position: relative;
   height: 500px;
   width: max(50%, 300px);
-  margin: auto;
+  margin-inline-start: 5rem;
+}
+@media (max-width: 1000px) {
+  .mainContainer .left .imgContainer {
+    margin-inline-start: 2rem;
+  }
 }
 @media (max-width: 700px) {
   .mainContainer .right {
     padding-block-start: 0;
   }
+  .mainContainer .left {
+    background-position-x: -50px;
+  }
   .mainContainer .left .imgContainer {
     position: relative;
     height: 400px;
   }
-  @media (max-width: 600px) {
-    .mainContainer {
-      flex-direction: column;
-      position: relative;
-    }
-    .mainContainer .left {
-      position: absolute;
-      width: 100%;
-      top: 7rem;
-      z-index: -1;
-      background-color: transparent;
-    }
-    .mainContainer .right > p {
-      position: relative;
-      user-select: none;
-      pointer-events: none;
-      height: 25rem;
-      bottom: -100vh;
-      /* z-index: -1; */
-    }
+}
+@media (max-width: 600px) {
+  .mainContainer {
+    flex-direction: column;
+    position: relative;
+  }
+  .mainContainer .left {
+    position: absolute;
+    width: 100%;
+    top: 7rem;
+    z-index: -1;
+    background-color: transparent;
+  }
+  .mainContainer .right > p {
+    position: relative;
+    user-select: none;
+    pointer-events: none;
+    height: 25rem;
+    bottom: -100vh;
+    /* z-index: -1; */
+  }
+  .mainContainer .left .imgContainer {
+    margin-inline: auto;
+  }
+  .mainContainer .left {
+    flex: 0.5;
+    background: url("/wave-bottom.svg") no-repeat;
+    background-color: var(--clr-primary);
+    background-position-y: bottom;
+  }
+}
+
+/* for curvy backgrounds */
+@media (max-width: 1600px) {
+  .mainContainer .left {
+    background-position-x: 200px;
+  }
+}
+@media (max-width: 1450px) {
+  .mainContainer .left {
+    background-position-x: 150px;
+  }
+}
+@media (max-width: 1350px) {
+  .mainContainer .left {
+    background-position-x: 100px;
+  }
+}
+@media (max-width: 1300px) {
+  .mainContainer .left {
+    background-position-x: 50px;
+  }
+}
+@media (max-width: 1150px) {
+  .mainContainer .left {
+    background-position-x: 0px;
+  }
+}
+@media (max-width: 1000px) {
+  .mainContainer .left {
+    background-position-x: -90px;
   }
 }
