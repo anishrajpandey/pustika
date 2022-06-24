@@ -88,6 +88,7 @@ div.cart > * {
     position: fixed;
     z-index: 3;
     margin-top: 12px;
+    top: 0;
   }
   .menu > .menu_items {
     position: fixed;
@@ -105,8 +106,9 @@ div.cart > * {
     border-radius: 12px;
   }
   div.logo > .menubtn {
-    display: initial;
+    display: block;
   }
+
   nav.navBarMain {
     padding-right: 1rem;
   }
