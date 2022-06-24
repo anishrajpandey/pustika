@@ -74,6 +74,7 @@ const Navbar = () => {
               display: "inline-block",
               position: "absolute",
               top: "10px",
+              right: "5px",
             }}
             onClick={() => {
               setIsCartOpen(!IsCartOpen);

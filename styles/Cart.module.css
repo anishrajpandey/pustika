@@ -1,0 +1,44 @@
+.main {
+  position: fixed;
+
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: calc(100vh - 45px);
+  z-index: 99999;
+}
+.cart {
+  width: 80%;
+  height: calc(100% - 4rem);
+  /* overflow-y: scroll; */
+  position: relative;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+.cart .crossButton {
+  position: absolute;
+  top: -1.4rem;
+  right: -1.5rem;
+  width: 40px;
+  aspect-ratio: 1;
+  /* height: fit-content; */
+  cursor: pointer;
+  background-color: var(--clr-primary);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.cart .crossButton span {
+  font-size: 4rem;
+  position: absolute;
+  color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .cart {
+    /* width: 100%; */
+  }
+}
