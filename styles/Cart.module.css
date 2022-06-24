@@ -8,37 +8,104 @@
   margin: auto;
   height: calc(100vh - 45px);
   z-index: 99999;
+  min-width: 100vw;
 }
 .cart {
   width: 80%;
   height: calc(100% - 4rem);
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
+  /* overflow-x: hidden; */
   position: relative;
   background-color: white;
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
-.cart .crossButton {
+.crossButton {
   position: absolute;
-  top: -1.4rem;
-  right: -1.5rem;
+  top: 1.4rem;
+  right: 9%;
   width: 40px;
   aspect-ratio: 1;
   /* height: fit-content; */
   cursor: pointer;
-  background-color: var(--clr-primary);
+  background-color: red;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
 }
-.cart .crossButton span {
+.crossButton span {
   font-size: 4rem;
   position: absolute;
   color: #fff;
 }
+.cart .cartItem {
+  display: flex;
+  box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.65);
+  width: 60%;
+  margin: 0 auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-block: 1rem;
+}
+.cart .cartItem .quantityBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5px;
+  width: 100%;
+  /* background-color: aqua; */
+}
+.cart .cartItem .quantityBox button {
+  font-size: 1.2rem;
+  border: 1px solid rgb(84, 81, 81);
+}
+.cart .cartItem span {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bolder;
+}
+.cart .cartItem > .imageContainer {
+}
+.cart .cartItem .cartContent .btnArea {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  height: 40px;
+  width: 100%;
+  gap: 0.5rem;
+}
+.cart .cartItem .cartContent .btnArea button:first-child {
+  background-color: var(--clr-primary);
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+.cart .cartItem .cartContent .btnArea button:first-child:hover {
+  background-color: rgb(0, 3, 4);
+}
+.cart .cartItem .cartContent .btnArea button:last-child {
+  background-color: rgb(230, 60, 33);
+  cursor: pointer;
+
+  font-size: 1em;
+}
+.cart :is(h1, h2, h4) {
+  margin: 0;
+}
 @media screen and (max-width: 500px) {
+  .cartItem {
+    width: 90% !important;
+  }
   .cart {
-    /* width: 100%; */
+    width: 100% !important;
+  }
+  .crossButton {
+    right: 0%;
   }
 }

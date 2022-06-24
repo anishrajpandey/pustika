@@ -6,6 +6,7 @@ main #imageContainer {
   z-index: -2;
   user-select: none;
 }
+
 div.contentBox {
   position: absolute;
   top: 0;
