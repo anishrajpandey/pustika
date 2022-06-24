@@ -30,7 +30,6 @@ const BuyItem = ({ url }) => {
     <div className={styles.mainContainer}>
       <div className={styles.left}>
         <div className={styles.imgContainer}>
-          {console.log(BookData.imageURL)}
           <Image
             src={BookData.imageURL || "/loader1.gif"}
             layout={"fill"}

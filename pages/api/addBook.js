@@ -3,18 +3,18 @@ import connectToDB from "../../connectMongo";
 
 export default async function addTest(req, res) {
   try {
-    console.log("CONNECTING TO MONGO");
-    console.log(process.env.MONGODB_URI);
+    ("CONNECTING TO MONGO");
+    process.env.MONGODB_URI;
     await connectToDB();
-    console.log("CONNECTED TO MONGO");
+    ("CONNECTED TO MONGO");
 
-    console.log("CREATING DOCUMENT");
+    ("CREATING DOCUMENT");
     const test = await finalModel.create(req.body);
-    console.log("CREATED DOCUMENT");
+    ("CREATED DOCUMENT");
 
     res.json({ test });
   } catch (error) {
-    console.log(error);
+    error;
     res.json({ error });
   }
 }

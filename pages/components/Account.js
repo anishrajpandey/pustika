@@ -18,8 +18,6 @@ const Account = () => {
     document.documentElement.style.setProperty("--displayPropLogin", "block");
   }, []);
   const handleClick = (e) => {
-    console.log(e.target.id);
-
     if (e.target.id === "signup") {
       setTranslateProperties({ coverOffset: "50%" });
       setDescriptionProperties({
@@ -27,7 +25,7 @@ const Account = () => {
         description: "Its absolutely free and It just takes couple of seconds.",
         rotate: "0deg",
       });
-      console.log(document);
+
       document.documentElement.style.setProperty(
         "--displayPropSignup",
         "block"
@@ -86,7 +84,6 @@ const Account = () => {
                   transform: `rotate(${DescriptionProperties.rotate})`,
                 }}
               />
-              {console.log(DescriptionProperties.rotate)}
             </div>
           </div>
           <div className={styles.mainBox}>

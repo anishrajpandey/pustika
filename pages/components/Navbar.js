@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import styles from "../../styles/Navbar.module.css";
 import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
+import Context from "../context/Context";
+import { useContext } from "react";
+import Cart from "./Cart";
+
 const Navbar = () => {
   const [ToggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
@@ -10,6 +14,7 @@ const Navbar = () => {
       ? document.body.style.setProperty("--translateOffset", "-35px")
       : document.body.style.setProperty("--translateOffset", "-475px");
   }, [ToggleMenu]);
+  const { IsCartOpen, setIsCartOpen } = useContext(Context);
 
   return (
     <>
@@ -64,20 +69,32 @@ const Navbar = () => {
               Sell your Book
             </button>
           </Link>
-          <Link href={"/components/Cart"}>
-            <a>
-              <Image
-                alt="Error"
-                className={styles.cartImage}
-                src={"/cart.svg"}
-                width={20}
-                height={20}
-                layout={"fixed"}
-              ></Image>
-            </a>
-          </Link>
+          <div
+            style={{
+              display: "inline-block",
+              position: "absolute",
+              top: "10px",
+            }}
+            onClick={() => {
+              setIsCartOpen(!IsCartOpen);
+            }}
+          >
+            <Link href={"#"}>
+              <a>
+                <Image
+                  alt="Error"
+                  className={styles.cartImage}
+                  src={"/cart.svg"}
+                  width={20}
+                  height={20}
+                  layout={"fixed"}
+                ></Image>
+              </a>
+            </Link>
+          </div>
         </div>
       </nav>
+      {IsCartOpen && <Cart />}
     </>
   );
 };

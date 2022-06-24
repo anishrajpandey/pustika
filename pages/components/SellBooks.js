@@ -19,7 +19,7 @@ const SellBooks = ({ pageURL }) => {
     setimage(inputFileRef.current);
     const imgUrl = await postToCloudinary(); //idk how but postToCloudinary returns a promise instead of string
     postToMongoDb(imgUrl);
-    console.log("Successfully posted");
+    ("Successfully posted");
   };
 
   const postToCloudinary = async () => {

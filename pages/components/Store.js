@@ -23,7 +23,6 @@ const Store = ({ url }) => {
       </Head>
       <div className={styles.AllItems}>
         {ImageArray.map((e) => {
-          console.log(e.imageURL);
           return (
             <div className={styles.item} key={Math.random()}>
               <Link href={`/buy/${e._id}`} passHref>
