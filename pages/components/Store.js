@@ -3,9 +3,10 @@ import Head from "next/head";
 import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
-
+import { addToCart } from "../../utils/cartUtils";
+import { useContext } from "react";
+import Context from "./../context/Context";
 const Store = ({ url }) => {
   var [ImageArray, setImageArray] = useState([]);
   useEffect(() => {
@@ -15,7 +16,19 @@ const Store = ({ url }) => {
       setImageArray(data);
     };
     fetchData();
+    setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   }, []);
+  const { CartItems, setCartItems } = useContext(Context);
+  const handleCartClick = async (id, url) => {
+    let data = await addToCart(id, url);
+    CartItems.push(data);
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+  };
+
+  useEffect(() => {
+    // localStorage.clear();
+  }, []);
+
   return (
     <>
       <Head>
@@ -28,9 +41,10 @@ const Store = ({ url }) => {
               <Link href={`/buy/${e._id}`} passHref>
                 <div className={styles.imageContainer}>
                   <Image
-                    src={e.imageURL}
+                    src={e.imageURL || "/loader.gif"}
                     layout={"fill"}
                     alt="Product image not available"
+                    priority
                   ></Image>
                 </div>
               </Link>
@@ -40,6 +54,9 @@ const Store = ({ url }) => {
                 <button>Buy</button>
 
                 <FontAwesomeIcon
+                  onClick={(el) => {
+                    handleCartClick(e._id, url);
+                  }}
                   className={styles.cartIcon}
                   icon={faCartShopping}
                 ></FontAwesomeIcon>

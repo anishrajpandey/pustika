@@ -26,6 +26,11 @@
 .mainContainer .right > :is(h1, h3, p) {
   text-align: center;
 }
+.mainContainer .right > h1 {
+  margin: 0;
+  margin-top: 1rem;
+  line-height: 1;
+}
 .mainContainer .right > p {
   text-align: justify;
   width: 60%;
@@ -58,7 +63,9 @@
   height: 500px;
   width: max(50%, 300px);
   margin-inline-start: 5rem;
+  filter: drop-shadow(-10px 10px 5px #061f0b);
 }
+
 @media (max-width: 1000px) {
   .mainContainer .left .imgContainer {
     margin-inline-start: 2rem;
@@ -104,6 +111,10 @@
     background: url("/wave-bottom.svg") no-repeat;
     background-color: var(--clr-primary);
     background-position-y: bottom;
+  }
+  .mainContainer .right > h1 {
+    font-size: 1.3rem;
+    min-height: 100px;
   }
 }
 

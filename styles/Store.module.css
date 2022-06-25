@@ -7,8 +7,6 @@ div.AllItems {
   grid-template-columns: repeat(auto-fit, minmax(200px, 15rem));
   gap: 1.5rem;
 
-  background-color: #e5e5f7;
-  opacity: 0.8;
   background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
   background-size: 10px 10px;
   min-height: 100vh;
@@ -33,8 +31,8 @@ div.AllItems .item .imageContainer {
 }
 div.AllItems .item:hover {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
-  transition: transform 100ms linear;
+  /* transform: scale(1.05); */
+  transition: transform 200ms linear;
 }
 div.AllItems .item > p.BookName {
   margin: 0;

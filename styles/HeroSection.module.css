@@ -75,7 +75,7 @@ div.right .scrollingContainer > .scrollableContainer {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  --transition-duration: 1s;
+  --transition-duration: 3s;
   transition: transform var(--transition-duration)
     cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -180,7 +180,7 @@ button i.cartLogo::before {
     width: 100vw;
     transition-duration: 31s;
     transition-timing-function: linear;
-    /* transform: translateX(100%); */
+    /* transform: translateX(-100%); */
   }
   .left {
     padding: 0;

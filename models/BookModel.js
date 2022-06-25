@@ -7,6 +7,8 @@ const BookSchema = new Schema(
     price: { type: Number, required: true },
     imageURL: { type: String },
     rating: { type: Number },
+    isOnCart: { type: Boolean, default: false },
+    qtyOnCart: Number,
   },
   { timestamps: true }
 );
