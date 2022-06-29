@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../../styles/Navbar.module.css";
 import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
-import Context from "../context/Context";
+import Context from "../../utils/Context";
 import { useContext } from "react";
 import Cart from "./Cart";
 

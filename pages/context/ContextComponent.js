@@ -1,4 +1,4 @@
-import Context from "./Context";
+import Context from "../../utils/Context";
 import { useState } from "react";
 const ContextComponent = (props) => {
   const [IsCartOpen, setIsCartOpen] = useState(false);

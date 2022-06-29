@@ -6,7 +6,7 @@ import Link from "next/link";
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
 import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
-import Context from "./../context/Context";
+import Context from "../../utils/Context";
 const Store = ({ url }) => {
   var [ImageArray, setImageArray] = useState([]);
   useEffect(() => {

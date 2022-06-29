@@ -7,7 +7,7 @@ import Image from "next/image";
 import Head from "next/head";
 import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
-import Context from "./../context/Context";
+import Context from "../../utils/Context";
 const BuyItem = ({ url }) => {
   const [BookData, setBookData] = useState({});
   const { CartItems, setCartItems } = useContext(Context);
