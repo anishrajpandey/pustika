@@ -4,7 +4,7 @@ import styles from "./../../styles/Store.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
-import { addToCart } from "../../utils/cartUtils";
+import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
 import Context from "./../context/Context";
 const Store = ({ url }) => {
@@ -25,9 +25,9 @@ const Store = ({ url }) => {
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
 
-  useEffect(() => {
-    // localStorage.clear();
-  }, []);
+  // useEffect(() => {
+  //   // localStorage.clear();
+  // }, []);
 
   return (
     <>

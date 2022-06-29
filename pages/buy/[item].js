@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Head from "next/head";
-import { addToCart } from "../../utils/cartUtils";
+import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
 import Context from "./../context/Context";
 const BuyItem = ({ url }) => {

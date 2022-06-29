@@ -1,4 +1,4 @@
-export async function addToCart(id, url) {
+export default async function addToCart(id, url) {
   let data = await fetch(`${url}/api/addToCart`, {
     method: "POST",
     body: JSON.stringify({

@@ -1,6 +1,6 @@
 import Context from "./Context";
 import { useState } from "react";
-const ContextComponent = ({ children }) => {
+const ContextComponent = (props) => {
   const [IsCartOpen, setIsCartOpen] = useState(false);
   const [CartItems, setCartItems] = useState([{}]);
 
@@ -8,7 +8,7 @@ const ContextComponent = ({ children }) => {
     <Context.Provider
       value={{ IsCartOpen, setIsCartOpen, CartItems, setCartItems }}
     >
-      {children}
+      {props.children}
     </Context.Provider>
   );
 };
