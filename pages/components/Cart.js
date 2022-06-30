@@ -20,7 +20,7 @@ const Cart = () => {
             <div className={styles.cartItem} key={Math.random()}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={imageURL}
+                  src={imageURL || "/loader.gif"}
                   width={200}
                   height={300}
                   alt="Image not available"
