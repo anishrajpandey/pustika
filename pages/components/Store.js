@@ -25,10 +25,6 @@ const Store = ({ url }) => {
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
 
-  // useEffect(() => {
-  //   // localStorage.clear();
-  // }, []);
-
   return (
     <>
       <Head>
@@ -41,7 +37,7 @@ const Store = ({ url }) => {
               <Link href={`/buy/${e._id}`} passHref>
                 <div className={styles.imageContainer}>
                   <Image
-                    src={e.imageURL || "/loader.gif"}
+                    src={e.imageURL || "/assets/imagenotavailable.jpg"}
                     layout={"fill"}
                     alt="Product image not available"
                     priority

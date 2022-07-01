@@ -7,18 +7,20 @@ import Image from "next/image";
 import Head from "next/head";
 import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
-import Context from "../../utils/Context";
+import Context from "./../../utils/Context";
 const BuyItem = ({ url }) => {
   const [BookData, setBookData] = useState({});
   const { CartItems, setCartItems } = useContext(Context);
+  const states = useContext(Context);
+
   let Router = useRouter();
   let {
     query: { item: slug },
   } = Router;
   const handleCartClick = async (id, url) => {
     let data = await addToCart(id, url);
-    CartItems.push(data);
     console.log(CartItems);
+    CartItems?.push(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
   useEffect(() => {

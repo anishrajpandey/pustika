@@ -10,12 +10,33 @@ const Cart = () => {
   useEffect(() => {
     setIsCartOpen(true);
   }, []);
+  const handleClearCart = () => {
+    localStorage.clear();
+    setIsCartOpen(true);
+    location.reload();
+  };
+  function filterDuplicateItems(arr) {
+    let arrOfId = [];
+    arr.forEach((e) => {
+      arrOfId.push(e._id);
+      console.log(arrOfId);
+    });
+    for (let i = 0; i < arr.length; i++) {
+      let currId = arrOfId[i]._id;
+      let count = 0;
+      for (let j = 0; j < arrOfId.length; j++) {
+        if (currId === arrOfId[j]._id) {
+          count++;
+        }
+      }
+    }
+  }
 
   return (
     <div className={styles.main}>
       <div className={styles.cart}>
         <h1>My Cart</h1>
-        {CartItems?.map(({ _id, bookName, price, isOnCart, imageURL }) => {
+        {CartItems?.map(({ _id, bookName, price, imageURL }) => {
           return (
             <div className={styles.cartItem} key={Math.random()}>
               <div className={styles.imageContainer}>
@@ -56,6 +77,18 @@ const Cart = () => {
           <h2>13 Items</h2>
           <h2>Rs. 99987</h2>
           <button className="btn-primary">Purchase All</button>
+          <button
+            className="btn-primary"
+            onClick={() => {
+              console.log(CartItems);
+              filterDuplicateItems(CartItems);
+            }}
+          >
+            logdfsdg
+          </button>
+          <button className="btn-primary" onClick={handleClearCart}>
+            Clear All
+          </button>
         </div>
       </div>
       <div
@@ -71,3 +104,4 @@ const Cart = () => {
 };
 
 export default Cart;
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAA

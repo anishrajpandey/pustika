@@ -67,7 +67,7 @@ const SellBooks = ({ pageURL }) => {
     reader.readAsDataURL(file);
   };
   //function for validating the user Entered Data in formc
-  // so what does it mean to be successful
+
   const validateData = (e) => {
     if (!Name) {
       e.preventDefault();
