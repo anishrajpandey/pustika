@@ -104,4 +104,3 @@ const Cart = () => {
 };
 
 export default Cart;
-// hello world this is  a simple message and i
