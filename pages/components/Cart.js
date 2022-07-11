@@ -6,6 +6,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 const Cart = () => {
   const { IsCartOpen, setIsCartOpen, CartItems } = useContext(Context);
+  function removeDuplicates(arr) {
+    let arrayofIndex = [];
+    arr.forEach((e) => {
+      arrayofIndex.push(e._id);
+    });
+    for (let i = 0; i < arrayofIndex.length; i++) {
+      let currId = arrayofIndex[i];
+      for (letj = 0; j < arrayofIndex.length; j++) {
+        if (currId === arrayofIndex[j]) {
+          arr[i].quantity++;
+        }
+      }
+      arr[i].quantity = count || 0;
+    }
+  }
 
   useEffect(() => {
     setIsCartOpen(true);
@@ -15,22 +30,22 @@ const Cart = () => {
     setIsCartOpen(true);
     location.reload();
   };
-  function filterDuplicateItems(arr) {
-    let arrOfId = [];
-    arr.forEach((e) => {
-      arrOfId.push(e._id);
-      console.log(arrOfId);
-    });
-    for (let i = 0; i < arr.length; i++) {
-      let currId = arrOfId[i]._id;
-      let count = 0;
-      for (let j = 0; j < arrOfId.length; j++) {
-        if (currId === arrOfId[j]._id) {
-          count++;
-        }
-      }
-    }
-  }
+  // function filterDuplicateItems(arr) {
+  //   let arrOfId = [];
+  //   arr.forEach((e) => {
+  //     arrOfId.push(e._id);
+  //     console.log(arrOfId);
+  //   });
+  //   for (let i = 0; i < arr.length; i++) {
+  //     let currId = arrOfId[i]._id;
+  //     let count = 0;
+  //     for (let j = 0; j < arrOfId.length; j++) {
+  //       if (currId === arrOfId[j]._id) {
+  //         count++;
+  //       }
+  //     }
+  //   }
+  // }
 
   return (
     <div className={styles.main}>
