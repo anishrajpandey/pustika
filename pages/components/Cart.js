@@ -27,7 +27,7 @@ const Cart = () => {
   }, []);
   const handleClearCart = () => {
     localStorage.clear();
-    setIsCartOpen(true);
+
     location.reload();
   };
   // function filterDuplicateItems(arr) {
