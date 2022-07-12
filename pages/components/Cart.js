@@ -30,7 +30,7 @@ const Cart = () => {
 
     location.reload();
   };
-  // function filterDuplicateItems(arr) {skjd sad
+  // function filterDuplicateItems(arr) {skjd
   //   let arrOfId = [];
   //   arr.forEach((e) => {
   //     arrOfId.push(e._id);
