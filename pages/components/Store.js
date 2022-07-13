@@ -22,6 +22,7 @@ const Store = ({ url }) => {
   const handleCartClick = async (id, url) => {
     let data = await addToCart(id, url);
     CartItems.push(data);
+    console.log(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
 
