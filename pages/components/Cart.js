@@ -77,7 +77,6 @@ const Cart = () => {
                     className="btn-primary"
                     onClick={() => {
                       handleIncrease(e);
-                      // handleIncreaseQuantity((quantity = quantity + 1));
                     }}
                   >
                     -
