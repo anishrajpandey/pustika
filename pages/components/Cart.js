@@ -48,7 +48,6 @@ const Cart = () => {
     obj.quantity++;
     console.log(obj.quantity);
     setCartItems(CartItems);
-    // removeDuplicates(CartItems);
   }
   const handleClearCart = () => {
     localStorage.clear();
