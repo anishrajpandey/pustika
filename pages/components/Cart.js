@@ -44,11 +44,19 @@ const Cart = () => {
   useEffect(() => {
     setIsCartOpen(true);
     removeDuplicates(CartItems);
+    setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   }, []);
   function handleIncrease(obj) {
     obj.quantity++;
-    console.log(obj.quantity);
-    setCartItems(CartItems);
+
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    // setCartItems(CartItems);
+  }
+  function handleDecrease(obj) {
+    obj.quantity--;
+
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    // setCartItems(CartItems);
   }
   const handleClearCart = () => {
     localStorage.clear();
@@ -77,14 +85,32 @@ const Cart = () => {
                   <div className={styles.quantityBox}>
                     <button
                       className="btn-primary"
-                      onClick={() => {
-                        handleIncrease(e);
+                      onClick={(e) => {
+                        handleDecrease(e);
+
+                        e.target.parentElement.querySelector("span").innerText =
+                          parseInt(
+                            e.target.parentElement.querySelector("span")
+                              .innerText
+                          ) - 1;
                       }}
                     >
                       -
                     </button>
                     <span>{e.quantity}</span>
-                    <button className="btn-primary">+</button>
+                    <button
+                      className="btn-primary"
+                      onClick={(e) => {
+                        handleIncrease(e);
+                        e.target.parentElement.querySelector("span").innerText =
+                          parseInt(
+                            e.target.parentElement.querySelector("span")
+                              .innerText
+                          ) + 1;
+                      }}
+                    >
+                      +
+                    </button>
                   </div>
 
                   <h3>
