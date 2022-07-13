@@ -31,6 +31,7 @@ const Cart = () => {
     });
 
     for (let i = 0; i < uniqueIndex.length; i++) {
+      if (arr.length === 0) return;
       arr.find((e) => e._id === uniqueIndex[i]).quantity = numberOfRepetion(
         arrayOfIndex,
         uniqueIndex[i]
@@ -61,44 +62,46 @@ const Cart = () => {
         <h1>My Cart</h1>
         {CartItems?.map((e) => {
           return (
-            <div className={styles.cartItem} key={Math.random()}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={e.imageURL || "/loader.gif"}
-                  width={200}
-                  height={300}
-                  alt="Image not available"
-                ></Image>
-              </div>
-              <div className={styles.cartContent}>
-                <h2>{e.bookName}</h2>
-                <div className={styles.quantityBox}>
-                  <button
-                    className="btn-primary"
-                    onClick={() => {
-                      handleIncrease(e);
-                    }}
-                  >
-                    -
-                  </button>
-                  <span>{e.quantity}</span>
-                  <button className="btn-primary">+</button>
+            e.bookName && (
+              <div className={styles.cartItem} key={Math.random()}>
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={e.imageURL || "/loader.gif"}
+                    width={200}
+                    height={300}
+                    alt="Image not available"
+                  ></Image>
                 </div>
+                <div className={styles.cartContent}>
+                  <h2>{e.bookName}</h2>
+                  <div className={styles.quantityBox}>
+                    <button
+                      className="btn-primary"
+                      onClick={() => {
+                        handleIncrease(e);
+                      }}
+                    >
+                      -
+                    </button>
+                    <span>{e.quantity}</span>
+                    <button className="btn-primary">+</button>
+                  </div>
 
-                <h3>
-                  Price: <span>Rs.{e.price}</span>
-                </h3>
-                <div className={styles.btnArea}>
-                  <button>Buy Now</button>
-                  <button title="Remove from Cart">
-                    <FontAwesomeIcon
-                      icon={faTrash}
-                      style={{ color: "white" }}
-                    ></FontAwesomeIcon>
-                  </button>
+                  <h3>
+                    Price: <span>Rs.{e.price}</span>
+                  </h3>
+                  <div className={styles.btnArea}>
+                    <button>Buy Now</button>
+                    <button title="Remove from Cart">
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        style={{ color: "white" }}
+                      ></FontAwesomeIcon>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            )
           );
         })}
 
