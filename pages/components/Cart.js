@@ -29,8 +29,6 @@ const Cart = () => {
         uniqueIndex.push(e);
       }
     });
-    // console.log("arrayOfIndex--->", arrayOfIndex);
-    // console.log("uniqueIndex--->", uniqueIndex);
 
     for (let i = 0; i < uniqueIndex.length; i++) {
       arr.find((e) => e._id === uniqueIndex[i]).quantity = numberOfRepetion(
