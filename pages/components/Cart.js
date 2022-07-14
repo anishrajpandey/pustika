@@ -37,7 +37,6 @@ const Cart = () => {
       );
     }
     let newArr = arr.filter((e) => e.quantity);
-    // setCartItems(new
     return newArr;
     // localStorage.setItem("cart", JSON.stringify({ CartItems }));
 
