@@ -18,7 +18,6 @@ const Cart = () => {
     return count;
   }
   function removeDuplicates(arr) {
-    console.log(arr);
     let arrayOfIndex = [];
     for (let i = 0; i < arr.length; i++) {
       arrayOfIndex.push(arr[i]._id);
@@ -38,25 +37,25 @@ const Cart = () => {
       );
     }
     let newArr = arr.filter((e) => e.quantity);
-    setCartItems(newArr);
+    // setCartItems(newArr);
+    return newArr;
+    // localStorage.setItem("cart", JSON.stringify({ CartItems }));
+
+    // setCartItems(JSON.parse(localStorage.getItem("cart"))?.newArr || []);
   }
 
   useEffect(() => {
-    setIsCartOpen(true);
     removeDuplicates(CartItems);
-    setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   }, []);
   function handleIncrease(obj) {
     obj.quantity++;
-
-    localStorage.setItem("cart", JSON.stringify({ CartItems }));
-    // setCartItems(CartItems);
+    setIsCartOpen(true);
+    // localStorage.setItem("cart", JSON.stringify({ CartItems }));
   }
   function handleDecrease(obj) {
     obj.quantity--;
-
-    localStorage.setItem("cart", JSON.stringify({ CartItems }));
-    // setCartItems(CartItems);
+    // localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    // setIsCartOpen(true);
   }
   const handleClearCart = () => {
     localStorage.clear();
@@ -68,7 +67,7 @@ const Cart = () => {
     <div className={styles.main}>
       <div className={styles.cart}>
         <h1>My Cart</h1>
-        {CartItems?.map((e) => {
+        {removeDuplicates(CartItems)?.map((e) => {
           return (
             e.bookName && (
               <div className={styles.cartItem} key={Math.random()}>
@@ -87,12 +86,20 @@ const Cart = () => {
                       className="btn-primary"
                       onClick={(e) => {
                         handleDecrease(e);
-
-                        e.target.parentElement.querySelector("span").innerText =
-                          parseInt(
-                            e.target.parentElement.querySelector("span")
-                              .innerText
-                          ) - 1;
+                        // if (
+                        //   parseInt(
+                        //     e.target.parentElement.querySelector("span")
+                        //       .innerText
+                        //   ) >= 0
+                        // ) {
+                        //   e.target.parentElement.querySelector(
+                        //     "span"
+                        //   ).innerText =
+                        //     parseInt(
+                        //       e.target.parentElement.querySelector("span")
+                        //         .innerText
+                        //     ) - 1;
+                        // }
                       }}
                     >
                       -
@@ -102,11 +109,11 @@ const Cart = () => {
                       className="btn-primary"
                       onClick={(e) => {
                         handleIncrease(e);
-                        e.target.parentElement.querySelector("span").innerText =
-                          parseInt(
-                            e.target.parentElement.querySelector("span")
-                              .innerText
-                          ) + 1;
+                        // e.target.parentElement.querySelector("span").innerText =
+                        //   parseInt(
+                        //     e.target.parentElement.querySelector("span")
+                        //       .innerText
+                        //   ) + 1;
                       }}
                     >
                       +
