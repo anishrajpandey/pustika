@@ -17,31 +17,31 @@ const Cart = () => {
     }
     return count;
   }
-  function removeDuplicates(arr) {
-    let arrayOfIndex = [];
-    for (let i = 0; i < arr.length; i++) {
-      arrayOfIndex.push(arr[i]._id);
-    }
-    let uniqueIndex = [];
-    arrayOfIndex.forEach((e) => {
-      if (!uniqueIndex.includes(e)) {
-        uniqueIndex.push(e);
-      }
-    });
+  // function removeDuplicates(arr) {
+  //   let arrayOfIndex = [];
+  //   for (let i = 0; i < arr.length; i++) {
+  //     arrayOfIndex.push(arr[i]._id);
+  //   }
+  //   let uniqueIndex = [];
+  //   arrayOfIndex.forEach((e) => {
+  //     if (!uniqueIndex.includes(e)) {
+  //       uniqueIndex.push(e);
+  //     }
+  //   });
 
-    for (let i = 0; i < uniqueIndex.length; i++) {
-      if (arr.length === 0) return;
-      arr.find((e) => e._id === uniqueIndex[i]).quantity = numberOfRepetion(
-        arrayOfIndex,
-        uniqueIndex[i]
-      );
-    }
-    let newArr = arr.filter((e) => e.quantity);
-    setCartItems(newArr);
-    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+  //   for (let i = 0; i < uniqueIndex.length; i++) {
+  //     if (arr.length === 0) return;
+  //     arr.find((e) => e._id === uniqueIndex[i]).quantity = numberOfRepetion(
+  //       arrayOfIndex,
+  //       uniqueIndex[i]
+  //     );
+  //   }
+  //   let newArr = arr.filter((e) => e.quantity);
+  //   setCartItems(newArr);
+  //   localStorage.setItem("cart", JSON.stringify({ CartItems }));
 
-    // setCartItems(JSON.parse(localStorage.getItem("cart"))?.newArr || []);
-  }
+  //   // setCartItems(JSON.parse(localStorage.getItem("cart"))?.newArr || []);
+  // }
 
   useEffect(() => {
     // removeDuplicates(CartItems);
@@ -53,18 +53,18 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
     setTimeout(() => {
       setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
-      // console.log(localStorage.getItem("cart"))?.CartItems || [];
     }, 0);
-    // console.log(obj.quantity);
   }
   function handleDecrease(obj) {
-    obj.quantity--;
-    // localStorage.setItem("cart", JSON.stringify({ CartItems }));
-    // setIsCartOpen(true);
+    if (obj.quantity !== 0) obj.quantity--;
+
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    setTimeout(() => {
+      setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
+    }, 0);
   }
   const handleClearCart = () => {
     localStorage.clear();
-
     location.reload();
   };
 
@@ -89,7 +89,7 @@ const Cart = () => {
                   <div className={styles.quantityBox}>
                     <button
                       className="btn-primary"
-                      onClick={(e) => {
+                      onClick={() => {
                         handleDecrease(e);
                         // if (
                         //   parseInt(
@@ -109,7 +109,7 @@ const Cart = () => {
                     >
                       -
                     </button>
-                    <span>{e.quantity}</span>
+                    <span>{e.quantity ?? 1}</span>
                     <button
                       className="btn-primary"
                       onClick={() => {
