@@ -37,24 +37,25 @@ const Cart = () => {
       );
     }
     let newArr = arr.filter((e) => e.quantity);
-    return newArr;
-    // localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    setCartItems(newArr);
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
 
     // setCartItems(JSON.parse(localStorage.getItem("cart"))?.newArr || []);
   }
 
   useEffect(() => {
-    removeDuplicates(CartItems);
+    // removeDuplicates(CartItems);
+    setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   }, []);
   function handleIncrease(obj) {
     obj.quantity++;
-    setIsCartOpen(true);
+
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
     setTimeout(() => {
-      console.log(localStorage.getItem("cart"));
+      setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
       // console.log(localStorage.getItem("cart"))?.CartItems || [];
-    }, 1000);
-    console.log(obj.quantity);
+    }, 0);
+    // console.log(obj.quantity);
   }
   function handleDecrease(obj) {
     obj.quantity--;
@@ -71,7 +72,7 @@ const Cart = () => {
     <div className={styles.main}>
       <div className={styles.cart}>
         <h1>My Cart</h1>
-        {removeDuplicates(CartItems)?.map((e) => {
+        {CartItems?.map((e) => {
           return (
             e.bookName && (
               <div className={styles.cartItem} key={Math.random()}>
