@@ -56,12 +56,15 @@ const Cart = () => {
     }, 0);
   }
   function handleDecrease(obj) {
-    if (obj.quantity !== 0) obj.quantity--;
+    if (obj.quantity === 1) {
+      obj.bookName = undefined;
+    } else {
+      obj.quantity--;
+    }
 
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
-    setTimeout(() => {
-      setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
-    }, 0);
+
+    setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   }
   const handleClearCart = () => {
     localStorage.clear();
@@ -69,7 +72,8 @@ const Cart = () => {
   };
   const handleRemove = (e) => {
     e.bookName = undefined;
-    setCartItems(CartItems);
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   };
 
   return (
@@ -77,6 +81,9 @@ const Cart = () => {
       <div className={styles.cart}>
         <h1>My Cart</h1>
         {CartItems?.map((e) => {
+          if (!e.quantity) {
+            e.quantity = 1;
+          }
           return (
             e.bookName && (
               <div className={styles.cartItem} key={Math.random()}>
