@@ -67,6 +67,10 @@ const Cart = () => {
     localStorage.clear();
     location.reload();
   };
+  const handleRemove = (e) => {
+    e.bookName = undefined;
+    setCartItems(CartItems);
+  };
 
   return (
     <div className={styles.main}>
@@ -130,7 +134,12 @@ const Cart = () => {
                   </h3>
                   <div className={styles.btnArea}>
                     <button>Buy Now</button>
-                    <button title="Remove from Cart">
+                    <button
+                      title="Remove from Cart"
+                      onClick={function () {
+                        handleRemove(e);
+                      }}
+                    >
                       <FontAwesomeIcon
                         icon={faTrash}
                         style={{ color: "white" }}
