@@ -49,6 +49,7 @@ const Cart = () => {
   function handleIncrease(obj) {
     obj.quantity++;
     setIsCartOpen(true);
+    console.log(obj.quantity);
     // localStorage.setItem("cart", JSON.stringify({ CartItems }));
   }
   function handleDecrease(obj) {
