@@ -1,10 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./../../styles/Cart.module.css";
 import Context from "../../utils/Context";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 const Cart = () => {
+  const [ItemTotal, setItemTotal] = useState(0);
+  const [PriceTotal, setPriceTotal] = useState(0);
   const { IsCartOpen, setIsCartOpen, CartItems, setCartItems } =
     useContext(Context);
   function numberOfRepetion(arr, elem) {
@@ -102,20 +104,6 @@ const Cart = () => {
                       className="btn-primary"
                       onClick={() => {
                         handleDecrease(e);
-                        // if (
-                        //   parseInt(
-                        //     e.target.parentElement.querySelector("span")
-                        //       .innerText
-                        //   ) >= 0
-                        // ) {
-                        //   e.target.parentElement.querySelector(
-                        //     "span"
-                        //   ).innerText =
-                        //     parseInt(
-                        //       e.target.parentElement.querySelector("span")
-                        //         .innerText
-                        //     ) - 1;
-                        // }
                       }}
                     >
                       -
@@ -125,11 +113,6 @@ const Cart = () => {
                       className="btn-primary"
                       onClick={() => {
                         handleIncrease(e);
-                        // e.target.parentElement.querySelector("span").innerText =
-                        //   parseInt(
-                        //     e.target.parentElement.querySelector("span")
-                        //       .innerText
-                        //   ) + 1;
                       }}
                     >
                       +
@@ -161,8 +144,26 @@ const Cart = () => {
 
         <div className={styles.total}>
           <h2>Total:</h2>
-          <h2>13 Items</h2>
-          <h2>Rs. 99987</h2>
+          <h2>
+            {CartItems.reduce((acc, curr, index) => {
+              console.log(CartItems[index]);
+              if (CartItems[index].bookName) {
+                acc += CartItems[index].quantity;
+              }
+              return acc;
+            }, 0)}
+            &nbsp;items
+          </h2>
+          <h2>
+            Rs.&nbsp;
+            {CartItems.reduce((acc, curr, index) => {
+              console.log(CartItems[index]);
+              if (CartItems[index].bookName) {
+                acc += CartItems[index].price * CartItems[index].quantity;
+              }
+              return acc;
+            }, 0)}
+          </h2>
           <button className="btn-primary">Purchase All</button>
 
           <button className="btn-primary" onClick={handleClearCart}>
