@@ -49,8 +49,12 @@ const Cart = () => {
   function handleIncrease(obj) {
     obj.quantity++;
     setIsCartOpen(true);
+    localStorage.setItem("cart", JSON.stringify({ CartItems }));
+    setTimeout(() => {
+      console.log(localStorage.getItem("cart"));
+      // console.log(localStorage.getItem("cart"))?.CartItems || [];
+    }, 1000);
     console.log(obj.quantity);
-    // localStorage.setItem("cart", JSON.stringify({ CartItems }));
   }
   function handleDecrease(obj) {
     obj.quantity--;
@@ -107,7 +111,7 @@ const Cart = () => {
                     <span>{e.quantity}</span>
                     <button
                       className="btn-primary"
-                      onClick={(e) => {
+                      onClick={() => {
                         handleIncrease(e);
                         // e.target.parentElement.querySelector("span").innerText =
                         //   parseInt(
