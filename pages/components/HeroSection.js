@@ -3,6 +3,8 @@ import Image from "next/image";
 import styles from "./../../styles/HeroSection.module.css";
 import Link from "next/link";
 import imageArray from "../../public/BooksData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-regular-svg-icons";
 
 const HeroSection = () => {
   const [RandomIndex, setRandomIndex] = useState(
@@ -52,17 +54,19 @@ const HeroSection = () => {
               <Link href={"./components/Store"} passHref>
                 <button className="btn-primary">Buy Now</button>
               </Link>
-              <button>
-                <Image
-                  alt="Error"
-                  className={styles.cartImage}
-                  src={"/cart.svg"}
-                  width={20}
-                  height={20}
-                  layout={"fixed"}
-                ></Image>
-                Add To Cart
-              </button>
+              <Link href={"./components/Store"} passHref>
+                <button>
+                  <Image
+                    alt="Error"
+                    className={styles.cartImage}
+                    src={"/cart.svg"}
+                    width={20}
+                    height={20}
+                    layout={"fixed"}
+                  ></Image>
+                  Explore More
+                </button>
+              </Link>
             </div>
           </div>
           <div className={styles.right}>

@@ -41,7 +41,6 @@ const Store = ({ url }) => {
                     src={e.imageURL || "/assets/imagenotavailable.jpg"}
                     layout={"fill"}
                     alt="Product image not available"
-                    priority
                   ></Image>
                 </div>
               </Link>

@@ -17,7 +17,7 @@ div.AllItems .item {
   min-height: fit-content;
 
   transition: box-shadow 100ms linear;
-  padding-block-end: 1rem;
+  padding-block: 0.5rem 1rem;
   box-sizing: content-box;
   border-radius: 0.125rem;
 
