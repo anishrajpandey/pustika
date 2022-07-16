@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-family: var(--font-primary);
   overflow-x: hidden;
+  padding-top: 20px;
+  scroll-padding-top: 50px;
 }
 a {
   color: inherit;
