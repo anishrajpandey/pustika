@@ -72,4 +72,4 @@ export async function getServerSideProps() {
   };
 }
 export default Store;
-// knj jh
+// knj j
