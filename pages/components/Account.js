@@ -49,7 +49,8 @@ const Account = ({ pageurl }) => {
   const handleSignup = async (name, username, email, password) => {
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
-    console.log(hash);
+    // console.log(hash);
+    console.log("adding user.......");
     let res = await fetch(`${pageurl}/api/addUser`, {
       method: "POST",
       headers: {
@@ -62,7 +63,10 @@ const Account = ({ pageurl }) => {
         password: hash,
       }),
     });
-    console.log(res);
+    let jsonres = await res.json();
+    // console.log(jsonres);
+    console.log("added user");
+    console.log("here");
   };
   return (
     <div className={styles.maincontainer}>
