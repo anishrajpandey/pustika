@@ -1,7 +1,8 @@
 import styles from "./../../styles/Account.module.css";
 import { useState, useRef, useEffect } from "react";
 import FontAwesomeIcon, { faArrowLeft } from "./assets/FontAwesome";
-const Account = () => {
+import bcrypt from "bcryptjs";
+const Account = ({ pageurl }) => {
   const coverRef = useRef();
 
   const [TranslateProperties, setTranslateProperties] = useState({
@@ -45,10 +46,29 @@ const Account = () => {
       document.documentElement.style.setProperty("--displayPropLogin", "block");
     }
   };
+  const handleSignup = async (name, username, email, password) => {
+    let salt = bcrypt.genSaltSync(10);
+    let hash = bcrypt.hashSync(password, salt);
+    console.log(hash);
+    let res = await fetch(`${pageurl}/api/addUser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        username,
+        email,
+        password: hash,
+      }),
+    });
+    console.log(res);
+  };
   return (
     <div className={styles.maincontainer}>
-      <div className={styles.accountDashBoard}></div>
-      {/* todo later 😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢 */}
+      <div className={styles.accountDashBoard}>
+        {/* todo later 😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢 */}
+      </div>
       <div className={styles.signupOrLogin}>
         <main className={styles.main}>
           <style jsx>{`
@@ -90,8 +110,12 @@ const Account = () => {
             <div className={styles.signup}>
               <h3>SIGN UP HERE</h3>
               <label htmlFor="name">
-                Name
+                Your Name
                 <input id="name" type="text" placeholder="John Doe"></input>
+              </label>
+              <label htmlFor="username">
+                username
+                <input id="username" type="text" placeholder="John Doe"></input>
               </label>
               <label htmlFor="email">
                 Email
@@ -118,7 +142,37 @@ const Account = () => {
                 ></input>
               </label>
               <div className={styles.buttonContainer}>
-                <button className={`btn-primary ${styles.signUpButton}`}>
+                <button
+                  className={`btn-primary ${styles.signUpButton}`}
+                  onClick={(e) => {
+                    let name =
+                      e.target.parentElement.parentElement.querySelector(
+                        "#name"
+                      ).value;
+                    let email =
+                      e.target.parentElement.parentElement.querySelector(
+                        "#email"
+                      ).value;
+                    let password =
+                      e.target.parentElement.parentElement.querySelector(
+                        "#password"
+                      ).value;
+                    let username =
+                      e.target.parentElement.parentElement.querySelector(
+                        "#username"
+                      ).value;
+                    if (
+                      password ===
+                      e.target.parentElement.parentElement.querySelector(
+                        "#confirmPassword"
+                      ).value
+                    ) {
+                      handleSignup(name, username, email, password);
+                    } else {
+                      alert("Password do not match");
+                    }
+                  }}
+                >
                   Create Account
                 </button>
               </div>
@@ -150,3 +204,10 @@ const Account = () => {
   );
 };
 export default Account;
+export async function getServerSideProps() {
+  return {
+    props: {
+      pageurl: process.env.PAGE_URL,
+    },
+  };
+}
