@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import FontAwesomeIcon, { faArrowLeft } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 const Account = ({ pageurl }) => {
+  const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
   const coverRef = useRef();
 
   const [TranslateProperties, setTranslateProperties] = useState({
@@ -49,7 +50,7 @@ const Account = ({ pageurl }) => {
   const handleSignup = async (name, username, email, password) => {
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
-    // console.log(hash);
+    console.log(hash);
     console.log("adding user.......");
     let res = await fetch(`${pageurl}/api/addUser`, {
       method: "POST",
@@ -64,9 +65,8 @@ const Account = ({ pageurl }) => {
       }),
     });
     let jsonres = await res.json();
-    // console.log(jsonres);
-    console.log("added user");
-    console.log("here");
+    console.log(jsonres);
+    setSignupmessage(jsonres);
   };
   return (
     <div className={styles.maincontainer}>
@@ -179,6 +179,14 @@ const Account = ({ pageurl }) => {
                 >
                   Create Account
                 </button>
+              </div>
+              <div
+                style={{
+                  backgroundColor:
+                    SignupMessage.type === "Success" ? "green" : "red",
+                }}
+              >
+                {SignupMessage.message}
               </div>
             </div>
             <div className={styles.login}>
