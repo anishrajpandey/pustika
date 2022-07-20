@@ -4,6 +4,7 @@ import FontAwesomeIcon, { faArrowLeft } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 const Account = ({ pageurl }) => {
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
+  const [SignupLoading, setSignupLoading] = useState(false);
   const coverRef = useRef();
 
   const [TranslateProperties, setTranslateProperties] = useState({
@@ -48,6 +49,7 @@ const Account = ({ pageurl }) => {
     }
   };
   const handleSignup = async (name, username, email, password) => {
+    setSignupLoading(true);
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
     console.log(hash);
@@ -67,8 +69,23 @@ const Account = ({ pageurl }) => {
     let jsonres = await res.json();
     console.log(jsonres);
     setSignupmessage(jsonres);
+    setSignupLoading(false);
+    setTimeout(() => {
+      setSignupmessage({});
+    }, 2000);
   };
+  const handleLogin = async (email, password) => {
+    let res = await fetch(`${pageurl}/api/getUserInfo`, {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+    });
 
+    let { data } = await res.json();
+    let passwordHash = data?.password;
+    bcrypt.compare(password, passwordHash, (error, result) => {
+      console.log(result);
+    });
+  };
   return (
     <div className={styles.maincontainer}>
       <div className={styles.accountDashBoard}>
@@ -112,7 +129,12 @@ const Account = ({ pageurl }) => {
             </div>
           </div>
           <div className={styles.mainBox}>
-            <div className={styles.signup}>
+            <div
+              className={styles.signup}
+              style={{
+                opacity: SignupLoading ? "0.5" : "1",
+              }}
+            >
               <h3>SIGN UP HERE</h3>
               <label htmlFor="name">
                 Your Name
@@ -149,6 +171,7 @@ const Account = ({ pageurl }) => {
               <div className={styles.buttonContainer}>
                 <button
                   className={`btn-primary ${styles.signUpButton}`}
+                  disabled={SignupLoading}
                   onClick={(e) => {
                     let name =
                       e.target.parentElement.parentElement.querySelector(
@@ -184,7 +207,14 @@ const Account = ({ pageurl }) => {
               <div
                 style={{
                   backgroundColor:
-                    SignupMessage.type === "Success" ? "green" : "red",
+                    SignupMessage.type === "Success" ? "lightgreen" : "red",
+                  width: "100%",
+
+                  position: "relative",
+                  bottom: "-10px",
+                  display: "grid",
+                  placeContent: "center",
+                  fontSize: "1.5rem",
                 }}
               >
                 {SignupMessage.message}
@@ -205,7 +235,21 @@ const Account = ({ pageurl }) => {
                 id="passwordLogin"
               ></input>
               <div className={styles.buttonContainer}>
-                <button className={`btn-primary ${styles.signUpButton}`}>
+                <button
+                  className={`btn-primary ${styles.signUpButton}`}
+                  onClick={(e) => {
+                    let email =
+                      e.target.parentElement.parentElement.querySelector(
+                        "#loginName"
+                      ).value;
+                    let password =
+                      e.target.parentElement.parentElement.querySelector(
+                        "#passwordLogin"
+                      ).value;
+
+                    handleLogin(email, password);
+                  }}
+                >
                   Login
                 </button>
               </div>

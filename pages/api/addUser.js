@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       await user.create(req.body);
       res.json({
         message:
-          "Succreefully created account with username" + req.body.username,
+          "Successfully created account with username: " + req.body.username,
         type: "Success",
       });
     }

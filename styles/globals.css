@@ -38,3 +38,6 @@ a {
 .btn-primary:hover {
   background-color: var(--clr-primary-light);
 }
+button:disabled {
+  background-color: gray !important;
+}
