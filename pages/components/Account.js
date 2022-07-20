@@ -72,7 +72,7 @@ const Account = ({ pageurl }) => {
   return (
     <div className={styles.maincontainer}>
       <div className={styles.accountDashBoard}>
-        {/* todo later 😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢😢 */}
+        {/* todo later 😢😢😢😢😢😢😢😢 */}
       </div>
       <div className={styles.signupOrLogin}>
         <main className={styles.main}>
