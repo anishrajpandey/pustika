@@ -84,7 +84,7 @@ const Account = ({ pageurl }) => {
     let passwordHash = data?.password;
     console.log(password, passwordHash);
     bcrypt.compare(password, passwordHash, (error, result) => {
-      console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED");
+      console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED!");
       console.log(result);
     });
   };
