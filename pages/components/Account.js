@@ -270,4 +270,4 @@ export async function getServerSideProps() {
     },
   };
 }
-// today is such a waste day,isn't it?
+// today is such a waste day,isn't i
