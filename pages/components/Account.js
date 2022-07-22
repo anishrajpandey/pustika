@@ -270,4 +270,4 @@ export async function getServerSideProps() {
     },
   };
 }
-// today is such a
+// today is
