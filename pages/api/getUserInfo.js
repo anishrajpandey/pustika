@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     connectToDB();
 
     let email = JSON.parse(req.body).email;
-    console.log(email);
+
     let userData = await user.findOne({ email });
     if (userData) {
       res.status(200).json({ data: userData });
