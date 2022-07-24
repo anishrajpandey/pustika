@@ -4,6 +4,7 @@ import FontAwesomeIcon, { faArrowLeft } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 import Context from "../../utils/Context";
 const Account = ({ pageurl }) => {
+  const [UserData, setUserData] = useState({});
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
   const [SignupLoading, setSignupLoading] = useState(false);
   const coverRef = useRef();
@@ -82,18 +83,19 @@ const Account = ({ pageurl }) => {
     });
 
     let { data } = await res.json();
+    setUserData(data);
+    console.log(data);
     let passwordHash = data?.password;
 
     bcrypt.compare(password, passwordHash, (error, result) => {
       console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED!");
-      console.log(result);
+      setIsAuthorized(result);
     });
   };
   return (
     <div className={styles.maincontainer}>
       <div className={styles.accountDashBoard}>
-        hello
-        {/* todo later 😢😢😢😢😢😢😢😢 */}
+        <div className={styles.mainDashboard}>heloo</div>
       </div>
 
       {IsAuthorized && (

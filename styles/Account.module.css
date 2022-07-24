@@ -1,5 +1,5 @@
 .maincontainer {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 .signupOrLogin {
   height: 94vh;
@@ -182,4 +182,24 @@ div.cover {
     height: 80vh;
   }
 }
-/* Heo */
+/* for account dashboard */
+.accountDashBoard {
+  width: 100vw;
+  height: calc(100vh - 45px);
+  background: linear-gradient(
+    to right,
+    var(--clr-primary),
+    var(--clr-primary-light)
+  );
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.maincontainer .mainDashboard {
+  margin: 1em auto;
+  width: 30%;
+  height: 90%;
+  box-shadow: 3px 3px 5px rgb(229, 197, 197);
+  backdrop-filter: blur(12px);
+  border: 2px solid white;
+}
