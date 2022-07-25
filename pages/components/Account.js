@@ -18,6 +18,7 @@ const Account = ({ pageurl }) => {
     description: "Login with your Email Id and Password to buy or sell books",
     rotate: "180deg",
   });
+  const [UserProfileImage, setUserProfileImage] = useState("");
   useEffect(() => {
     coverRef.current?.style.setProperty("--rotateDegree", "180deg");
     document.documentElement.style.setProperty("--displayPropSignup", "none");
@@ -95,12 +96,11 @@ const Account = ({ pageurl }) => {
   };
   const handleImageChangeButtonClick = (e) => {
     const file = e.target.files[0];
-    console.dir(file);
+    console.log(file);
     const reader = new FileReader();
 
+    reader.readAsDataURL(file);
     reader.onloadend = () => {
-      reader.readAsDataURL(file);
-
       console.log(reader.result);
     };
   };
@@ -112,9 +112,10 @@ const Account = ({ pageurl }) => {
             <div className={styles.topSection}>
               <div className={styles.userImage}>
                 <Image
-                  src={"/assets/userImage.png"}
+                  src={UserProfileImage || "/assets/userImage.png"}
                   width={"150"}
                   height={"150"}
+                  alt="image unavailable"
                 ></Image>
                 <div className={styles.editImageButton}>
                   <label htmlFor="imgInput">
