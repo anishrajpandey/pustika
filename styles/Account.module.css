@@ -198,6 +198,7 @@ div.cover {
   box-shadow: 3px 3px 5px rgb(229, 197, 197);
   backdrop-filter: blur(12px);
   border: 2px solid rgb(177, 93, 255);
+  border-radius: 12px;
 }
 .maincontainer .mainDashboard .topSection {
   background: linear-gradient(
@@ -214,20 +215,34 @@ div.cover {
   align-items: center;
 }
 .maincontainer .mainDashboard .topSection .userImage {
-  /* background-color: aqua; */
+  border-radius: 50%;
+  overflow: hidden;
   position: relative;
 }
 .maincontainer .mainDashboard .topSection .userImage > .editImageButton {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 35%;
   cursor: pointer;
   opacity: 0;
-
   transition: 100ms;
 }
+
 .maincontainer .mainDashboard .topSection .userImage:hover > .editImageButton {
   opacity: 1;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 100%;
+}
+.maincontainer
+  .mainDashboard
+  .topSection
+  .userImage:hover
+  > .editImageButton
+  .editBtn {
+  color: rgb(255, 234, 0);
 }
 .maincontainer .mainDashboard .topSection input {
   opacity: 0;

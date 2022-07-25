@@ -18,7 +18,7 @@ const Account = ({ pageurl }) => {
     description: "Login with your Email Id and Password to buy or sell books",
     rotate: "180deg",
   });
-  const [UserProfileImage, setUserProfileImage] = useState("");
+  const [ChangedUserData, setChangedUserData] = useState({});
   useEffect(() => {
     coverRef.current?.style.setProperty("--rotateDegree", "180deg");
     document.documentElement.style.setProperty("--displayPropSignup", "none");
@@ -86,6 +86,7 @@ const Account = ({ pageurl }) => {
 
     let { data } = await res.json();
     setUserData(data);
+    setChangedUserData(data);
     console.log(data);
     let passwordHash = data?.password;
 
@@ -101,7 +102,7 @@ const Account = ({ pageurl }) => {
 
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      console.log(reader.result);
+      setUserProfileImage(reader.result);
     };
   };
   return (
@@ -112,7 +113,7 @@ const Account = ({ pageurl }) => {
             <div className={styles.topSection}>
               <div className={styles.userImage}>
                 <Image
-                  src={UserProfileImage || "/assets/userImage.png"}
+                  src={ChangedUserData?.userImage || "/assets/userImage.png"}
                   width={"150"}
                   height={"150"}
                   alt="image unavailable"
@@ -127,7 +128,7 @@ const Account = ({ pageurl }) => {
                     />
                     <FontAwesomeIcon
                       icon={faEdit}
-                      className="fa-lg"
+                      className={`${styles.editBtn} fa-lg`}
                       width={50}
                     ></FontAwesomeIcon>
                   </label>
