@@ -1,8 +1,9 @@
 import styles from "./../../styles/Account.module.css";
 import { useState, useRef, useEffect, useContext } from "react";
-import FontAwesomeIcon, { faArrowLeft } from "./assets/FontAwesome";
+import FontAwesomeIcon, { faArrowLeft, faEdit } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 import Context from "../../utils/Context";
+import Image from "next/image";
 const Account = ({ pageurl }) => {
   const [UserData, setUserData] = useState({});
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
@@ -92,13 +93,56 @@ const Account = ({ pageurl }) => {
       setIsAuthorized(result);
     });
   };
+  const handleImageChangeButtonClick = (e) => {
+    const file = e.target.files[0];
+    console.dir(file);
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      reader.readAsDataURL(file);
+
+      console.log(reader.result);
+    };
+  };
   return (
     <div className={styles.maincontainer}>
-      <div className={styles.accountDashBoard}>
-        <div className={styles.mainDashboard}>heloo</div>
-      </div>
-
       {IsAuthorized && (
+        <div className={styles.accountDashBoard}>
+          <div className={styles.mainDashboard}>
+            <div className={styles.topSection}>
+              <div className={styles.userImage}>
+                <Image
+                  src={"/assets/userImage.png"}
+                  width={"150"}
+                  height={"150"}
+                ></Image>
+                <div className={styles.editImageButton}>
+                  <label htmlFor="imgInput">
+                    <input
+                      type="file"
+                      name=""
+                      id="imgInput"
+                      onChange={(e) => handleImageChangeButtonClick(e)}
+                    />
+                    <FontAwesomeIcon
+                      icon={faEdit}
+                      className="fa-lg"
+                      width={50}
+                    ></FontAwesomeIcon>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div className={styles.bottomSection}>
+              <div className={styles.Name}>{UserData?.name}</div>
+              <div className={styles.username}>@{UserData?.username}</div>
+              <div className={styles.email}>{UserData?.email}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!IsAuthorized && (
         <div className={styles.signupOrLogin}>
           <main className={styles.main}>
             <style jsx>{`
