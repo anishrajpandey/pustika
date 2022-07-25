@@ -6,8 +6,8 @@ export default async function handler(req, res) {
     
 
     let twilloSDK = twilio(
-      "AC97181b56bf15b8c78ad76a0e18e17a38",
-      "8cd8b43101f0e8f629cf426633d8393d"
+      process.env.TWILIO_SID, 
+      process.env.TWILIO_AUTH
     );
     twilloSDK.messages
       .create({
