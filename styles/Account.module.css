@@ -266,5 +266,13 @@ div.cover {
   font-weight: bold;
   font-size: 1rem;
 }
-.maincontainer .mainDashboard .bottomSection div:last-child {
+.maincontainer .mainDashboard .submitBtn {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+}
+.maincontainer .mainDashboard button {
+  width: 80%;
+  font-size: 1.1em;
 }

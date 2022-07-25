@@ -102,7 +102,7 @@ const Account = ({ pageurl }) => {
 
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setUserProfileImage(reader.result);
+      setChangedUserData({ ...ChangedUserData, userImage: reader.result });
     };
   };
   return (
@@ -139,6 +139,9 @@ const Account = ({ pageurl }) => {
               <div className={styles.Name}>{UserData?.name}</div>
               <div className={styles.username}>@{UserData?.username}</div>
               <div className={styles.email}>{UserData?.email}</div>
+            </div>
+            <div className={styles.submitBtn}>
+              <button className="btn-primary">Save</button>
             </div>
           </div>
         </div>
