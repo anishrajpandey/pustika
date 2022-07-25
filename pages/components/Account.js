@@ -4,6 +4,7 @@ import FontAwesomeIcon, { faArrowLeft, faEdit } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 import Context from "../../utils/Context";
 import Image from "next/image";
+
 const Account = ({ pageurl }) => {
   const [UserData, setUserData] = useState({});
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
@@ -113,6 +114,28 @@ const Account = ({ pageurl }) => {
       setChangedUserData({ ...ChangedUserData, userImage: reader.result });
     };
   };
+  const handleVerifyPhoneNumber = async(e,
+    sender= "+19379155657",
+    receiver = "+9779866041467",
+    text = "hello world"
+  ) => {
+    console.log(sender)
+
+    let info =    JSON.stringify ({
+      from:sender,
+      to:receiver,
+      message: text,
+    });
+
+    let resp = await fetch(`${pageurl}/api/twilio`, {
+      method: "POST",
+      body: info
+    });
+ 
+    let jsonres = await resp.json();
+
+    console.log(jsonres);
+  };
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
@@ -154,6 +177,7 @@ const Account = ({ pageurl }) => {
                 <input
                   type="tel"
                   value={ChangedUserData?.phone}
+                  placeholder="Enter 10 digit phone number"
                   onChange={(e) => {
                     setChangedUserData({
                       ...ChangedUserData,
@@ -303,8 +327,7 @@ const Account = ({ pageurl }) => {
                     display: "grid",
                     placeContent: "center",
                     fontSize: "1.5rem",
-                  }}
-                >
+                  }}               >
                   {SignupMessage.message}
                 </div>
               </div>
@@ -340,6 +363,7 @@ const Account = ({ pageurl }) => {
                   >
                     Login
                   </button>
+                  <button onClick={handleVerifyPhoneNumber}>TSSSS</button>
                 </div>
                 <div
                   style={{
