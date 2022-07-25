@@ -7,6 +7,7 @@ import Image from "next/image";
 const Account = ({ pageurl }) => {
   const [UserData, setUserData] = useState({});
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
+  const [LoginMessage, setLoginMessage] = useState("");
   const [SignupLoading, setSignupLoading] = useState(false);
   const coverRef = useRef();
   const { IsAuthorized, setIsAuthorized } = useContext(Context);
@@ -91,8 +92,15 @@ const Account = ({ pageurl }) => {
     let passwordHash = data?.password;
 
     bcrypt.compare(password, passwordHash, (error, result) => {
+      if (result) {
+        setIsAuthorized(result);
+      } else {
+        setLoginMessage("Invalid UserName or Password");
+        setTimeout(() => {
+          setLoginMessage("");
+        }, 2000);
+      }
       console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED!");
-      setIsAuthorized(result);
     });
   };
   const handleImageChangeButtonClick = (e) => {
@@ -139,6 +147,21 @@ const Account = ({ pageurl }) => {
               <div className={styles.Name}>{UserData?.name}</div>
               <div className={styles.username}>@{UserData?.username}</div>
               <div className={styles.email}>{UserData?.email}</div>
+            </div>
+            <div className={styles.additionalInfo}>
+              <label htmlFor="phone">
+                Phone-no:
+                <input
+                  type="tel"
+                  value={ChangedUserData?.phone}
+                  onChange={(e) => {
+                    setChangedUserData({
+                      ...ChangedUserData,
+                      phone: e.target.value,
+                    });
+                  }}
+                />
+              </label>
             </div>
             <div className={styles.submitBtn}>
               <button className="btn-primary">Save</button>
@@ -317,6 +340,16 @@ const Account = ({ pageurl }) => {
                   >
                     Login
                   </button>
+                </div>
+                <div
+                  style={{
+                    color: "red",
+                    textAlign: "center",
+                    width: "100%",
+                    display: "block",
+                  }}
+                >
+                  {LoginMessage}
                 </div>
               </div>
             </div>

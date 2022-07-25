@@ -145,7 +145,7 @@ const Cart = () => {
         <div className={styles.total}>
           <h2>Total:</h2>
           <h2>
-            {CartItems.reduce((acc, curr, index) => {
+            {CartItems?.reduce((acc, curr, index) => {
               console.log(CartItems[index]);
               if (CartItems[index].bookName) {
                 acc += CartItems[index].quantity;
@@ -156,7 +156,7 @@ const Cart = () => {
           </h2>
           <h2>
             Rs.&nbsp;
-            {CartItems.reduce((acc, curr, index) => {
+            {CartItems?.reduce((acc, curr, index) => {
               console.log(CartItems[index]);
               if (CartItems[index].bookName) {
                 acc += CartItems[index].price * CartItems[index].quantity;
