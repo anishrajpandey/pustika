@@ -55,8 +55,14 @@ const Account = ({ pageurl }) => {
       document.documentElement.style.setProperty("--displayPropLogin", "block");
     }
   };
-  const getOTP =() => {
-    setOTP({ ...OTP, pin: (Math.round(Math.random() * 1000000)).toString() });
+  useEffect(() => {
+    getOTP()
+  },[ChangedUserData])
+  const getOTP = () => {
+    if (ChangedUserData?.phone?.length === 10) {
+      
+      setOTP({ ...OTP, pin: (Math.round(Math.random() * 1000000)).toString() });
+    }
     console.log(  OTP.pin)
   }
   const handleSignup = async (name, username, email, password) => {
@@ -139,8 +145,34 @@ const Account = ({ pageurl }) => {
  
     let jsonres = await resp.json();
 
-    console.log(jsonres);
+ 
   };
+  const handleSendOTP=(e) => {
+    handleVerifyPhoneNumber(e, "+19379155657", `+977${ChangedUserData?.phone}`, `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`)
+    console.log("otp piin",OTP.pin)
+    getOTP()
+    console.log(ChangedUserData?.phone)
+    
+      setOTP(() => {
+        return {
+          ...OTP,buttonText:"Sending OTP"
+        }
+        
+      })
+    e.target.disabled = true;
+    setTimeout(() => {
+      setOTP(() => {
+        return {
+          ...OTP,buttonText:"Send OTP Again"
+        }
+        
+      })
+      e.target.disabled = false;
+    },2000)
+      console.log(typeof ChangedUserData?.phone)
+  }
+    
+  
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
@@ -190,11 +222,7 @@ const Account = ({ pageurl }) => {
                     });
                   }}
                 />
-                {ChangedUserData?.phone?.length === 10 && <button className="btn-primary" onClick={(e) => {
-                  // handleVerifyPhoneNumber(e,"+19379155657",ChangedUserData?.phone,`DEAR ${UserData?.name}, Your OTP for phone verification is ${getOTP()}`)
-                  getOTP()
-                  console.log(typeof ChangedUserData?.phone)
-              }}>{OTP.buttonText}</button>}
+                {ChangedUserData?.phone?.length === 10 && <button className="btn-primary" onClick={handleSendOTP}>{OTP.buttonText}</button>}
               </label>
             </div>
             <div className={styles.submitBtn}>
