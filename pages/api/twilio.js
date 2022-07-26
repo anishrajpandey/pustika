@@ -3,26 +3,23 @@ export default async function handler(req, res) {
   if (req.method==='POST') {
     const { from, to, message } = JSON.parse(req.body);
     // console.log(to, from, message);
-    
+    console.log(   process.env.TWILIO_SID, 
+      process.env.TWILIO_AUTH)
 
     let twilloSDK = twilio(
       process.env.TWILIO_SID, 
       process.env.TWILIO_AUTH
     );
-    twilloSDK.messages
+    let tres = await twilloSDK.messages
       .create({
         from,
         to,
-        body:message,
-      })
-      .then((response) => {
-       
-        res.json({ response });
-      })
-      .catch((err) => {
-        res.json({ err });
+        body: message,
       });
+    res.status(200).json(tres);
+    console.log(tres)
   } else {
     res.json({ err: "ERROR" });
   }
 }
+// hi mom
