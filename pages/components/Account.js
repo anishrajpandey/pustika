@@ -20,6 +20,7 @@ const Account = ({ pageurl }) => {
     description: "Login with your Email Id and Password to buy or sell books",
     rotate: "180deg",
   });
+  const [OTP,setOTP]=useState({pin:"",buttonText:"SEND OTP",isLoading:false});
   const [ChangedUserData, setChangedUserData] = useState({});
   useEffect(() => {
     coverRef.current?.style.setProperty("--rotateDegree", "180deg");
@@ -54,6 +55,10 @@ const Account = ({ pageurl }) => {
       document.documentElement.style.setProperty("--displayPropLogin", "block");
     }
   };
+  const getOTP =() => {
+    setOTP({ ...OTP, pin: (Math.round(Math.random() * 1000000)).toString() });
+    console.log(  OTP.pin)
+  }
   const handleSignup = async (name, username, email, password) => {
     setSignupLoading(true);
     let salt = bcrypt.genSaltSync(10);
@@ -186,8 +191,10 @@ const Account = ({ pageurl }) => {
                   }}
                 />
                 {ChangedUserData?.phone?.length === 10 && <button className="btn-primary" onClick={(e) => {
-                  handleVerifyPhoneNumber(e,"+19379155657",ChangedUserData?.phone)
-              }}>Verify</button>}
+                  // handleVerifyPhoneNumber(e,"+19379155657",ChangedUserData?.phone,`DEAR ${UserData?.name}, Your OTP for phone verification is ${getOTP()}`)
+                  getOTP()
+                  console.log(typeof ChangedUserData?.phone)
+              }}>{OTP.buttonText}</button>}
               </label>
             </div>
             <div className={styles.submitBtn}>
