@@ -175,7 +175,7 @@ const Account = ({ pageurl }) => {
               <label htmlFor="phone">
                 Phone-no:
                 <input
-                  type="tel"
+                  type="number"
                   value={ChangedUserData?.phone}
                   placeholder="Enter 10 digit phone number"
                   onChange={(e) => {
@@ -185,6 +185,9 @@ const Account = ({ pageurl }) => {
                     });
                   }}
                 />
+                {ChangedUserData?.phone?.length === 10 && <button className="btn-primary" onClick={(e) => {
+                  handleVerifyPhoneNumber(e,"+19379155657",ChangedUserData?.phone)
+              }}>Verify</button>}
               </label>
             </div>
             <div className={styles.submitBtn}>
@@ -363,7 +366,7 @@ const Account = ({ pageurl }) => {
                   >
                     Login
                   </button>
-                  <button onClick={handleVerifyPhoneNumber}>TSSSS</button>
+                
                 </div>
                 <div
                   style={{
