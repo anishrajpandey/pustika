@@ -22,5 +22,4 @@ export default async function handler(req, res) {
     res.json({ err: "ERROR" });
   }
 }
-// time is moving slower than I thought
-// I'm not sur
+// time is m
