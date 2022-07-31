@@ -15,12 +15,18 @@ const Account = ({ pageurl }) => {
   const [TranslateProperties, setTranslateProperties] = useState({
     coverOffset: "0",
   });
+  const [PP, setPP] = useState("");
+  const [FormDataOBJ, setFormDataOBJ] = useState({});
   const [DescriptionProperties, setDescriptionProperties] = useState({
     title: "Login To Your Account",
     description: "Login with your Email Id and Password to buy or sell books",
     rotate: "180deg",
   });
-  const [OTP,setOTP]=useState({pin:"",buttonText:"SEND OTP",isLoading:false});
+  const [OTP, setOTP] = useState({
+    pin: "",
+    buttonText: "SEND OTP",
+    isLoading: false,
+  });
   const [ChangedUserData, setChangedUserData] = useState({});
   useEffect(() => {
     coverRef.current?.style.setProperty("--rotateDegree", "180deg");
@@ -56,15 +62,14 @@ const Account = ({ pageurl }) => {
     }
   };
   useEffect(() => {
-    getOTP()
-  },[ChangedUserData])
+    getOTP();
+  }, [ChangedUserData]);
   const getOTP = () => {
     if (ChangedUserData?.phone?.length === 10) {
-      
-      setOTP({ ...OTP, pin: (Math.round(Math.random() * 1000000)).toString() });
+      setOTP({ ...OTP, pin: Math.round(Math.random() * 1000000).toString() });
     }
-    console.log(  OTP.pin)
-  }
+    console.log(OTP.pin);
+  };
   const handleSignup = async (name, username, email, password) => {
     setSignupLoading(true);
     let salt = bcrypt.genSaltSync(10);
@@ -115,65 +120,93 @@ const Account = ({ pageurl }) => {
       console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED!");
     });
   };
-  const handleImageChangeButtonClick = (e) => {
+
+  const handleImageChangeButtonClick = async (e) => {
     const file = e.target.files[0];
     console.log(file);
     const reader = new FileReader();
+    let formData = new FormData();
 
+    formData.append("file", file);
+    formData.append("upload_preset", "profile_pictures");
+    setFormDataOBJ(formData);
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setChangedUserData({ ...ChangedUserData, userImage: reader.result });
     };
   };
-  const handleVerifyPhoneNumber = async(e,
-    sender= "+19379155657",
+  const handleSaveChanges = async () => {
+    //posting the profile picture to cloudinary
+    console.log(FormDataOBJ);
+    let data = await fetch(
+      "https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload",
+      {
+        method: "POST",
+        body: FormDataOBJ,
+      }
+    );
+    let { secure_url } = await data.json();
+    console.log({ ...ChangedUserData, userImage: secure_url });
+    //setting the profile picture to mongodb
+    fetch(`${pageurl}/api/updateUser`, {
+      method: "POST",
+      body: JSON.stringify({ ...ChangedUserData, userImage: secure_url }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+  const handleVerifyPhoneNumber = async (
+    e,
+    sender = "+19379155657",
     receiver = "+9779866041467",
     text = "hello world"
   ) => {
-    console.log(sender)
+    console.log(sender);
 
-    let info =    JSON.stringify ({
-      from:sender,
-      to:receiver,
+    let info = JSON.stringify({
+      from: sender,
+      to: receiver,
       message: text,
     });
 
     let resp = await fetch(`${pageurl}/api/twilio`, {
       method: "POST",
-      body: info
+      body: info,
     });
- 
-    let jsonres = await resp.json();
 
- 
+    let jsonres = await resp.json();
   };
-  const handleSendOTP=(e) => {
-    handleVerifyPhoneNumber(e, "+19379155657", `+977${ChangedUserData?.phone}`, `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`)
-    console.log("otp piin",OTP.pin)
-    getOTP()
-    console.log(ChangedUserData?.phone)
-    
-      setOTP(() => {
-        return {
-          ...OTP,buttonText:"Sending OTP"
-        }
-        
-      })
+  const handleSendOTP = (e) => {
+    handleVerifyPhoneNumber(
+      e,
+      "+19379155657",
+      `+977${ChangedUserData?.phone}`,
+      `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`
+    );
+    console.log("otp piin", OTP.pin);
+    getOTP();
+    console.log(ChangedUserData?.phone);
+
+    setOTP(() => {
+      return {
+        ...OTP,
+        buttonText: "Sending OTP",
+      };
+    });
     e.target.disabled = true;
     setTimeout(() => {
       setOTP(() => {
         return {
-          ...OTP,buttonText:"Send OTP Again"
-        }
-        
-      })
-     
+          ...OTP,
+          buttonText: "Send OTP Again",
+        };
+      });
+
       e.target.disabled = false;
-    },2000)
-      console.log(typeof ChangedUserData?.phone)
-  }
-    
-  
+    }, 2000);
+    console.log(typeof ChangedUserData?.phone);
+  };
+
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
@@ -223,11 +256,22 @@ const Account = ({ pageurl }) => {
                     });
                   }}
                 />
-                {ChangedUserData?.phone?.length === 10 && <button className="btn-primary" onClick={handleSendOTP}>{OTP.buttonText}</button>}
+                {ChangedUserData?.phone?.length === 10 && (
+                  <button className="btn-primary" onClick={handleSendOTP}>
+                    {OTP.buttonText}
+                  </button>
+                )}
               </label>
             </div>
             <div className={styles.submitBtn}>
-              <button className="btn-primary">Save</button>
+              <button
+                className="btn-primary"
+                onClick={() => {
+                  handleSaveChanges();
+                }}
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
@@ -366,7 +410,8 @@ const Account = ({ pageurl }) => {
                     display: "grid",
                     placeContent: "center",
                     fontSize: "1.5rem",
-                  }}               >
+                  }}
+                >
                   {SignupMessage.message}
                 </div>
               </div>
@@ -402,7 +447,6 @@ const Account = ({ pageurl }) => {
                   >
                     Login
                   </button>
-                
                 </div>
                 <div
                   style={{
