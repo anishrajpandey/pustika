@@ -14,7 +14,7 @@ export default async function hanlder(req, res) {
     // }
     //
 
-    //         awaitq.b: JSON.parse(req.body).phoneNumber}});
+    //         awaitq.: JSON.parse(req.body).phoneNumber}});
 
     // }
   }
