@@ -64,6 +64,7 @@ const Account = ({ pageurl }) => {
   useEffect(() => {
     getOTP();
   }, [ChangedUserData]);
+
   const getOTP = () => {
     if (ChangedUserData?.phone?.length === 10) {
       setOTP({ ...OTP, pin: Math.round(Math.random() * 1000000).toString() });
@@ -266,8 +267,12 @@ const Account = ({ pageurl }) => {
             <div className={styles.submitBtn}>
               <button
                 className="btn-primary"
-                onClick={() => {
-                  handleSaveChanges();
+                onClick={async (e) => {
+                  e.target.innerText = "Saving Changes";
+                  e.target.disabled = true;
+                  await handleSaveChanges();
+                  e.target.innerText = "Save Changes";
+                  e.target.disabled = false;
                 }}
               >
                 Save
