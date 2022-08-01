@@ -10,8 +10,5 @@ export default async function hanlder(req, res) {
       { $set: { userImage: JSON.parse(req.body).userImage } }
     );
     res.status(200).json({ message: returnedData });
-
-    // }
-    //
   }
 }
