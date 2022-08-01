@@ -13,9 +13,5 @@ export default async function hanlder(req, res) {
 
     // }
     //
-
-    //         awaitq.: JSON.parse(req.bod
-
-    // }
   }
 }
