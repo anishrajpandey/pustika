@@ -206,7 +206,7 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
-  // jg kg a
+  // jg kg
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
