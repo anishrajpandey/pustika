@@ -206,7 +206,7 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
-// jg kg anish raj padney
+// jg kg anish raj padne
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
