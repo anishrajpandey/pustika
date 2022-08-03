@@ -206,7 +206,7 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
-  // hellow world is a S
+  // hellow world is
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
