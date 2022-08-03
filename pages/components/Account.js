@@ -206,7 +206,7 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
-// hellow world is a common name 
+  // hellow world is a common naS
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
