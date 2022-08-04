@@ -162,8 +162,6 @@ const Account = ({ pageurl }) => {
     receiver = "+9779866041467",
     text = "hello world"
   ) => {
-    console.log(sender);
-
     let info = JSON.stringify({
       from: sender,
       to: receiver,
@@ -184,7 +182,7 @@ const Account = ({ pageurl }) => {
       `+977${ChangedUserData?.phone}`,
       `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`
     );
-    console.log("otp piin", OTP.pin);
+    console.log("otp pin", OTP.pin);
     getOTP();
     console.log(ChangedUserData?.phone);
 
