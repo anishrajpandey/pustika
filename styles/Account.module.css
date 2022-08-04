@@ -237,7 +237,8 @@ div.cover {
   border-radius: 100%;
 }
 
-.maincontainer  .mainDashboard
+.maincontainer
+  .mainDashboard
   .topSection
   .userImage:hover
   > .editImageButton
@@ -276,36 +277,36 @@ div.cover {
   width: 80%;
   font-size: 1.1em;
 }
-.additionalInfo{
-  display:flex;
-  flex-direction:column;
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
   padding: 0 1rem;
 }
-.additionalInfo label:first-child{
-  font-size:1.2rem;
-  font-weight:bold;
-  
+.additionalInfo label:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
-.additionalInfo label input{
-  font-size:1.2rem;
+.additionalInfo label input {
+  font-size: 1.2rem;
   width: 70%;
   height: 35px;
   padding: 1rem;
 }
-.additionalInfo label input::-webkit-scrollbar{
+.additionalInfo label input::-webkit-scrollbar {
   display: none;
   width: 0;
 }
 
-.additionalInfo button{
+.additionalInfo button {
   margin: 1rem 3rem;
   background-color: aqua;
-  color:black;
+  /* dfsdf */
+  color: black;
 
-  width:40%
+  width: 40%;
 }
-.additionalInfo button:hover{
+.additionalInfo button:hover {
   background-color: aquamarine;
 }
