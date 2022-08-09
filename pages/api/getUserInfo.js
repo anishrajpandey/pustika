@@ -14,4 +14,3 @@ export default async function handler(req, res) {
     }
   }
 }
-// this is the code for the login page
