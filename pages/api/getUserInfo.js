@@ -14,4 +14,3 @@ export default async function handler(req, res) {
     }
   }
 }
-// i am sorry for the bad code, i am new to react and nextjs
