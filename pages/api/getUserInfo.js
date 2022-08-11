@@ -14,6 +14,3 @@ export default async function handler(req, res) {
     }
   }
 }
-// who is calling this api
-
-//
