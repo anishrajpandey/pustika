@@ -68,7 +68,7 @@ const SellBooks = ({ pageURL }) => {
     };
     reader.readAsDataURL(file);
   };
-  //function for validating the user Entered Data in formc
+  //function for validating the usser Entered Data in formc
 
   const validateData = (e) => {
     if (!Name) {
