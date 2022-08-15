@@ -167,14 +167,6 @@ const Account = ({ pageurl }) => {
       to: receiver,
       message: text,
     });
-
-    // let resp = await fetch(`${pageurl}/api/twilio`, {
-    //   method: "POST",
-    //   body: info,
-    // });
-
-    // let jsonres = await resp.json();
-    // return jsonres;
   };
   const handleSendOTP = (e) => {
     handleVerifyPhoneNumber(
