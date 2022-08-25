@@ -17,4 +17,4 @@ export default async function handler(req, res) {
     res.json({ err: "ERROR" });
   }
 }
-// HEILLO HYYA THIS A IS A COMMRNGY THAT DOESNOT MAKE NAY SENSE
+// HEILLO HYYA THIS A IS A THAT DOESNOT MAKE NAY SENSE
