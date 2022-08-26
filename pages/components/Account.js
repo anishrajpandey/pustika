@@ -97,7 +97,9 @@ const Account = ({ pageurl }) => {
       setSignupmessage({});
     }, 2000);
   };
-  const handleLogin = async (email, password) => {
+  const handleLogin = async (e, email, password) => {
+    e.target.textContent = "logging you in";
+    e.target.disabled = true;
     let res = await fetch(`${pageurl}/api/getUserInfo`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
@@ -120,6 +122,8 @@ const Account = ({ pageurl }) => {
       }
       console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED!");
     });
+    e.target.textContent = "Logging You In";
+    e.target.disabled = true;
   };
 
   const handleImageChangeButtonClick = async (e) => {
@@ -443,7 +447,7 @@ const Account = ({ pageurl }) => {
                           "#passwordLogin"
                         ).value;
 
-                      handleLogin(email, password);
+                      handleLogin(e, email, password);
                     }}
                   >
                     Login
