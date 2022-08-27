@@ -105,9 +105,10 @@ const Account = ({ pageurl }) => {
       body: JSON.stringify({ email, password }),
     });
 
-    let { data } = await res.json();
+    let { data, decryptedJWT } = await res.json();
     setUserData(data);
     console.log("🤔 > handleLogin > data", data);
+    console.log("🤔 > handleLogin > decryptedJWT", decryptedJWT);
     setChangedUserData(data);
 
     let passwordHash = data?.password;
