@@ -4,6 +4,7 @@ import FontAwesomeIcon, { faArrowLeft, faEdit } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 import Context from "../../utils/Context";
 import Image from "next/image";
+import jsonwebtoken from "jsonwebtoken";
 
 const Account = ({ pageurl }) => {
   const [UserData, setUserData] = useState({});
@@ -105,10 +106,12 @@ const Account = ({ pageurl }) => {
       body: JSON.stringify({ email, password }),
     });
 
-    let { data, decryptedJWT } = await res.json();
+    let { data, jwt } = await res.json();
     setUserData(data);
-    console.log("🤔 > handleLogin > data", data);
-    console.log("🤔 > handleLogin > decryptedJWT", decryptedJWT);
+    localStorage.setItem("jwt", jwt);
+    // console.log("🤔 > handleLogin > data", data);
+    // console.log("🤔 > handleLogin > decryptedJWT", decryptedJWT);
+    // console.log("🤔 > handleLogin > jwt", jwt);
     setChangedUserData(data);
 
     let passwordHash = data?.password;
@@ -182,7 +185,7 @@ const Account = ({ pageurl }) => {
       body: info,
     });
     let jsondata = await data.json();
-    console.log("🤔 > Account > jsondata", jsondata);
+    // console.log("🤔 > Account > jsondata", jsondata);
   };
   const handleSendOTP = (e) => {
     handleVerifyPhoneNumber(
@@ -213,6 +216,14 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
+
+  //todo
+  try {
+    let result = jsonwebtoken.verify(localStorage.getItem("jwt"), "secret123");
+    console.log(result);
+  } catch ({ name }) {
+    if (name === "TokenExpiredError") console.log(name);
+  }
 
   return (
     <div className={styles.maincontainer}>
