@@ -9,6 +9,7 @@ const Account = ({ pageurl }) => {
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
   const [LoginMessage, setLoginMessage] = useState("");
   const [SignupLoading, setSignupLoading] = useState(false);
+  const [showPINBox, setshowPINBox] = useState(false);
   const coverRef = useRef();
   const { IsAuthorized, setIsAuthorized, UserData, setUserData } =
     useContext(Context);
@@ -208,9 +209,11 @@ const Account = ({ pageurl }) => {
       setOTP(() => {
         return {
           ...OTP,
-          buttonText: "Send OTP Again",
+          buttonText: "OTP SENT! CHECK YOUR PHONE YOU IDIOT",
+          isLoading: true,
         };
       });
+      setshowPINBox(true);
 
       e.target.disabled = false;
     }, 2000);
@@ -274,6 +277,7 @@ const Account = ({ pageurl }) => {
                     {OTP.buttonText}
                   </button>
                 )}
+                {showPINBox && <input type="text"></input>}
               </label>
             </div>
             <div className={styles.submitBtn}>
