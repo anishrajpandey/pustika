@@ -107,8 +107,9 @@ const Account = ({ pageurl }) => {
 
     let { data } = await res.json();
     setUserData(data);
+    console.log("🤔 > handleLogin > data", data);
     setChangedUserData(data);
-    console.log(data);
+
     let passwordHash = data?.password;
 
     bcrypt.compare(password, passwordHash, (error, result) => {
@@ -124,6 +125,10 @@ const Account = ({ pageurl }) => {
     });
     e.target.textContent = "Logging You In";
     e.target.disabled = true;
+    setTimeout(() => {
+      e.target.textContent = "Log In";
+      e.target.disabled = false;
+    });
   };
 
   const handleImageChangeButtonClick = async (e) => {
