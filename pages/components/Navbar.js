@@ -15,8 +15,9 @@ const Navbar = () => {
       ? document.body.style.setProperty("--translateOffset", "-35px")
       : document.body.style.setProperty("--translateOffset", "-475px");
   }, [ToggleMenu]);
-  const { IsCartOpen, setIsCartOpen } = useContext(Context);
-  const { setUserData } = useContext(Context);
+  const { IsCartOpen, setIsCartOpen, setUserData, setIsAuthorized } =
+    useContext(Context);
+
   function authenticateWithJWT() {
     //todo
     try {
@@ -24,13 +25,17 @@ const Navbar = () => {
         localStorage.getItem("jwt"),
         "secret123"
       );
-      // setUserData(result)
+      setUserData(result?.data);
+      setIsAuthorized(true);
       console.log(result);
     } catch ({ name }) {
       if (name === "TokenExpiredError") console.log(name);
+      setIsAuthorized(false);
+      setUserData({});
     }
   }
-  authenticateWithJWT();
+
+  useEffect(authenticateWithJWT, []);
   return (
     <>
       <nav className={`${styles.navBarMain} main-navbar`}>

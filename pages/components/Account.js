@@ -224,7 +224,11 @@ const Account = ({ pageurl }) => {
             <div className={styles.topSection}>
               <div className={styles.userImage}>
                 <Image
-                  src={ChangedUserData?.userImage || "/assets/userImage.png"}
+                  src={
+                    ChangedUserData?.userImage ||
+                    UserData.userImage ||
+                    "/assets/userImage.png"
+                  }
                   width={"150"}
                   height={"150"}
                   alt="image unavailable"
