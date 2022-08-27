@@ -4,19 +4,18 @@ import FontAwesomeIcon, { faArrowLeft, faEdit } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
 import Context from "../../utils/Context";
 import Image from "next/image";
-import jsonwebtoken from "jsonwebtoken";
 
 const Account = ({ pageurl }) => {
-  const [UserData, setUserData] = useState({});
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
   const [LoginMessage, setLoginMessage] = useState("");
   const [SignupLoading, setSignupLoading] = useState(false);
   const coverRef = useRef();
-  const { IsAuthorized, setIsAuthorized } = useContext(Context);
+  const { IsAuthorized, setIsAuthorized, UserData, setUserData } =
+    useContext(Context);
   const [TranslateProperties, setTranslateProperties] = useState({
     coverOffset: "0",
   });
-  const [PP, setPP] = useState("");
+
   const [FormDataOBJ, setFormDataOBJ] = useState({});
   const [DescriptionProperties, setDescriptionProperties] = useState({
     title: "Login To Your Account",
@@ -70,7 +69,7 @@ const Account = ({ pageurl }) => {
     if (ChangedUserData?.phone?.length === 10) {
       setOTP({ ...OTP, pin: Math.round(Math.random() * 1000000).toString() });
     }
-    console.log(OTP.pin);
+    // console.log(OTP.pin);
   };
   const handleSignup = async (name, username, email, password) => {
     setSignupLoading(true);
@@ -216,14 +215,6 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
-
-  //todo
-  try {
-    let result = jsonwebtoken.verify(localStorage.getItem("jwt"), "secret123");
-    console.log(result);
-  } catch ({ name }) {
-    if (name === "TokenExpiredError") console.log(name);
-  }
 
   return (
     <div className={styles.maincontainer}>

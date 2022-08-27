@@ -6,6 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Context from "../../utils/Context";
 import { useContext } from "react";
 import Cart from "./Cart";
+import jsonwebtoken from "jsonwebtoken";
 
 const Navbar = () => {
   const [ToggleMenu, setToggleMenu] = useState(false);
@@ -15,7 +16,21 @@ const Navbar = () => {
       : document.body.style.setProperty("--translateOffset", "-475px");
   }, [ToggleMenu]);
   const { IsCartOpen, setIsCartOpen } = useContext(Context);
-
+  const { setUserData } = useContext(Context);
+  function authenticateWithJWT() {
+    //todo
+    try {
+      let result = jsonwebtoken.verify(
+        localStorage.getItem("jwt"),
+        "secret123"
+      );
+      // setUserData(result)
+      console.log(result);
+    } catch ({ name }) {
+      if (name === "TokenExpiredError") console.log(name);
+    }
+  }
+  authenticateWithJWT();
   return (
     <>
       <nav className={`${styles.navBarMain} main-navbar`}>

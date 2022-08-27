@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     let userData = await user.findOne({ email });
     //todo make environment variables for jwt secret key
-    const jwt = jsonwebtoken.sign({ userID: userData._id }, "secret123", {
+    const jwt = jsonwebtoken.sign({ data: userData }, "secret123", {
       expiresIn: "100s",
     });
 

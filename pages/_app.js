@@ -8,8 +8,6 @@ import ContextComponent from "./context/ContextComponent";
 import React from "react";
 config.autoAddCss = false;
 function MyApp({ Component, pageProps }) {
-  // const states = useContext(Context);
-  // console.log(states);
   return (
     <>
       <ContextComponent>
