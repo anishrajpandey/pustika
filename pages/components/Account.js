@@ -100,7 +100,7 @@ const Account = ({ pageurl }) => {
   const handleLogin = async (e, email, password) => {
     e.target.textContent = "logging you in";
     e.target.disabled = true;
-    let res = await fetch(`${pageurl}/api/getUserInfo`, {
+    let res = await fetch(`${pageurl}/api/login`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
     });

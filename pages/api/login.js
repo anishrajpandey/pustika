@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     let email = JSON.parse(req.body).email;
 
     let userData = await user.findOne({ email });
-    console.log(userData);
+
     const jwt = jsonwebtoken.sign({ userData }, "secret123");
     // console.log("🤔 > handler > jwt", jwt);
     const decryptedJWT = jsonwebtoken.verify(jwt, "secret123");
