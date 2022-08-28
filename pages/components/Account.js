@@ -270,17 +270,37 @@ const Account = ({ pageurl }) => {
                     });
                   }}
                 />
-                {ChangedUserData?.phone?.length === 10 && (
+                {/* for otp sending which is delegated */}
+                {/* {ChangedUserData?.phone?.length === 10 && (
                   <button className="btn-primary" onClick={handleSendOTP}>
                     {OTP.buttonText}
                   </button>
-                )}
-                {showPINBox && <input type="text"></input>}
+                )} */}
+              </label>
+              <label htmlFor="address">
+                Address:{" "}
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    setChangedUserData({
+                      ...ChangedUserData,
+                      address: e.target.value,
+                    });
+                    console.log(
+                      ChangedUserData?.address,
+                      ChangedUserData.phone
+                    );
+                  }}
+                ></input>
               </label>
             </div>
             <div className={styles.submitBtn}>
               <button
                 className="btn-primary"
+                disabled={
+                  ChangedUserData?.phone?.length !== 10 ||
+                  Object.keys(UserData).includes("phone")
+                }
                 onClick={async (e) => {
                   e.target.innerText = "Saving Changes";
                   e.target.disabled = true;
