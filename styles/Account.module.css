@@ -280,13 +280,20 @@ div.cover {
 .additionalInfo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  align-items: stretch;
+  justify-content: center;
   padding: 0 1rem;
 }
 .additionalInfo label {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 1rem;
+}
+.additionalInfo label:nth-child(2) > textarea {
+  height: 7em;
+  width: 71%;
+  resize: none;
+  font-size: 1.2rem;
 }
 .additionalInfo label input {
   font-size: 1.2rem;
@@ -308,9 +315,4 @@ div.cover {
 }
 .additionalInfo button:hover {
   background-color: aquamarine;
-}
-.additionalInfo label {
-  font-size: 1.2rem;
-
-  color: black;
 }

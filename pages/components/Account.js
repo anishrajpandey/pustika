@@ -108,6 +108,7 @@ const Account = ({ pageurl }) => {
 
     let { data, jwt } = await res.json();
     setUserData(data);
+    console.log(data);
     localStorage.setItem("jwt", jwt);
 
     setChangedUserData(data);
@@ -159,7 +160,7 @@ const Account = ({ pageurl }) => {
     );
     let { secure_url } = await data.json();
     console.log({ ...ChangedUserData, userImage: secure_url });
-    //setting the profile picture to mongodb
+    //setting the profile picture and other details to mongodb
     fetch(`${pageurl}/api/updateUser`, {
       method: "POST",
       body: JSON.stringify({ ...ChangedUserData, userImage: secure_url }),
@@ -279,8 +280,8 @@ const Account = ({ pageurl }) => {
               </label>
               <label htmlFor="address">
                 Address:{" "}
-                <input
-                  type="text"
+                <textarea
+                  placeholder="Be descriptive as possible"
                   onChange={(e) => {
                     setChangedUserData({
                       ...ChangedUserData,
@@ -291,7 +292,7 @@ const Account = ({ pageurl }) => {
                       ChangedUserData.phone
                     );
                   }}
-                ></input>
+                ></textarea>
               </label>
             </div>
             <div className={styles.submitBtn}>
