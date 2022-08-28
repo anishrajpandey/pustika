@@ -109,9 +109,7 @@ const Account = ({ pageurl }) => {
     let { data, jwt } = await res.json();
     setUserData(data);
     localStorage.setItem("jwt", jwt);
-    // console.log("🤔 > handleLogin > data", data);
-    // console.log("🤔 > handleLogin > decryptedJWT", decryptedJWT);
-    // console.log("🤔 > handleLogin > jwt", jwt);
+
     setChangedUserData(data);
 
     let passwordHash = data?.password;
