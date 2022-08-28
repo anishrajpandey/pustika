@@ -10,9 +10,9 @@ export default async function handler(req, res) {
     let email = JSON.parse(req.body).email;
 
     let userData = await user.findOne({ email });
-    //todo make environment variables for jwt secret key
+    //todo make environment variables for jwt secret  kiukey
     const jwt = jsonwebtoken.sign({ data: userData }, "secret123", {
-      expiresIn: "100s",
+      expiresIn: "30s",
     });
 
     const decryptedJWT = jsonwebtoken.verify(jwt, "secret123");
