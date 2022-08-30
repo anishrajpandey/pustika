@@ -19,7 +19,7 @@ const Navbar = () => {
     useContext(Context);
 
   function authenticateWithJWT() {
-    //todo jwt secret key to environment variables
+    //todo: store jwt secret key to environment variables
     try {
       let result = jsonwebtoken.verify(
         localStorage.getItem("jwt"),
