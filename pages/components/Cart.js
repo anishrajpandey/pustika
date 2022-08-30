@@ -181,5 +181,4 @@ const Cart = () => {
     </div>
   );
 };
-//hello this is a comment and i want to say  key
 export default Cart;
