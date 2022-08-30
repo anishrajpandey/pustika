@@ -19,7 +19,7 @@ const Navbar = () => {
     useContext(Context);
 
   function authenticateWithJWT() {
-    //todo
+    //todo change to environment variables
     try {
       let result = jsonwebtoken.verify(
         localStorage.getItem("jwt"),
