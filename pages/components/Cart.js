@@ -181,5 +181,5 @@ const Cart = () => {
     </div>
   );
 };
-//hello this is a comment and i want to say that the i button on my mechanical keyboard is not properly working hfahahahahah
+//hello this is a comment and i want to say  keyboard is not properly working hfahahahahah
 export default Cart;
