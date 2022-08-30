@@ -42,7 +42,6 @@ const Cart = () => {
   //   setCartItems(newArr);
   //   localStorage.setItem("cart", JSON.stringify({ CartItems }));
 
-  //   // setCartItems(JSON.parse(localStorage.getItem("cart"))?.newArr || []);
   // }
 
   useEffect(() => {
@@ -182,5 +181,5 @@ const Cart = () => {
     </div>
   );
 };
-
+//hello this is a comment and i want to say that the i button on my mechanical keyboard is not properly working hfahahahahah
 export default Cart;
