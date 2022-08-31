@@ -6,4 +6,3 @@ If you wanna support me, or my work,follow me or star this repo!
 
 [Visit Here](https://pustika.vercel.app)
 <br/>:)
-Haha lol
