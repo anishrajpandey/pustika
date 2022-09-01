@@ -34,7 +34,7 @@ const Navbar = () => {
       setUserData({});
     }
   }
-  // geo
+  //
 
   useEffect(authenticateWithJWT, []);
   return (
