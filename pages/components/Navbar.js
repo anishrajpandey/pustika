@@ -34,7 +34,6 @@ const Navbar = () => {
       setUserData({});
     }
   }
-  //
 
   useEffect(authenticateWithJWT, []);
   return (
