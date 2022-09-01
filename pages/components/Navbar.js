@@ -34,6 +34,7 @@ const Navbar = () => {
       setUserData({});
     }
   }
+  // gelod ffdjthd
 
   useEffect(authenticateWithJWT, []);
   return (
