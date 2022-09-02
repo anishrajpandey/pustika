@@ -63,8 +63,11 @@ const Account = ({ pageurl }) => {
     }
   };
   useEffect(() => {
-    getOTP();
-  }, [ChangedUserData]);
+    setTimeout(() => {
+      setChangedUserData(UserData);
+      console.log(ChangedUserData);
+    }, 1000);
+  }, [UserData]);
 
   const getOTP = () => {
     if (ChangedUserData?.phone?.length === 10) {
@@ -136,7 +139,7 @@ const Account = ({ pageurl }) => {
 
   const handleImageChangeButtonClick = async (e) => {
     const file = e.target.files[0];
-    
+
     const reader = new FileReader();
     let formData = new FormData();
 
@@ -262,13 +265,19 @@ const Account = ({ pageurl }) => {
                 Phone-no:
                 <input
                   type="number"
-                  value={ChangedUserData?.phone}
+                  //todo: uncomment this line once the phone number is fetched form database // value={ChangedUserData?.phone}
                   placeholder="Enter 10 digit phone number"
                   onChange={(e) => {
-                    setChangedUserData({
-                      ...ChangedUserData,
-                      phone: e.target.value,
+                    setChangedUserData((prev) => {
+                      return {
+                        ...prev,
+                        phone: e.target.value,
+                      };
                     });
+                    console.log(
+                      "🤔 > Account > ChangedUserData",
+                      ChangedUserData
+                    );
                   }}
                 />
                 {/* for otp sending which is delegated */}
@@ -283,10 +292,16 @@ const Account = ({ pageurl }) => {
                 <textarea
                   placeholder="Be descriptive as possible"
                   onChange={(e) => {
-                    setChangedUserData({
-                      ...ChangedUserData,
-                      address: e.target.value,
+                    setChangedUserData((prev) => {
+                      return {
+                        ...prev,
+                        address: e.target.value,
+                      };
                     });
+                    console.log(
+                      "🤔 > Account > ChangedUserData",
+                      ChangedUserData
+                    );
                   }}
                 ></textarea>
               </label>
