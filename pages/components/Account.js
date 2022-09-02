@@ -136,7 +136,7 @@ const Account = ({ pageurl }) => {
 
   const handleImageChangeButtonClick = async (e) => {
     const file = e.target.files[0];
-    console.log(file);
+    
     const reader = new FileReader();
     let formData = new FormData();
 
@@ -159,7 +159,7 @@ const Account = ({ pageurl }) => {
       }
     );
     let { secure_url } = await data.json();
-    console.log({ ...ChangedUserData, userImage: secure_url });
+    console.log(JSON.stringify({ ...ChangedUserData, userImage: secure_url }));
     //setting the profile picture and other details to mongodb
     fetch(`${pageurl}/api/updateUser`, {
       method: "POST",
@@ -287,10 +287,6 @@ const Account = ({ pageurl }) => {
                       ...ChangedUserData,
                       address: e.target.value,
                     });
-                    console.log(
-                      ChangedUserData?.address,
-                      ChangedUserData.phone
-                    );
                   }}
                 ></textarea>
               </label>
