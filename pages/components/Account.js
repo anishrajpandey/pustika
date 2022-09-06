@@ -34,6 +34,13 @@ const Account = ({ pageurl }) => {
     document.documentElement.style.setProperty("--displayPropSignup", "none");
     document.documentElement.style.setProperty("--displayPropLogin", "block");
   }, []);
+  const findUser = async (username) => {
+    let userData = await fetch(`${pageurl}/api/findUser`, {
+      method: "POST",
+      body: JSON.stringify({ username }),
+    });
+    return await userData.json();
+  };
   const handleClick = (e) => {
     if (e.target.id === "signup") {
       setTranslateProperties({ coverOffset: "50%" });
@@ -63,11 +70,13 @@ const Account = ({ pageurl }) => {
     }
   };
   useEffect(() => {
-    setTimeout(() => {
-      setChangedUserData(UserData);
-      console.log(ChangedUserData);
-    }, 1000);
-  }, [UserData]);
+    //for complete user data
+
+    setTimeout(async () => {
+      console.log(UserData, ChangedUserData);
+      console.log(await findUser(UserData.username));
+    }, 2000);
+  }, []);
 
   const getOTP = () => {
     if (ChangedUserData?.phone?.length === 10) {
@@ -75,6 +84,7 @@ const Account = ({ pageurl }) => {
     }
     // console.log(OTP.pin);
   };
+
   const handleSignup = async (name, username, email, password) => {
     setSignupLoading(true);
     let salt = bcrypt.genSaltSync(10);
@@ -171,24 +181,23 @@ const Account = ({ pageurl }) => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
-  const handleVerifyPhoneNumber = async (
-    e,
-    sender = "+19379155657",
-    receiver = "+9779866041467",
-    text = "hello world"
-  ) => {
-    let info = JSON.stringify({
-      from: sender,
-      to: receiver,
-      message: text,
-    });
-    let data = await fetch(`${pageurl}/api/twilio`, {
-      method: "POST",
-      body: info,
-    });
-    let jsondata = await data.json();
-    // console.log("🤔 > Account > jsondata", jsondata);
-  };
+  // const handleVerifyPhoneNumber = async (
+  //   e,
+  //   sender = "+19379155657",
+  //   receiver = "+9779866041467",
+  //   text = "hello world"
+  // ) => {
+  //   let info = JSON.stringify({
+  //     from: sender,
+  //     to: receiver,
+  //     message: text,
+  //   });
+  //   let data = await fetch(`${pageurl}/api/twilio`, {
+  //     method: "POST",
+  //     body: info,
+  //   });
+  //   let jsondata = await data.json();
+  // };
   const handleSendOTP = (e) => {
     handleVerifyPhoneNumber(
       e,
@@ -220,7 +229,6 @@ const Account = ({ pageurl }) => {
       e.target.disabled = false;
     }, 2000);
   };
-
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
@@ -265,7 +273,7 @@ const Account = ({ pageurl }) => {
                 Phone-no:
                 <input
                   type="number"
-                  //todo: uncomment this line once the phone number is fetched form database // value={ChangedUserData?.phone}
+                  value={ChangedUserData?.phone || ""}
                   placeholder="Enter 10 digit phone number"
                   onChange={(e) => {
                     setChangedUserData((prev) => {
@@ -274,22 +282,13 @@ const Account = ({ pageurl }) => {
                         phone: e.target.value,
                       };
                     });
-                    console.log(
-                      "🤔 > Account > ChangedUserData",
-                      ChangedUserData
-                    );
                   }}
                 />
-                {/* for otp sending which is delegated */}
-                {/* {ChangedUserData?.phone?.length === 10 && (
-                  <button className="btn-primary" onClick={handleSendOTP}>
-                    {OTP.buttonText}
-                  </button>
-                )} */}
               </label>
               <label htmlFor="address">
                 Address:{" "}
                 <textarea
+                  value={ChangedUserData?.address || ""}
                   placeholder="Be descriptive as possible"
                   onChange={(e) => {
                     setChangedUserData((prev) => {
@@ -298,10 +297,6 @@ const Account = ({ pageurl }) => {
                         address: e.target.value,
                       };
                     });
-                    console.log(
-                      "🤔 > Account > ChangedUserData",
-                      ChangedUserData
-                    );
                   }}
                 ></textarea>
               </label>
@@ -309,10 +304,7 @@ const Account = ({ pageurl }) => {
             <div className={styles.submitBtn}>
               <button
                 className="btn-primary"
-                disabled={
-                  ChangedUserData?.phone?.length !== 10 ||
-                  Object.keys(UserData).includes("phone")
-                }
+                disabled={ChangedUserData?.phone?.length !== 10}
                 onClick={async (e) => {
                   e.target.innerText = "Saving Changes";
                   e.target.disabled = true;
@@ -323,10 +315,19 @@ const Account = ({ pageurl }) => {
               >
                 Save
               </button>
+              <button
+                onClick={async () => {
+                  console.log(ChangedUserData);
+                  console.log(await findUser(ChangedUserData.username));
+                }}
+              >
+                Test
+              </button>
             </div>
           </div>
         </div>
       )}
+      {/* hi  */}
 
       {!IsAuthorized && (
         <div className={styles.signupOrLogin}>

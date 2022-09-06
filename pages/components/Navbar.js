@@ -26,8 +26,10 @@ const Navbar = () => {
         "secret123"
       );
       setUserData(result?.data);
+      console.log(
+        "heyy@! I am from navbar and i have successfully set the state variable of userdata"
+      );
       setIsAuthorized(true);
-      console.log(result);
     } catch ({ name }) {
       if (name === "TokenExpiredError") console.log(name);
       setIsAuthorized(false);
