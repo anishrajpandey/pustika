@@ -327,7 +327,7 @@ const Account = ({ pageurl }) => {
           </div>
         </div>
       )}
-      {/* h vhf  */}
+      {/* h f  */}
 
       {!IsAuthorized && (
         <div className={styles.signupOrLogin}>
