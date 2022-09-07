@@ -518,7 +518,7 @@ const Account = ({ pageurl }) => {
     </div>
   );
 };
-// hello this is a comment to edi
+// hello this is a commedi
 export default Account;
 export async function getServerSideProps() {
   return {
