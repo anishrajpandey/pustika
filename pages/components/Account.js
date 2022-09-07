@@ -518,7 +518,7 @@ const Account = ({ pageurl }) => {
     </div>
   );
 };
-// hello this a commedi
+
 export default Account;
 export async function getServerSideProps() {
   return {
