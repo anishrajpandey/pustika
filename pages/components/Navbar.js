@@ -116,7 +116,6 @@ const Navbar = () => {
                   layout={"fixed"}
                 ></Image>
               </a>
-              {/**/}
             </Link>
           </div>
         </div>
