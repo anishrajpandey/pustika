@@ -15,8 +15,13 @@ const Navbar = () => {
       ? document.body.style.setProperty("--translateOffset", "-35px")
       : document.body.style.setProperty("--translateOffset", "-475px");
   }, [ToggleMenu]);
-  const { IsCartOpen, setIsCartOpen, setUserData, setIsAuthorized } =
-    useContext(Context);
+  const {
+    IsCartOpen,
+    setIsCartOpen,
+    setUserData,
+    setIsAuthorized,
+    IsAuthorized,
+  } = useContext(Context);
 
   function authenticateWithJWT() {
     //todo: store jwt secret key to environment variables
@@ -26,9 +31,7 @@ const Navbar = () => {
         "secret123"
       );
       setUserData(result?.data);
-      console.log(
-        "heyy@! I am from navbar and i have successfully set the state variable of userdata"
-      );
+
       setIsAuthorized(true);
     } catch ({ name }) {
       if (name === "TokenExpiredError") console.log(name);
@@ -113,6 +116,7 @@ const Navbar = () => {
                   layout={"fixed"}
                 ></Image>
               </a>
+              {/* hei  */}
             </Link>
           </div>
         </div>
