@@ -181,23 +181,7 @@ const Account = ({ pageurl }) => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
-  // const handleVerifyPhoneNumber = async (
-  //   e,
-  //   sender = "+19379155657",
-  //   receiver = "+9779866041467",
-  //   text = "hello world"
-  // ) => {
-  //   let info = JSON.stringify({
-  //     from: sender,
-  //     to: receiver,
-  //     message: text,
-  //   });
-  //   let data = await fetch(`${pageurl}/api/twilio`, {
-  //     method: "POST",
-  //     body: info,
-  //   });
-  //   let jsondata = await data.json();
-  // };
+
   const handleSendOTP = (e) => {
     handleVerifyPhoneNumber(
       e,
