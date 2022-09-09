@@ -185,7 +185,7 @@ div.cover {
 /* for account dashboard */
 .accountDashBoard {
   width: 100vw;
-  height: calc(100vh - 45px);
+  height: fit-content;
 
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
@@ -268,8 +268,7 @@ div.cover {
   font-size: 1rem;
 }
 .maincontainer .mainDashboard .submitBtn {
-  position: absolute;
-  bottom: 5px;
+  margin-bottom: 5px;
   width: 100%;
   text-align: center;
 }
@@ -283,23 +282,29 @@ div.cover {
   align-items: stretch;
   justify-content: center;
   padding: 0 1rem;
+  background-color: rgba(200, 0, 255, 0.177);
+  padding-block: 1em;
 }
 .additionalInfo label {
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1rem;
+  display: flex;
+  gap: 3px;
 }
 .additionalInfo label:nth-child(2) > textarea {
   height: 7em;
   width: 71%;
   resize: none;
   font-size: 1.2rem;
+  border: 0 !important;
 }
 .additionalInfo label input {
   font-size: 1.2rem;
   width: 70%;
   height: 35px;
   padding: 1rem;
+  border: 0;
 }
 .additionalInfo label input::-webkit-scrollbar {
   display: none;

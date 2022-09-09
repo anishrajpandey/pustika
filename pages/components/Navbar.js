@@ -40,7 +40,9 @@ const Navbar = () => {
     }
   }
 
-  useEffect(authenticateWithJWT, []);
+  useEffect(() => {
+    authenticateWithJWT();
+  }, []);
   return (
     <>
       <nav className={`${styles.navBarMain} main-navbar`}>

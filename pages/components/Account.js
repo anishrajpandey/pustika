@@ -70,13 +70,9 @@ const Account = ({ pageurl }) => {
     }
   };
   useEffect(() => {
-    //for complete user data
-
-    setTimeout(async () => {
-      console.log(UserData, ChangedUserData);
-      console.log(await findUser(UserData.username));
-    }, 2000);
-  }, []);
+    // for setting userdata everytime the page refreshes
+    setChangedUserData(UserData);
+  }, [UserData]);
 
   const getOTP = () => {
     if (ChangedUserData?.phone?.length === 10) {
@@ -301,6 +297,7 @@ const Account = ({ pageurl }) => {
               </button>
               <button
                 onClick={async () => {
+                  console.log("🤔 > onClick={ > UserData", UserData);
                   console.log(ChangedUserData);
                   console.log(await findUser(ChangedUserData.username));
                 }}
