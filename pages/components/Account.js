@@ -280,30 +280,29 @@ const Account = ({ pageurl }) => {
                   }}
                 ></textarea>
               </label>
-            </div>
-            <div className={styles.submitBtn}>
-              <button
-                className="btn-primary"
-                disabled={ChangedUserData?.phone?.length !== 10}
-                onClick={async (e) => {
-                  e.target.innerText = "Saving Changes";
-                  e.target.disabled = true;
-                  await handleSaveChanges();
-                  e.target.innerText = "Save Changes";
-                  e.target.disabled = false;
-                }}
-              >
-                Save
-              </button>
-              <button
-                onClick={async () => {
-                  console.log("🤔 > onClick={ > UserData", UserData);
-                  console.log(ChangedUserData);
-                  console.log(await findUser(ChangedUserData.username));
-                }}
-              >
-                Test
-              </button>
+              <div className={styles.submitBtn}>
+                <button
+                  className="btn-primary"
+                  onClick={async (e) => {
+                    e.target.innerText = "Saving Changes";
+                    e.target.disabled = true;
+                    await handleSaveChanges();
+                    e.target.innerText = "Save Changes";
+                    e.target.disabled = false;
+                  }}
+                >
+                  Save
+                </button>
+                {/* <button
+                  onClick={async () => {
+                    console.log("🤔 > onClick={ > UserData", UserData);
+                    console.log(ChangedUserData);
+                    console.log(await findUser(ChangedUserData.username));
+                  }}
+                >
+                  Test
+                </button> */}
+              </div>
             </div>
           </div>
         </div>
