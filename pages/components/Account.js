@@ -291,7 +291,7 @@ const Account = ({ pageurl }) => {
                     e.target.disabled = false;
                   }}
                 >
-                  Save
+                  Save..
                 </button>
               </div>
             </div>
