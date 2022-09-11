@@ -296,7 +296,6 @@ const Account = ({ pageurl }) => {
                 {/* <button
                   onClick={async () => {
                     console.log("🤔 > onClick={ > UserData", UserData);
-                    console.log(ChangedUserData);
                     console.log(await findUser(ChangedUserData.username));
                   }}
                 >
