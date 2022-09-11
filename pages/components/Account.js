@@ -293,13 +293,6 @@ const Account = ({ pageurl }) => {
                 >
                   Save
                 </button>
-                {/* <button
-                  onClick={async () => {
-                  
-                  }}
-                >
-                  Test
-                </button> */}
               </div>
             </div>
           </div>
