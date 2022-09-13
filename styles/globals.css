@@ -41,3 +41,8 @@ a {
 button:disabled {
   background-color: gray !important;
 }
+@media (max-width: 540px) {
+  body {
+    padding-top: 80px;
+  }
+}

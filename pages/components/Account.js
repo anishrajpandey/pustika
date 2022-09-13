@@ -120,13 +120,12 @@ const Account = ({ pageurl }) => {
     console.log(data);
     localStorage.setItem("jwt", jwt);
 
-    setChangedUserData(data);
-
     let passwordHash = data?.password;
 
     bcrypt.compare(password, passwordHash, (error, result) => {
       if (result) {
         setIsAuthorized(result);
+        setChangedUserData(data);
       } else {
         setLoginMessage("Invalid UserName or Password");
         setTimeout(() => {

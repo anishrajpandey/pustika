@@ -93,6 +93,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        (
         <div className={styles.accountName}>
           <Link href={"/components/Account"}>
             <div className={styles.imageContainer}>
@@ -109,7 +110,7 @@ const Navbar = () => {
             <HiOutlineLogout />
           </div>
         </div>
-
+        )
         <div className={styles.cart}>
           <Link href={"/components/SellBooks"} passHref>
             <button

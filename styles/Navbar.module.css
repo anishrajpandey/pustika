@@ -160,3 +160,14 @@ div.cart > * {
 .navBarMain .accountName .logout:hover svg {
   fill: white;
 }
+@media (max-width: 540px) {
+  .navBarMain {
+    height: 100px !important;
+  }
+  .navBarMain .accountName {
+    height: 50%;
+  }
+  .navBarMain > * {
+    position: static;
+  }
+}
