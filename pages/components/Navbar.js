@@ -89,7 +89,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.accountName}>
-          <Image src={UserData.userImage}></Image>
+          <Image
+            src={UserData.userImage || "/assets/userImage.png"}
+            layout={"fill"}
+            alt="profile picture not found"
+          ></Image>
           UserName
         </div>
 

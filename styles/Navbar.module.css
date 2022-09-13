@@ -121,3 +121,9 @@ div.cart > * {
   margin-right: 1rem;
 }
 /* Hellow world */
+.navBarMain .accountName {
+  position: relative;
+  width: 200px;
+  aspect-ratio: 1/1;
+  background-color: red !important;
+}
