@@ -152,7 +152,6 @@ div.cart > * {
   margin-left: 15px;
 }
 .navBarMain .accountName .logout svg {
-  /* width: 50px; */
   stroke: white;
   font-size: 1.4em;
   cursor: pointer;
