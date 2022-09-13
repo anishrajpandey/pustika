@@ -21,6 +21,7 @@ const Navbar = () => {
     setUserData,
     setIsAuthorized,
     IsAuthorized,
+    UserData,
   } = useContext(Context);
 
   function authenticateWithJWT() {
@@ -87,6 +88,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        <div className={styles.accountName}>
+          <Image src={UserData.userImage}></Image>
+          UserName
+        </div>
+
         <div className={styles.cart}>
           <Link href={"/components/SellBooks"} passHref>
             <button
