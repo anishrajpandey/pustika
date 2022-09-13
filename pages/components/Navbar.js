@@ -89,12 +89,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.accountName}>
-          <Image
-            src={UserData.userImage || "/assets/userImage.png"}
-            layout={"fill"}
-            alt="profile picture not found"
-          ></Image>
-          UserName
+          <div className={styles.imageContainer}>
+            <Image
+              src={UserData.userImage || "/assets/userImage.png"}
+              layout={"fill"}
+              alt="profile picture not found"
+            ></Image>
+          </div>
+          <div>{UserData.name}</div>
         </div>
 
         <div className={styles.cart}>

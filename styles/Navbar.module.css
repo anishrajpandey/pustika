@@ -25,6 +25,10 @@ nav.navBarMain,
   top: 0;
   z-index: 99;
 }
+nav.navBarMain,
+.menu {
+  /* flex-basis: 500px; */
+}
 nav.navBarMain {
   background-color: rgba(0, 0, 0, 0.88);
   justify-content: space-between;
@@ -122,8 +126,20 @@ div.cart > * {
 }
 /* Hellow world */
 .navBarMain .accountName {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navBarMain .accountName .imageContainer {
   position: relative;
-  width: 200px;
-  aspect-ratio: 1/1;
-  background-color: red !important;
+  aspect-ratio: 1;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: red;
+}
+.navBarMain .accountName div:last-child {
+  color: white;
+
+  height: 100%;
 }
