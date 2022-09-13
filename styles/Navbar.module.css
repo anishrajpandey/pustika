@@ -128,7 +128,8 @@ div.cart > * {
 .navBarMain .accountName {
   height: 100%;
   display: flex;
-  align-items: center;
+
+  justify-content: center;
 }
 .navBarMain .accountName .imageContainer {
   position: relative;
@@ -136,10 +137,26 @@ div.cart > * {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background-color: red;
+  cursor: pointer;
 }
-.navBarMain .accountName div:last-child {
+.navBarMain .accountName div.name {
   color: white;
-
+  display: grid;
+  place-items: center;
   height: 100%;
+  margin-left: 12px;
+}
+.navBarMain .accountName .logout {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.navBarMain .accountName .logout svg {
+  /* width: 50px; */
+  stroke: white;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+.navBarMain .accountName .logout:hover svg {
+  fill: white;
 }

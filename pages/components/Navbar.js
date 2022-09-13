@@ -7,6 +7,7 @@ import Context from "../../utils/Context";
 import { useContext } from "react";
 import Cart from "./Cart";
 import jsonwebtoken from "jsonwebtoken";
+import { HiOutlineLogout } from "react-icons/hi";
 
 const Navbar = () => {
   const [ToggleMenu, setToggleMenu] = useState(false);
@@ -23,7 +24,11 @@ const Navbar = () => {
     IsAuthorized,
     UserData,
   } = useContext(Context);
-
+  const handleLogout = () => {
+    setIsAuthorized(false);
+    setUserData({});
+    localStorage.setItem("jwt", "");
+  };
   function authenticateWithJWT() {
     //todo: store jwt secret key to environment variables
     try {
@@ -84,19 +89,25 @@ const Navbar = () => {
               <Link href={"/components/Categories"}>Categories</Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href={"/components/Account"}>Account</Link>
+              <Link href={"/components/Account"}>More</Link>
             </li>
           </ul>
         </div>
         <div className={styles.accountName}>
-          <div className={styles.imageContainer}>
-            <Image
-              src={UserData.userImage || "/assets/userImage.png"}
-              layout={"fill"}
-              alt="profile picture not found"
-            ></Image>
+          <Link href={"/components/Account"}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={UserData.userImage || "/assets/userImage.png"}
+                layout={"fill"}
+                alt="profile picture not found"
+              ></Image>
+            </div>
+          </Link>
+
+          <div className={styles.name}>{UserData.name}</div>
+          <div className={styles.logout} onClick={handleLogout}>
+            <HiOutlineLogout />
           </div>
-          <div>{UserData.name}</div>
         </div>
 
         <div className={styles.cart}>
