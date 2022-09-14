@@ -143,6 +143,8 @@ const Account = ({ pageurl }) => {
   };
 
   const handleImageChangeButtonClick = async (e) => {
+    let prevImage = e.target;
+    console.log("🤔 > handleImageChangeButtonClick > prevImage", prevImage);
     const file = e.target.files[0];
 
     const reader = new FileReader();
@@ -152,6 +154,7 @@ const Account = ({ pageurl }) => {
     formData.append("upload_preset", "profile_pictures");
     setFormDataOBJ(formData);
     reader.readAsDataURL(file);
+
     reader.onloadend = () => {
       setChangedUserData({ ...ChangedUserData, userImage: reader.result });
     };
@@ -175,6 +178,7 @@ const Account = ({ pageurl }) => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    setUserData({ ...ChangedUserData, userImage: secure_url });
   };
 
   const handleSendOTP = (e) => {
@@ -291,6 +295,12 @@ const Account = ({ pageurl }) => {
                   }}
                 >
                   Save..
+                </button>
+                <button
+                  className="btn-primary"
+                  onClick={handleImageChangeButtonClick}
+                >
+                  test
                 </button>
               </div>
             </div>
