@@ -1,10 +1,10 @@
-import styles from "./../../styles/Account.module.css";
-import { useState, useRef, useEffect, useContext } from "react";
-import FontAwesomeIcon, { faArrowLeft, faEdit } from "./assets/FontAwesome";
 import bcrypt from "bcryptjs";
-import Context from "../../utils/Context";
 import Image from "next/image";
-
+import { useContext, useEffect, useRef, useState } from "react";
+import Context from "../../utils/Context";
+import styles from "./../../styles/Account.module.css";
+import FontAwesomeIcon, { faArrowLeft, faEdit } from "./assets/FontAwesome";
+import jsonwebtoken from "jsonwebtoken";
 const Account = ({ pageurl }) => {
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
   const [LoginMessage, setLoginMessage] = useState("");
@@ -108,8 +108,10 @@ const Account = ({ pageurl }) => {
     }, 2000);
   };
   const handleLogin = async (e, email, password) => {
-    e.target.textContent = "logging you in";
-    e.target.disabled = true;
+    if (e) {
+      e.target.textContent = "logging you in";
+      e.target.disabled = true;
+    }
     let res = await fetch(`${pageurl}/api/login`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
@@ -134,12 +136,14 @@ const Account = ({ pageurl }) => {
       }
       console.log("YOU ARE", result ? "" : "NOT", "AURHORIZED!");
     });
-    e.target.textContent = "Logging You In";
-    e.target.disabled = true;
-    setTimeout(() => {
-      e.target.textContent = "Log In";
-      e.target.disabled = false;
-    });
+    if (e) {
+      e.target.textContent = "Logging You In";
+      e.target.disabled = true;
+      setTimeout(() => {
+        e.target.textContent = "Log In";
+        e.target.disabled = false;
+      });
+    }
   };
 
   const handleImageChangeButtonClick = async (e) => {
@@ -186,8 +190,33 @@ const Account = ({ pageurl }) => {
       .then((res) => res.json())
       .then((data) => console.log(data));
     setUserData({ ...ChangedUserData, userImage: secure_url });
+    console.log(
+      "hereee",
+      ChangedUserData.email,
+      (UserData.password, "secret123")
+    );
+    // handleLogin(
+    //   false,
+    //   ChangedUserData.email,
+    //   jsonwebtoken.verify(ChangedUserData.password, "secret123")
+    // );
   };
+  function authenticateWithJWT() {
+    //todo: store jwt secret key to environment variables
+    try {
+      let result = jsonwebtoken.verify(
+        localStorage.getItem("jwt"),
+        "secret123"
+      );
+      setUserData(result?.data);
 
+      setIsAuthorized(true);
+    } catch ({ name }) {
+      if (name === "TokenExpiredError") console.log(name);
+      setIsAuthorized(false);
+      setUserData({});
+    }
+  }
   // const handleSendOTP = (e) => {
   //   handleVerifyPhoneNumber(
   //     e,
