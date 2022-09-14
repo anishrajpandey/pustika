@@ -296,12 +296,6 @@ const Account = ({ pageurl }) => {
                 >
                   Save..
                 </button>
-                <button
-                  className="btn-primary"
-                  onClick={handleImageChangeButtonClick}
-                >
-                  test
-                </button>
               </div>
             </div>
           </div>
