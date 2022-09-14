@@ -9,7 +9,7 @@ const Account = ({ pageurl }) => {
   const [SignupMessage, setSignupmessage] = useState({ Message: "", type: "" });
   const [LoginMessage, setLoginMessage] = useState("");
   const [SignupLoading, setSignupLoading] = useState(false);
-  const [showPINBox, setshowPINBox] = useState(false);
+  const [IsImageChanged, setIsImageChanged] = useState(false);
   const coverRef = useRef();
   const { IsAuthorized, setIsAuthorized, UserData, setUserData } =
     useContext(Context);
@@ -143,6 +143,7 @@ const Account = ({ pageurl }) => {
   };
 
   const handleImageChangeButtonClick = async (e) => {
+    setIsImageChanged(true);
     let prevImage = e.target;
     console.log("🤔 > handleImageChangeButtonClick > prevImage", prevImage);
     const file = e.target.files[0];
@@ -162,14 +163,20 @@ const Account = ({ pageurl }) => {
   const handleSaveChanges = async () => {
     //posting the profile picture to cloudinary
     console.log(FormDataOBJ);
-    let data = await fetch(
-      "https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload",
-      {
-        method: "POST",
-        body: FormDataOBJ,
-      }
-    );
-    let { secure_url } = await data.json();
+    if (IsImageChanged) {
+      let data = await fetch(
+        "https://api.cloudinary.com/v1_1/ddlejmdqj/image/upload",
+        {
+          method: "POST",
+          body: FormDataOBJ,
+        }
+      );
+      var { secure_url } = await data.json();
+    } else {
+      var secure_url = ChangedUserData?.userImage || UserData.userImage;
+    }
+    console.log("here");
+
     console.log(JSON.stringify({ ...ChangedUserData, userImage: secure_url }));
     //setting the profile picture and other details to mongodb
     fetch(`${pageurl}/api/updateUser`, {
@@ -181,37 +188,37 @@ const Account = ({ pageurl }) => {
     setUserData({ ...ChangedUserData, userImage: secure_url });
   };
 
-  const handleSendOTP = (e) => {
-    handleVerifyPhoneNumber(
-      e,
-      "+19379155657",
-      `+977${ChangedUserData?.phone}`,
-      `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`
-    );
-    console.log("otp pin", OTP.pin);
-    getOTP();
-    console.log(ChangedUserData?.phone);
+  // const handleSendOTP = (e) => {
+  //   handleVerifyPhoneNumber(
+  //     e,
+  //     "+19379155657",
+  //     `+977${ChangedUserData?.phone}`,
+  //     `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`
+  //   );
+  //   console.log("otp pin", OTP.pin);
+  //   getOTP();
+  //   console.log(ChangedUserData?.phone);
 
-    setOTP(() => {
-      return {
-        ...OTP,
-        buttonText: "Sending OTP",
-      };
-    });
-    e.target.disabled = true;
-    setTimeout(() => {
-      setOTP(() => {
-        return {
-          ...OTP,
-          buttonText: "OTP SENT! CHECK YOUR PHONE YOU IDIOT",
-          isLoading: true,
-        };
-      });
-      setshowPINBox(true);
+  //   setOTP(() => {
+  //     return {
+  //       ...OTP,
+  //       buttonText: "Sending OTP",
+  //     };
+  //   });
+  //   e.target.disabled = true;
+  //   setTimeout(() => {
+  //     setOTP(() => {
+  //       return {
+  //         ...OTP,
+  //         buttonText: "OTP SENT! CHECK YOUR PHONE YOU IDIOT",
+  //         isLoading: true,
+  //       };
+  //     });
+  //     setshowPINBox(true);
 
-      e.target.disabled = false;
-    }, 2000);
-  };
+  //     e.target.disabled = false;
+  //   }, 2000);
+  // };
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
