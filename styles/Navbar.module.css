@@ -34,7 +34,7 @@ nav.navBarMain {
   justify-content: space-between;
   padding-inline: 2rem;
   height: 45px;
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
 }
 .menu > ul {
@@ -168,5 +168,10 @@ div.cart > * {
   }
   .navBarMain > * {
     position: static;
+  }
+  nav.navBarMain {
+    background-color: rgba(0, 0, 0, 1);
+
+    position: absolute;
   }
 }
