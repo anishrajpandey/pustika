@@ -217,14 +217,7 @@ const Account = ({ pageurl }) => {
       setUserData({});
     }
   }
-  
-  //       buttonText: "Sending OTP",
-  //     };
-  //   });
-  //   e.target.disabled = true;
-  //   setTimeout(() => {
-  //     setOTP(() => {
-  //       return {
+
   //         ...OTP,
   //         buttonText: "OTP SENT! CHECK YOUR PHONE YOU IDIOT",
   //         isLoading: true,
