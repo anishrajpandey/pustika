@@ -217,15 +217,7 @@ const Account = ({ pageurl }) => {
       setUserData({});
     }
   }
-  // const handleSendOTP = (e) => {
-  //   handleVerifyPhoneNumber(
-  //     e,
-  //     "+19379155657",
-  //     `+977${ChangedUserData?.phone}`,
-  //     `DEAR ${UserData?.name}, Your OTP for phone verification is ${OTP.pin}`
-  //   );
-  //   console.log("otp pin", OTP.pin);
-  //   getOTP();
+  // c
   //   console.log(ChangedUserData?.phone);
 
   //   setOTP(() => {
