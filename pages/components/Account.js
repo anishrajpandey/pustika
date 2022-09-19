@@ -218,7 +218,6 @@ const Account = ({ pageurl }) => {
     }
   }
 
-  // };
   return (
     <div className={styles.maincontainer}>
       {IsAuthorized && (
