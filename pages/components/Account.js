@@ -218,15 +218,6 @@ const Account = ({ pageurl }) => {
     }
   }
 
-  //         ...OTP,
-  //         buttonText: "OTP SENT! CHECK YOUR PHONE YOU IDIOT",
-  //         isLoading: true,
-  //       };
-  //     });
-  //     setshowPINBox(true);
-
-  //     e.target.disabled = false;
-  //   }, 2000);
   // };
   return (
     <div className={styles.maincontainer}>
