@@ -217,12 +217,7 @@ const Account = ({ pageurl }) => {
       setUserData({});
     }
   }
-  // c
-  //   console.log(ChangedUserData?.phone);
-
-  //   setOTP(() => {
-  //     return {
-  //       ...OTP,
+  
   //       buttonText: "Sending OTP",
   //     };
   //   });
