@@ -7,7 +7,7 @@ const Categories = () => {
       <div>
         Inspirational
         <div>
-          Motivational
+          Humor
           <div>
             Science-Fiction
             <div>
