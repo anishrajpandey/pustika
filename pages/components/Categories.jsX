@@ -12,7 +12,7 @@ const Categories = () => {
             Science-Fiction
             <div>
               Self Improvement
-              <div></div>
+              <div>Literature</div>
             </div>
           </div>
         </div>
