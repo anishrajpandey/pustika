@@ -5,9 +5,13 @@ const Categories = () => {
     <div>
       Categories
       <div>
+        Inspirational
         <div>
+          Motivational
           <div>
+            Science-Fiction
             <div>
+              Self Improvement
               <div></div>
             </div>
           </div>
