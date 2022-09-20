@@ -3,7 +3,7 @@ import React from "react";
 const Categories = () => {
   return (
     <div>
-      <b>Categories...</b>
+      <b>Explore more Categories...</b>
       <div>
         Inspirational
         <div>
