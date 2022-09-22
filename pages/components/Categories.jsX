@@ -19,7 +19,7 @@ const Categories = () => {
       </div>
     </div>
   );
-  //
+  //as
 };
 
 export default Categories;
