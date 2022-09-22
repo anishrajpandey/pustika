@@ -19,7 +19,7 @@ const Categories = () => {
       </div>
     </div>
   );
-  // rgf 
+  //
 };
 
 export default Categories;
