@@ -19,7 +19,6 @@ const Categories = () => {
       </div>
     </div>
   );
-  //
 };
 
 export default Categories;
