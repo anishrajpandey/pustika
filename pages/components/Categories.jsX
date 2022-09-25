@@ -20,6 +20,6 @@ const Categories = () => {
     </div>
   );
 };
-// iu
+// i
 
 export default Categories;
