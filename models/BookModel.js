@@ -13,7 +13,7 @@ const BookSchema = new Schema(
     rating: { type: Number },
     isOnCart: { type: Boolean, default: false },
     qtyOnCart: Number,
-    addedBy: userSchema,
+    seller: userSchema,
   },
   { timestamps: true }
 );
