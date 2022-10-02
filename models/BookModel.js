@@ -1,4 +1,8 @@
 import mongoose, { Schema, model, models } from "mongoose";
+const userSchema = new Schema({
+  userName: String,
+  id: Number,
+});
 const BookSchema = new Schema(
   {
     id: String,
@@ -9,14 +13,10 @@ const BookSchema = new Schema(
     rating: { type: Number },
     isOnCart: { type: Boolean, default: false },
     qtyOnCart: Number,
-    addedBy: {
-      user: String,
-      id: Number,
-    },
+    addedBy: userSchema,
   },
   { timestamps: true }
 );
 mongoose.pluralize(null);
-
 let bookData = models.bookData || model("bookData", BookSchema, "bookData");
 export default bookData;
