@@ -72,6 +72,7 @@ const Account = ({ pageurl }) => {
   useEffect(() => {
     // for setting userdata everytime the page refreshes
     setChangedUserData(UserData);
+    console.log(UserData);
   }, [UserData]);
 
   const getOTP = () => {

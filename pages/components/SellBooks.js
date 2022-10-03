@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import styles from "./../../styles/SellBooks.module.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useContext } from "react";
+import Context from "./../../utils/Context";
 import Image from "next/image";
 
 const SellBooks = ({ pageURL }) => {
@@ -10,7 +11,7 @@ const SellBooks = ({ pageURL }) => {
   const [Description, setDescription] = useState();
   const [image, setimage] = useState();
   const [Price, setPrice] = useState(0);
-
+  const { UserData } = useContext(Context);
   const previewImageRef = useRef();
   const inputFileRef = useRef();
   const handleSubmit = async (e) => {
@@ -54,6 +55,7 @@ const SellBooks = ({ pageURL }) => {
         description: Description,
         price: Price,
         imageURL: imgurl,
+        seller: UserData._id,
       }),
     });
 
