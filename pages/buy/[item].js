@@ -69,6 +69,27 @@ const BuyItem = ({ url }) => {
             ></FontAwesomeIcon>
           </button>
         </div>
+        <div className={styles.sellerInfo}>
+          <h2 align="center">Seller Information</h2>
+          <div>
+            Seller Name:{" "}
+            <span className={styles.infoItem}>
+              {" "}
+              {BookData.seller?.sellerName}
+            </span>
+          </div>
+          <div>
+            address:{" "}
+            <span className={styles.infoItem}> {BookData.seller?.address}</span>
+          </div>
+          <div>
+            Phone-no:
+            <span className={styles.infoItem}> {BookData.seller?.phone}</span>
+          </div>
+          <button className={`btn-primary ${styles.seemorebtn}`}>
+            See More
+          </button>
+        </div>
       </div>
     </div>
   );

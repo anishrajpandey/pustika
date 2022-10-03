@@ -45,6 +45,23 @@
   height: 16rem;
   /* background-color: red; */
 }
+.mainContainer .right .sellerInfo {
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .right .sellerInfo div {
+  text-align: center;
+  /* font-weight: bold;d */
+}
+.mainContainer .right .sellerInfo div span.infoItem {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
+.mainContainer .right .sellerInfo button.seemorebtn {
+  width: 100px;
+  display: none;
+}
 .btns {
   display: flex;
   justify-content: center;
