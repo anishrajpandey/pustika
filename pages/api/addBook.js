@@ -14,13 +14,13 @@ export default async function addTest(req, res) {
     const userData = await user.find({ _id: req.body._id });
     const finalDocument = {
       ...req.body,
-      sellerInfo: {
+      seller: {
         sellerName: userData.name,
         phone: userData.phone,
         address: userData.address,
       },
     };
-    const test = await finalModel.create(req.body);
+    const test = await finalModel.create(finalDocument);
     ("CREATED DOCUMENT");
 
     res.json({ test });
