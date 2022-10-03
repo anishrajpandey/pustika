@@ -43,7 +43,7 @@ const SellBooks = ({ pageURL }) => {
     return datajson.secure_url; //returning the public image uri to use in connectToMongoDB function
   };
   const postToMongoDb = async (imgurl) => {
-    await fetch(`${pageURL}/api/addBook`, {
+    let res = await fetch(`${pageURL}/api/addBook`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -55,9 +55,11 @@ const SellBooks = ({ pageURL }) => {
         description: Description,
         price: Price,
         imageURL: imgurl,
-        seller: UserData._id,
+        sellerid: UserData._id,
       }),
     });
+    let resjson = await res.json();
+    console.log("🤔 > postToMongoDb > resjson", resjson);
 
     setLoading(false);
   };

@@ -1,32 +1,25 @@
 import finalModel from "../../models/BookModel";
 import connectToDB from "../../connectMongo";
-import user from "./../../models/user";
+import users from "./../../models/user";
 
 export default async function addTest(req, res) {
   try {
-    ("CONNECTING TO MONGO");
-    process.env.MONGODB_URI;
     await connectToDB();
-    ("CONNECTED TO MONGO");
 
-    ("CREATING DOCUMENT");
-
-    const userData = await user.find({ _id: req.body._id });
+    const userData = await users.findById(req.body.sellerid);
     const finalDocument = {
       ...req.body,
       seller: {
         sellerName: userData.name,
         phone: userData.phone,
         address: userData.address,
-        user_id: req.body._id,
+        user_id: req.body.sellerid,
       },
     };
     const test = await finalModel.create(finalDocument);
-    ("CREATED DOCUMENT");
 
-    res.json({ test });
+    res.json({ test, finalDocument, userData });
   } catch (error) {
-    error;
     res.json({ error });
   }
 }
