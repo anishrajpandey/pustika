@@ -11,7 +11,7 @@ const SellBooks = ({ pageURL }) => {
   const [Description, setDescription] = useState();
   const [image, setimage] = useState();
   const [Price, setPrice] = useState(0);
-  const { UserData } = useContext(Context);
+  const { UserData, IsAuthorized } = useContext(Context);
   const previewImageRef = useRef();
   const inputFileRef = useRef();
   const handleSubmit = async (e) => {
@@ -160,6 +160,7 @@ const SellBooks = ({ pageURL }) => {
             type={"submit"}
             className={`${styles.sellbtn} btn-primary`}
             onClick={validateData}
+            disabled={!IsAuthorized}
           >
             Add to selling list
           </button>
