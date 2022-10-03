@@ -1,7 +1,9 @@
 import mongoose, { Schema, model, models } from "mongoose";
 const userSchema = new Schema({
-  userName: String,
-  id: Number,
+  sellerName: String,
+  phone: Number,
+  address: String,
+  id: String,
 });
 const BookSchema = new Schema(
   {

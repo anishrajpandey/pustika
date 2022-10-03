@@ -18,6 +18,7 @@ export default async function addTest(req, res) {
         sellerName: userData.name,
         phone: userData.phone,
         address: userData.address,
+        user_id: req.body._id,
       },
     };
     const test = await finalModel.create(finalDocument);
