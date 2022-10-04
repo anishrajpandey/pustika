@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     let userData = await user.findOne({ email });
     //todo make environment variables for jwt secret key
     const jwt = jsonwebtoken.sign({ data: userData }, "secret123", {
-      expiresIn: "10m",
+      expiresIn: "2d",
     });
 
     const decryptedJWT = jsonwebtoken.verify(jwt, "secret123");
