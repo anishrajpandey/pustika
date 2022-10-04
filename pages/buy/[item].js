@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./../../styles/Item.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { FaCopy } from "react-icons/fa";
 import Image from "next/image";
 import Head from "next/head";
 import addToCart from "../../utils/cartUtils";
@@ -70,10 +71,10 @@ const BuyItem = ({ url }) => {
           </button>
         </div>
         <div className={styles.sellerInfo}>
-          <h2 align="center">Seller Information</h2>
+          <h2 align="center">Contact Seller</h2>
           <div className={styles.imgContainer}>
             <Image
-              src={UserData.userImage || "/assets/imagenotavailable.jpg"}
+              src={BookData.seller?.image || "/assets/imagenotavailable.jpg"}
               height={120}
               width={120}
               alt="image  unavailable"
@@ -93,6 +94,17 @@ const BuyItem = ({ url }) => {
           <div>
             Phone-no:
             <span className={styles.infoItem}> {BookData.seller?.phone}</span>
+            <span
+              onClick={(e) => {
+                navigator.clipboard.writeText(
+                  e.target.parentElement.parentElement.parentElement.children[0]
+                    .innerText
+                );
+                alert("Copied to clipboard");
+              }}
+            >
+              <FaCopy />
+            </span>
           </div>
           <button className={`btn-primary ${styles.seemorebtn}`}>
             See More

@@ -13,7 +13,8 @@ export default async function addTest(req, res) {
         sellerName: userData.name,
         phone: userData.phone,
         address: userData.address,
-        user_id: req.body.sellerid,
+        id: req.body.sellerid,
+        image: userData.userImage,
       },
     };
     const test = await finalModel.create(finalDocument);

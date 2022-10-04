@@ -4,6 +4,7 @@ const userSchema = new Schema({
   phone: Number,
   address: String,
   id: String,
+  image: String,
 });
 const BookSchema = new Schema(
   {
