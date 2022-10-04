@@ -29,12 +29,16 @@
 .mainContainer .right > h1 {
   margin: 0;
   margin-top: 1rem;
-  line-height: 1;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  height: 30px;
+  /* line-height: 1; */
 }
 .mainContainer .right > p {
-  text-align: justify;
-  width: 90%;
-  margin: 0 auto;
+  text-align: center;
+  width: 60vw;
+
+  padding-inline: 1em;
   overflow-y: hidden;
 }
 .right h3 {
@@ -50,9 +54,21 @@
   flex-direction: column;
   /* position: relative; */
   /* background-color: grey; */
-  top: 3rem;
-  /* margin-top: 2rem; */
+  /* top: 3rem; */
+  background-color: rgba(194, 128, 255, 0.629);
+  margin-top: 4rem;
+  padding-bottom: 2rem;
 }
+.mainContainer .right .sellerInfo > .imgContainer {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid black;
+  width: fit-content;
+  /* display: none  ; */
+  /* position: relative; */
+  margin: auto;
+}
+
 .mainContainer .right .sellerInfo div {
   text-align: center;
 }
@@ -123,13 +139,9 @@
     left: -100vw;
     top: 90vh;
   }
+
   .mainContainer .right > p {
-    /* position: relative; */
-    user-select: none;
-    pointer-events: none;
-    /* height: 25rem; */
-    /* bottom: -100vh; */
-    /* z-index: -1; */
+    width: 100vw;
   }
   .mainContainer .left .imgContainer {
     margin-inline: auto;
@@ -142,7 +154,6 @@
   }
   .mainContainer .right > h1 {
     font-size: 1.3rem;
-    min-height: 100px;
   }
 }
 @media screen and (max-width: 500px) {

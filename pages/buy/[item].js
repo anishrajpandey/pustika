@@ -10,7 +10,7 @@ import { useContext } from "react";
 import Context from "./../../utils/Context";
 const BuyItem = ({ url }) => {
   const [BookData, setBookData] = useState({});
-  const { CartItems, setCartItems } = useContext(Context);
+  const { CartItems, setCartItems, UserData } = useContext(Context);
   const states = useContext(Context);
 
   let Router = useRouter();
@@ -71,6 +71,14 @@ const BuyItem = ({ url }) => {
         </div>
         <div className={styles.sellerInfo}>
           <h2 align="center">Seller Information</h2>
+          <div className={styles.imgContainer}>
+            <Image
+              src={UserData.userImage || "/assets/imagenotavailable.jpg"}
+              height={120}
+              width={120}
+              alt="image  unavailable"
+            ></Image>
+          </div>
           <div>
             Seller Name:{" "}
             <span className={styles.infoItem}>
@@ -79,7 +87,7 @@ const BuyItem = ({ url }) => {
             </span>
           </div>
           <div>
-            address:{" "}
+            Address:{" "}
             <span className={styles.infoItem}> {BookData.seller?.address}</span>
           </div>
           <div>
