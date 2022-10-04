@@ -14,7 +14,7 @@
   background-size: cover;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .mainContainer .right {
   flex: 0.5;
@@ -42,16 +42,19 @@
   color: rgb(68, 0, 255);
 }
 .mainContainer .right > p {
-  height: 16rem;
+  height: fit-content;
   /* background-color: red; */
 }
 .mainContainer .right .sellerInfo {
   display: flex;
   flex-direction: column;
+  /* position: relative; */
+  /* background-color: grey; */
+  top: 3rem;
+  /* margin-top: 2rem; */
 }
 .mainContainer .right .sellerInfo div {
   text-align: center;
-  /* font-weight: bold;d */
 }
 .mainContainer .right .sellerInfo div span.infoItem {
   font-weight: bold;
@@ -80,6 +83,7 @@
   height: 500px;
   width: max(50%, 300px);
   margin-inline-start: 5rem;
+  margin-block-start: 2rem;
   filter: drop-shadow(-10px 10px 5px #061f0b);
 }
 
@@ -103,21 +107,28 @@
 @media (max-width: 600px) {
   .mainContainer {
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
   }
   .mainContainer .left {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     top: 7rem;
     z-index: -1;
     background-color: transparent;
+    background-color: rebeccapurple;
+  }
+  .mainContainer .right {
+    align-self: flex-start;
+    position: relative;
+    left: -70vw;
+    top: 90vw;
   }
   .mainContainer .right > p {
-    position: relative;
+    /* position: relative; */
     user-select: none;
     pointer-events: none;
-    height: 25rem;
-    bottom: -100vh;
+    /* height: 25rem; */
+    /* bottom: -100vh; */
     /* z-index: -1; */
   }
   .mainContainer .left .imgContainer {
