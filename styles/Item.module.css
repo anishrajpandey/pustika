@@ -33,7 +33,7 @@
 }
 .mainContainer .right > p {
   text-align: justify;
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
   overflow-y: hidden;
 }
@@ -120,8 +120,8 @@
   .mainContainer .right {
     align-self: flex-start;
     position: relative;
-    left: -70vw;
-    top: 90vw;
+    left: -100vw;
+    top: 90vh;
   }
   .mainContainer .right > p {
     /* position: relative; */
@@ -145,7 +145,11 @@
     min-height: 100px;
   }
 }
-
+@media screen and (max-width: 500px) {
+  .mainContainer .right {
+    /* left: -80vw; */
+  }
+}
 /* for curvy backgrounds */
 @media (max-width: 1600px) {
   .mainContainer .left {
