@@ -25,7 +25,7 @@ const Store = ({ url }) => {
     console.log(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
-// hello world
+  // hello world
   return (
     <>
       <Head>
@@ -72,3 +72,4 @@ export async function getServerSideProps() {
   };
 }
 export default Store;
+// dfsd
