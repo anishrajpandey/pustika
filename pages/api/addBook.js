@@ -13,7 +13,7 @@ export default async function addTest(req, res) {
         sellerName: userData.name,
         phone: userData.phone,
         address: userData.address,
-        id: req.body.sellerid,
+        zid: req.body.sellerid,
         image: userData.userImage,
       },
     };
@@ -24,3 +24,4 @@ export default async function addTest(req, res) {
     res.json({ error });
   }
 }
+// hello gyzz
