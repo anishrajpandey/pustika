@@ -25,7 +25,7 @@ const Store = ({ url }) => {
     console.log(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
-  // hell
+  // he
   return (
     <>
       <Head>
