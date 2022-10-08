@@ -20,7 +20,6 @@ a {
 }
 :root {
   --clr-primary: #d100d1;
-
   --clr-primary-light: hsl(300, 100%, 70%);
   --font-primary: "Hind Siliguri", sans-serif;
 }
