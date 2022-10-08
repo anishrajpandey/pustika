@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./../../styles/Store.module.css";
@@ -71,7 +72,31 @@ const Store = ({ url }) => {
             </div>
           </Link>
           <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>1000.</p>
+          <p className={styles.price}>Rs. 1999</p>
+          <div className={styles.buttons}>
+            <button>Buy</button>
+
+            <FontAwesomeIcon
+              onClick={(el) => {
+                handleCartClick(e._id, url);
+              }}
+              className={styles.cartIcon}
+              icon={faCartShopping}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className={styles.item}>
+          <Link href={"/"} passHref>
+            <div className={styles.imageContainer}>
+              <Image
+                src={"/book-images/A Brief History of Time.webp"}
+                layout={"fill"}
+                alt="Product image not available"
+              ></Image>
+            </div>
+          </Link>
+          <p className={styles.BookName}>A Brief History of Time</p>
+          <p className={styles.price}>Rs. 1999</p>
           <div className={styles.buttons}>
             <button>Buy</button>
 
@@ -95,7 +120,7 @@ const Store = ({ url }) => {
             </div>
           </Link>
           <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>1000.</p>
+          <p className={styles.price}>Rs. 1999</p>
           <div className={styles.buttons}>
             <button>Buy</button>
 
@@ -119,7 +144,7 @@ const Store = ({ url }) => {
             </div>
           </Link>
           <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>1000.</p>
+          <p className={styles.price}>Rs. 1999</p>
           <div className={styles.buttons}>
             <button>Buy</button>
 
@@ -143,7 +168,7 @@ const Store = ({ url }) => {
             </div>
           </Link>
           <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>1000.</p>
+          <p className={styles.price}>Rs. 1999</p>
           <div className={styles.buttons}>
             <button>Buy</button>
 
@@ -167,31 +192,7 @@ const Store = ({ url }) => {
             </div>
           </Link>
           <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>1000.</p>
-          <div className={styles.buttons}>
-            <button>Buy</button>
-
-            <FontAwesomeIcon
-              onClick={(el) => {
-                handleCartClick(e._id, url);
-              }}
-              className={styles.cartIcon}
-              icon={faCartShopping}
-            ></FontAwesomeIcon>
-          </div>
-        </div>
-        <div className={styles.item}>
-          <Link href={"/"}>
-            <div className={styles.imageContainer}>
-              <Image
-                src={"/book-images/A Brief History of Time.webp"}
-                layout={"fill"}
-                alt="Product image not available"
-              ></Image>
-            </div>
-          </Link>
-          <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>1000.</p>
+          <p className={styles.price}>Rs. 1999</p>
           <div className={styles.buttons}>
             <button>Buy</button>
 

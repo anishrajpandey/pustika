@@ -1,0 +1,10 @@
+.mainContainer {
+  background-color: burlywood;
+  height: calc(100vh - 45px);
+}
+.imageContainer {
+  height: 300px;
+  width: 250px;
+  position: relative;
+  margin: auto;
+}
