@@ -70,7 +70,7 @@ const Store = ({ url }) => {
               ></Image>
             </div>
           </Link>
-          <p className={styles.BookName}>Book Not available</p>
+          <p className={styles.BookName}>A Brief History of Time</p>
           <p className={styles.price}>1000.</p>
           <div className={styles.buttons}>
             <button>Buy</button>
@@ -94,7 +94,7 @@ const Store = ({ url }) => {
               ></Image>
             </div>
           </Link>
-          <p className={styles.BookName}>Book Not available</p>
+          <p className={styles.BookName}>A Brief History of Time</p>
           <p className={styles.price}>1000.</p>
           <div className={styles.buttons}>
             <button>Buy</button>
@@ -118,7 +118,7 @@ const Store = ({ url }) => {
               ></Image>
             </div>
           </Link>
-          <p className={styles.BookName}>Book Not available</p>
+          <p className={styles.BookName}>A Brief History of Time</p>
           <p className={styles.price}>1000.</p>
           <div className={styles.buttons}>
             <button>Buy</button>
@@ -142,7 +142,7 @@ const Store = ({ url }) => {
               ></Image>
             </div>
           </Link>
-          <p className={styles.BookName}>Book Not available</p>
+          <p className={styles.BookName}>A Brief History of Time</p>
           <p className={styles.price}>1000.</p>
           <div className={styles.buttons}>
             <button>Buy</button>
@@ -166,7 +166,7 @@ const Store = ({ url }) => {
               ></Image>
             </div>
           </Link>
-          <p className={styles.BookName}>Book Not available</p>
+          <p className={styles.BookName}>A Brief History of Time</p>
           <p className={styles.price}>1000.</p>
           <div className={styles.buttons}>
             <button>Buy</button>
@@ -190,7 +190,7 @@ const Store = ({ url }) => {
               ></Image>
             </div>
           </Link>
-          <p className={styles.BookName}>Book Not available</p>
+          <p className={styles.BookName}>A Brief History of Time</p>
           <p className={styles.price}>1000.</p>
           <div className={styles.buttons}>
             <button>Buy</button>
