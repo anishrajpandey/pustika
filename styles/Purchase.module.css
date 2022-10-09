@@ -1,10 +1,50 @@
+.main {
+  position: relative;
+}
 .mainContainer {
-  background-color: burlywood;
-  height: calc(100vh - 45px);
+  padding-block: 3rem;
+  min-height: calc(100vh - 45px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .imageContainer {
   height: 300px;
   width: 250px;
   position: relative;
   margin: auto;
+}
+.imageContainer + h2 {
+  text-align: center;
+}
+.imageContainer ~ h3 {
+  text-align: center;
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+.btnContainer > button {
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  background-color: aquamarine;
+  color: black;
+  box-shadow: 2px 5px 5px rgb(58, 49, 49);
+  outline: 3px solid black;
+}
+.btnContainer > button:hover {
+  background-color: transparent;
+}
+.loadingContainer {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.loadingContainer img {
+  mix-blend-mode: darken;
 }

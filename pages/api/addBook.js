@@ -13,7 +13,7 @@ export default async function addTest(req, res) {
         sellerName: userData.name,
         phone: userData.phone,
         address: userData.address,
-        zid: req.body.sellerid,
+        id: req.body.sellerid,
         image: userData.userImage,
       },
     };

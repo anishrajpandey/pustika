@@ -25,9 +25,9 @@ nav.navBarMain,
   top: 0;
   z-index: 99;
 }
-nav.navBarMain,
-.menu {
-  /* flex-basis: 500px; */
+/* todo */
+nav.navBarMain .notification {
+  color: white;
 }
 nav.navBarMain {
   background-color: rgba(0, 0, 0, 0.88);
