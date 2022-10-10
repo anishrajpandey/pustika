@@ -60,7 +60,6 @@ nav.navBarMain {
   animation: hover 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   z-index: 1;
   background-color: var(--clr-primary-light);
-
   border-radius: 0.5px;
 }
 @keyframes hover {
