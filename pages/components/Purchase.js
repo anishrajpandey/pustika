@@ -14,6 +14,7 @@ const Purchase = () => {
   return (
     <div className={styles.main}>
       <div className={styles.mainContainer}>
+        <h2 align="center">Are You Sure?</h2>
         <div className={styles.imageContainer}>
           <Image
             src={"/book-images/A Brief History of Time.webp"}
@@ -34,7 +35,7 @@ const Purchase = () => {
               //todo //code for actually sending notifications
 
               //to define property of alert message
-              if (false) {
+              if (true) {
                 setAlertMessage("Notification Sent to the Seller");
                 setAlertSuccess(true);
               } else {

@@ -8,9 +8,11 @@ import { useContext } from "react";
 import Cart from "./Cart";
 import jsonwebtoken from "jsonwebtoken";
 import { HiOutlineLogout } from "react-icons/hi";
+import Notification from "../utils/Notification";
 
 const Navbar = () => {
   const [ToggleMenu, setToggleMenu] = useState(false);
+  const [ShowNotifications, setShowNotifications] = useState(false);
   useEffect(() => {
     ToggleMenu
       ? document.body.style.setProperty("--translateOffset", "-35px")
@@ -51,6 +53,7 @@ const Navbar = () => {
   }, []);
   return (
     <>
+      {ShowNotifications && <Notification />}
       <nav className={`${styles.navBarMain} main-navbar`}>
         <div className={styles.logo} style={{ cursor: "pointer" }}>
           <div className={styles.menubtn}>
@@ -94,6 +97,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.accountName}>
+          <div
+            className={styles.notification}
+            onClick={() => setShowNotifications(!ShowNotifications)}
+          >
+            ☻
+          </div>
+
           <Link href={"/components/Account"}>
             <div className={styles.imageContainer}>
               <Image
@@ -111,7 +121,6 @@ const Navbar = () => {
         </div>
 
         <div className={styles.cart}>
-          <div className={styles.notification}>Notofication</div>
           <Link href={"/components/SellBooks"} passHref>
             <button
               className={`${styles.sellbtn} btn-primary`}

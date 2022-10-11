@@ -328,14 +328,14 @@ const Account = ({ pageurl }) => {
                 id="login"
                 className={styles.loginText}
               >
-                LOGIN
+                SIGN UP
               </span>
               <span
                 onClick={handleClick}
                 id="signup"
                 className={styles.signupText}
               >
-                SIGN UP
+                LOGIN
               </span>
             </div>
             <div className={`${styles.cover} cover`}>

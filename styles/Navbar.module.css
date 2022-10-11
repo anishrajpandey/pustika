@@ -28,6 +28,8 @@ nav.navBarMain,
 /* todo */
 nav.navBarMain .notification {
   color: white;
+  font-size: 2rem;
+  user-select: none;
 }
 nav.navBarMain {
   background-color: rgba(0, 0, 0, 0.88);
@@ -127,8 +129,13 @@ div.cart > * {
 .navBarMain .accountName {
   height: 100%;
   display: flex;
+  align-items: center;
 
   justify-content: center;
+}
+.navBarMain .accountName .notification {
+  cursor: pointer;
+  margin-right: 12px;
 }
 .navBarMain .accountName .imageContainer {
   position: relative;
