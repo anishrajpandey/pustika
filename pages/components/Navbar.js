@@ -9,7 +9,7 @@ import Cart from "./Cart";
 import jsonwebtoken from "jsonwebtoken";
 import { HiOutlineLogout } from "react-icons/hi";
 import Notification from "../utils/Notification";
-
+import { env } from "process";
 const Navbar = ({ url }) => {
   console.log(url);
   const [ToggleMenu, setToggleMenu] = useState(false);
@@ -40,7 +40,7 @@ const Navbar = ({ url }) => {
         localStorage.getItem("jwt"),
         "secret123"
       );
-      let res = await fetch(`${url}/api/findUser`, {
+      let res = await fetch(`${env.url}/api/findUser`, {
         method: "POST",
         body: JSON.stringify({
           username: result?.data.username,
