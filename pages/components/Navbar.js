@@ -10,7 +10,8 @@ import jsonwebtoken from "jsonwebtoken";
 import { HiOutlineLogout } from "react-icons/hi";
 import Notification from "../utils/Notification";
 
-const Navbar = () => {
+const Navbar = ({ url }) => {
+  console.log(url);
   const [ToggleMenu, setToggleMenu] = useState(false);
   const [ShowNotifications, setShowNotifications] = useState(false);
   useEffect(() => {
@@ -31,15 +32,23 @@ const Navbar = () => {
     setUserData({});
     localStorage.setItem("jwt", "");
   };
-  function authenticateWithJWT() {
+  async function authenticateWithJWT() {
     //todo: store jwt secret key to environment variables
+
     try {
       let result = jsonwebtoken.verify(
         localStorage.getItem("jwt"),
         "secret123"
       );
+      let res = await fetch(`${url}/api/findUser`, {
+        method: "POST",
+        body: JSON.stringify({
+          username: result?.data.username,
+        }),
+      });
+      resjson = await res.json();
+      console.log(resjson);
       setUserData(result?.data);
-
       setIsAuthorized(true);
     } catch ({ name }) {
       if (name === "TokenExpiredError") console.log(name);
@@ -99,7 +108,10 @@ const Navbar = () => {
         <div className={styles.accountName}>
           <div
             className={styles.notification}
-            onClick={() => setShowNotifications(!ShowNotifications)}
+            onClick={() => {
+              setShowNotifications(!ShowNotifications);
+              console.log(url);
+            }}
           >
             ☻
           </div>
@@ -160,4 +172,12 @@ const Navbar = () => {
   );
 };
 
+export async function getServerSideProps() {
+  console.log(process.env.PAGE_URL);
+  return {
+    props: {
+      url: process.env.PAGE_URL,
+    },
+  };
+}
 export default Navbar;

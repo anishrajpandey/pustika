@@ -48,7 +48,7 @@ const Store = ({ url }) => {
               <p className={styles.BookName}>{e.bookName}</p>
               <p className={styles.price}>Rs.{e.price}</p>
               <div className={styles.buttons}>
-                <button>Buy</button>
+                <button onClick={() => console.log(e)}>Buy</button>
 
                 <FontAwesomeIcon
                   onClick={(el) => {
@@ -92,6 +92,10 @@ const Store = ({ url }) => {
   );
 };
 export async function getServerSideProps() {
+  console.log(
+    "🤔 > getServerSideProps > process.env.PAGE_URL",
+    process.env.PAGE_URL
+  );
   return {
     props: {
       url: process.env.PAGE_URL,
