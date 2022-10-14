@@ -40,7 +40,7 @@ const Navbar = ({ url }) => {
         localStorage.getItem("jwt"),
         "secret123"
       );
-      let res = await fetch(`${env.url}/api/findUser`, {
+      let res = await fetch(`${env.PAGE_URL}/api/findUser`, {
         method: "POST",
         body: JSON.stringify({
           username: result?.data.username,
