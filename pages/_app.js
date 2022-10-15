@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <ContextComponent>
-        <Navbar />
+        <Navbar url={process.env.PAGE_URL} />
         <Component {...pageProps} />
       </ContextComponent>
     </>

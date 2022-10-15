@@ -9,9 +9,8 @@ import Cart from "./Cart";
 import jsonwebtoken from "jsonwebtoken";
 import { HiOutlineLogout } from "react-icons/hi";
 import Notification from "../utils/Notification";
-import { env } from "process";
+
 const Navbar = ({ url }) => {
-  console.log(url);
   const [ToggleMenu, setToggleMenu] = useState(false);
   const [ShowNotifications, setShowNotifications] = useState(false);
   useEffect(() => {
@@ -19,14 +18,8 @@ const Navbar = ({ url }) => {
       ? document.body.style.setProperty("--translateOffset", "-35px")
       : document.body.style.setProperty("--translateOffset", "-475px");
   }, [ToggleMenu]);
-  const {
-    IsCartOpen,
-    setIsCartOpen,
-    setUserData,
-    setIsAuthorized,
-    IsAuthorized,
-    UserData,
-  } = useContext(Context);
+  const { IsCartOpen, setIsCartOpen, setUserData, setIsAuthorized, UserData } =
+    useContext(Context);
   const handleLogout = () => {
     setIsAuthorized(false);
     setUserData({});
@@ -34,7 +27,7 @@ const Navbar = ({ url }) => {
   };
   async function authenticateWithJWT() {
     //todo: store jwt secret key to environment variables
-
+    console.log(url);
     try {
       let result = jsonwebtoken.verify(
         localStorage.getItem("jwt"),
@@ -172,12 +165,4 @@ const Navbar = ({ url }) => {
   );
 };
 
-export async function getServerSideProps() {
-  console.log(process.env.PAGE_URL);
-  return {
-    props: {
-      url: process.env.PAGE_URL,
-    },
-  };
-}
 export default Navbar;
