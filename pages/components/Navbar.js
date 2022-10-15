@@ -33,7 +33,7 @@ const Navbar = ({ url }) => {
     localStorage.setItem("jwt", "");
   };
   async function authenticateWithJWT() {
-    //todo: store jwt secret key to environment variables  c
+    //todo: store jwt secret key to environment variables
 
     try {
       let result = jsonwebtoken.verify(
