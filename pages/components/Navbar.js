@@ -27,22 +27,19 @@ const Navbar = ({ url }) => {
   };
   async function authenticateWithJWT() {
     //todo: store jwt secret key to environment variables
-    console.log(url);
+    console.log("here");
+    let result = jsonwebtoken.verify(localStorage.getItem("jwt"), "secret123");
+    let res = await fetch(`${url}/api/findUser`, {
+      method: "POST",
+      body: JSON.stringify({
+        username: result?.data.username,
+      }),
+    });
+    let { userdata } = await res.json();
+    console.log(userdata);
+    setUserData(userdata);
+    setIsAuthorized(true);
     try {
-      let result = jsonwebtoken.verify(
-        localStorage.getItem("jwt"),
-        "secret123"
-      );
-      let res = await fetch(`${env.PAGE_URL}/api/findUser`, {
-        method: "POST",
-        body: JSON.stringify({
-          username: result?.data.username,
-        }),
-      });
-      resjson = await res.json();
-      console.log(resjson);
-      setUserData(result?.data);
-      setIsAuthorized(true);
     } catch ({ name }) {
       if (name === "TokenExpiredError") console.log(name);
       setIsAuthorized(false);
@@ -103,7 +100,6 @@ const Navbar = ({ url }) => {
             className={styles.notification}
             onClick={() => {
               setShowNotifications(!ShowNotifications);
-              console.log(url);
             }}
           >
             ☻

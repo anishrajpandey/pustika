@@ -10,6 +10,7 @@ const Account = ({ pageurl }) => {
   const [LoginMessage, setLoginMessage] = useState("");
   const [SignupLoading, setSignupLoading] = useState(false);
   const [IsImageChanged, setIsImageChanged] = useState(false);
+  const [Count, setCount] = useState(1);
   const coverRef = useRef();
   const { IsAuthorized, setIsAuthorized, UserData, setUserData } =
     useContext(Context);
@@ -165,7 +166,15 @@ const Account = ({ pageurl }) => {
       setChangedUserData({ ...ChangedUserData, userImage: reader.result });
     };
   };
-  const handleSaveChanges = async () => {
+  const handleSaveChanges = async (e) => {
+    if (Count == 1) {
+      setTimeout(() => {
+        e.target.click();
+      }, 1000);
+      setCount(2);
+    } else {
+      setCount(1);
+    }
     //posting the profile picture to cloudinary
     console.log(FormDataOBJ);
     if (IsImageChanged) {
@@ -180,7 +189,6 @@ const Account = ({ pageurl }) => {
     } else {
       var secure_url = ChangedUserData?.userImage || UserData.userImage;
     }
-    console.log("here");
 
     console.log(JSON.stringify({ ...ChangedUserData, userImage: secure_url }));
     //setting the profile picture and other details to mongodb
@@ -296,9 +304,11 @@ const Account = ({ pageurl }) => {
                   onClick={async (e) => {
                     e.target.innerText = "Saving Changes";
                     e.target.disabled = true;
-                    await handleSaveChanges();
-                    e.target.innerText = "Save Changes";
-                    e.target.disabled = false;
+                    await handleSaveChanges(e);
+                    setTimeout(() => {
+                      e.target.innerText = "Save Changes";
+                      e.target.disabled = false;
+                    }, 500);
                   }}
                 >
                   Save..
