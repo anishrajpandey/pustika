@@ -8,8 +8,16 @@ import FontAwesomeIcon, { faCartShopping } from "./assets/FontAwesome";
 import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
 import Context from "../../utils/Context";
+import Purchase from "./../components/Purchase";
 const Store = ({ url }) => {
   var [ImageArray, setImageArray] = useState([]);
+  const [ConfirmPurchaseOptions, setConfirmPurchaseOptions] = useState({
+    show: false,
+    bookName: "",
+    bookId: "",
+    bookImage: "",
+    price: 0,
+  });
   useEffect(() => {
     const fetchData = async () => {
       let res = await fetch(`${url}/api/getBooks`);
@@ -25,6 +33,15 @@ const Store = ({ url }) => {
     CartItems.push(data);
     console.log(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
+  };
+  const handleConfirmPurchase = (_, { bookName, imageURL, price, _id }) => {
+    setConfirmPurchaseOptions({
+      show: true,
+      bookName,
+      bookImage: imageURL,
+      price,
+      bookId: _id,
+    });
   };
 
   return (
@@ -48,7 +65,14 @@ const Store = ({ url }) => {
               <p className={styles.BookName}>{e.bookName}</p>
               <p className={styles.price}>Rs.{e.price}</p>
               <div className={styles.buttons}>
-                <button onClick={() => console.log(e)}>Buy</button>
+                <button
+                  onClick={() => {
+                    console.log(e);
+                    handleConfirmPurchase("_", e);
+                  }}
+                >
+                  Buy
+                </button>
 
                 <FontAwesomeIcon
                   onClick={(el) => {
@@ -88,14 +112,20 @@ const Store = ({ url }) => {
           </div>
         </div>
       </div>
+      {ConfirmPurchaseOptions.show && (
+        <div className={styles.confirmOrderContainer}>
+          <Purchase
+            bookName={ConfirmPurchaseOptions.bookName}
+            bookImage={ConfirmPurchaseOptions.bookImage}
+            price={ConfirmPurchaseOptions.price}
+            bookId={ConfirmPurchaseOptions.bookId}
+          />
+        </div>
+      )}
     </>
   );
 };
 export async function getServerSideProps() {
-  console.log(
-    "🤔 > getServerSideProps > process.env.PAGE_URL",
-    process.env.PAGE_URL
-  );
   return {
     props: {
       url: process.env.PAGE_URL,

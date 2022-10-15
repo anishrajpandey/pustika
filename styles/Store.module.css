@@ -70,3 +70,13 @@ div.AllItems .item button {
 div.AllItems .item button:hover {
   background-color: var(--clr-primary-light);
 }
+div.confirmOrderContainer {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}

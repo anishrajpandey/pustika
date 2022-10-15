@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./../../styles/Purchase.module.css";
 import { useState } from "react";
 import Alert from "../utils/Alert";
-const Purchase = () => {
+const Purchase = ({ bookImage, bookName, price, bookId }) => {
   const [Loading, setLoading] = useState(false);
   const [ShowAlert, setShowAlert] = useState(false);
   const [AlertMessage, setAlertMessage] = useState("Default");
@@ -16,14 +16,10 @@ const Purchase = () => {
       <div className={styles.mainContainer}>
         <h2 align="center">Are You Sure?</h2>
         <div className={styles.imageContainer}>
-          <Image
-            src={"/book-images/A Brief History of Time.webp"}
-            layout={"fill"}
-            alt={""}
-          ></Image>
+          <Image src={bookImage} layout={"fill"} alt={""}></Image>
         </div>
-        <h2>A Brief History of Time</h2>
-        <h3>Rs.2000</h3>
+        <h2>{bookName}</h2>
+        <h3>Rs.{price}</h3>
         <div className={styles.btnContainer}>
           <button
             className="btn-primary"
