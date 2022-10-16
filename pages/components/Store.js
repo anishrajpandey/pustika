@@ -34,7 +34,7 @@ const Store = ({ url }) => {
     console.log(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
-  const handleConfirmPurchase = (_, { bookName, imageURL, price, _id }) => {
+  const handleConfirmPurchase = (e, { bookName, imageURL, price, _id }) => {
     setConfirmPurchaseOptions({
       show: true,
       bookName,
@@ -42,6 +42,17 @@ const Store = ({ url }) => {
       price,
       bookId: _id,
     });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    let parent = e.target.parentElement.parentElement.parentElement;
+    parent.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      },
+      { passive: false }
+    );
   };
 
   return (
@@ -66,9 +77,9 @@ const Store = ({ url }) => {
               <p className={styles.price}>Rs.{e.price}</p>
               <div className={styles.buttons}>
                 <button
-                  onClick={() => {
+                  onClick={(event) => {
                     console.log(e);
-                    handleConfirmPurchase("_", e);
+                    handleConfirmPurchase(event, e);
                   }}
                 >
                   Buy
@@ -101,7 +112,6 @@ const Store = ({ url }) => {
             <Link href={"/components/Purchase"}>
               <button>Buy</button>
             </Link>
-
             <FontAwesomeIcon
               onClick={(el) => {
                 handleCartClick(e._id, url);

@@ -1,5 +1,10 @@
 .main {
-  position: relative;
+  position: fixed;
+  overflow-x: hidden;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  justify-content: center;
 }
 .mainContainer {
   padding-block: 3rem;

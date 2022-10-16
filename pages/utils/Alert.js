@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const Alert = ({ message, success }) => {
+const Alert = ({ message = "This is message", success = true }) => {
   const [Show, setShow] = useState(false);
   useEffect(() => {
     setShow(true);

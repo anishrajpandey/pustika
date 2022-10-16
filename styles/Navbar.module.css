@@ -168,12 +168,16 @@ div.cart > * {
 @media (max-width: 540px) {
   .navBarMain {
     height: 100px !important;
+    padding-top: 32px;
   }
   .navBarMain .accountName {
     height: 50%;
   }
   .navBarMain > * {
     position: static;
+  }
+  .sellbtn {
+    margin-inline-end: 0;
   }
   nav.navBarMain {
     background-color: rgba(0, 0, 0, 1);

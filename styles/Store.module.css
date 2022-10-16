@@ -10,6 +10,7 @@ div.AllItems {
   background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
   background-size: 10px 10px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 div.AllItems .item {
   cursor: pointer;
