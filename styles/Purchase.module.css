@@ -1,10 +1,8 @@
 .main {
-  position: fixed;
+  position: relative;
   overflow-x: hidden;
-  display: flex;
-  background-color: rgba(255, 255, 255, 0);
-  width: 100%;
-  justify-content: center;
+  transition: all 1s ease-out;
+  background-color: rgb(255, 255, 255);
 }
 .mainContainer {
   padding-block: 3rem;

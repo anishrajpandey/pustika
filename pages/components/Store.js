@@ -43,7 +43,8 @@ const Store = ({ url }) => {
       bookId: _id,
     });
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    let parent = e.target.parentElement.parentElement.parentElement;
+    let parent =
+      e.target.parentElement.parentElement.parentElement.parentElement;
     parent.addEventListener(
       "wheel",
       (e) => {
