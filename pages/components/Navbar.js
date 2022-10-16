@@ -26,7 +26,6 @@ const Navbar = ({ url }) => {
     localStorage.setItem("jwt", "");
   };
   async function authenticateWithJWT() {
-   
     try {
       //todo: store jwt secret key to environment variables
       console.log("here");
@@ -41,7 +40,7 @@ const Navbar = ({ url }) => {
         }),
       });
       let { userdata } = await res.json();
-      console.log(userdata);
+
       setUserData(userdata);
       setIsAuthorized(true);
     } catch ({ name }) {

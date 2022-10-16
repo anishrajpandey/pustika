@@ -5,6 +5,13 @@ const ContextComponent = (props) => {
   const [CartItems, setCartItems] = useState([{}]);
   const [IsAuthorized, setIsAuthorized] = useState(false);
   const [UserData, setUserData] = useState({});
+  const [ConfirmPurchaseOptions, setConfirmPurchaseOptions] = useState({
+    show: false,
+    bookName: "",
+    bookId: "",
+    bookImage: "",
+    price: 0,
+  });
   return (
     <Context.Provider
       value={{
@@ -16,6 +23,8 @@ const ContextComponent = (props) => {
         setIsAuthorized,
         UserData,
         setUserData,
+        ConfirmPurchaseOptions,
+        setConfirmPurchaseOptions,
       }}
     >
       {props.children}

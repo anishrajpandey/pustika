@@ -78,7 +78,7 @@ div.confirmOrderContainer {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   background-color: rgb(255, 255, 255);
   overflow-y: auto;
 }

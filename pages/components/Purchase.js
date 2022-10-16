@@ -1,7 +1,9 @@
 import Image from "next/image";
 import styles from "./../../styles/Purchase.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Alert from "../utils/Alert";
+import Context from "../../utils/Context";
+
 const Purchase = ({ bookImage, bookName, price, bookId }) => {
   const [Loading, setLoading] = useState(false);
   const [ShowAlert, setShowAlert] = useState(false);
@@ -11,6 +13,7 @@ const Purchase = ({ bookImage, bookName, price, bookId }) => {
     message: AlertMessage,
     success: AlertSuccess,
   };
+  const { setConfirmPurchaseOptions } = useContext(Context);
   return (
     <div className={styles.main}>
       <div className={styles.mainContainer}>
@@ -46,6 +49,12 @@ const Purchase = ({ bookImage, bookName, price, bookId }) => {
               }, 4000);
               setTimeout(() => {
                 setShowAlert(false);
+                setConfirmPurchaseOptions((prev) => {
+                  return {
+                    ...prev,
+                    show: false,
+                  };
+                });
               }, 9000);
             }}
           >

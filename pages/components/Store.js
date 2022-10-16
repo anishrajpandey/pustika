@@ -11,13 +11,7 @@ import Context from "../../utils/Context";
 import Purchase from "./../components/Purchase";
 const Store = ({ url }) => {
   var [ImageArray, setImageArray] = useState([]);
-  const [ConfirmPurchaseOptions, setConfirmPurchaseOptions] = useState({
-    show: false,
-    bookName: "",
-    bookId: "",
-    bookImage: "",
-    price: 0,
-  });
+
   useEffect(() => {
     const fetchData = async () => {
       let res = await fetch(`${url}/api/getBooks`);
@@ -27,7 +21,12 @@ const Store = ({ url }) => {
     fetchData();
     setCartItems(JSON.parse(localStorage.getItem("cart"))?.CartItems || []);
   }, []);
-  const { CartItems, setCartItems } = useContext(Context);
+  const {
+    CartItems,
+    setCartItems,
+    ConfirmPurchaseOptions,
+    setConfirmPurchaseOptions,
+  } = useContext(Context);
   const handleCartClick = async (id, url) => {
     let data = await addToCart(id, url);
     CartItems.push(data);
@@ -43,17 +42,6 @@ const Store = ({ url }) => {
       bookId: _id,
     });
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    let parent =
-      e.target.parentElement.parentElement.parentElement.parentElement;
-    parent.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-      },
-      { passive: false }
-    );
   };
 
   return (

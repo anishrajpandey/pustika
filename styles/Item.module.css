@@ -7,14 +7,26 @@
 }
 .mainContainer .left {
   flex: 0.5;
-  background: url("/wave-haikei.svg") no-repeat;
+  background: url("/wave-haikei.svg") repeat-y;
   background-color: var(--clr-primary);
-  background-position-x: 290px;
-  background-position-y: center;
-  background-size: cover;
+  background-position-x: 100px;
+
+  /* background-position-y: center; */
+  background-size: contain;
 
   display: flex;
   align-items: flex-start;
+  background-position: 0 0;
+  position: relative;
+}
+.mainContainer .left::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--clr-primary);
+  left: 0;
+  top: 0;
 }
 .mainContainer .right {
   flex: 0.5;
@@ -117,6 +129,9 @@
   .mainContainer .left .imgContainer {
     margin-inline-start: 2rem;
   }
+  .mainContainer .left::before {
+    width: 20%;
+  }
 }
 @media (max-width: 700px) {
   .mainContainer .right {
@@ -124,10 +139,12 @@
   }
   .mainContainer .left {
     background-position-x: -50px;
+     
   }
   .mainContainer .left .imgContainer {
     position: relative;
     height: 400px;
+    background-color: var(--clr-primary);
   }
 }
 @media (max-width: 600px) {
@@ -142,6 +159,9 @@
     z-index: -1;
     background-color: transparent;
     background-color: rebeccapurple;
+  }
+  .mainContainer .left::before {
+    width: 0%;
   }
   .mainContainer .right {
     align-self: flex-start;

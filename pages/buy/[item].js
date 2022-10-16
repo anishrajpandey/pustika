@@ -9,15 +9,43 @@ import Head from "next/head";
 import addToCart from "../../utils/cartUtils";
 import { useContext } from "react";
 import Context from "./../../utils/Context";
+import Purchase from "../components/Purchase";
 const BuyItem = ({ url }) => {
   const [BookData, setBookData] = useState({});
-  const { CartItems, setCartItems, UserData } = useContext(Context);
-  const states = useContext(Context);
+  const {
+    CartItems,
+    setCartItems,
+    UserData,
+    ConfirmPurchaseOptions,
+    setConfirmPurchaseOptions,
+  } = useContext(Context);
 
   let Router = useRouter();
   let {
     query: { item: slug },
   } = Router;
+  const handleConfirmPurchase = (e, { bookName, imageURL, price, _id }) => {
+    setConfirmPurchaseOptions({
+      show: true,
+      bookName,
+      bookImage: imageURL,
+      price,
+      bookId: _id,
+    });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    //  let parent =
+    //    e.target.parentElement.parentElement.parentElement.parentElement;
+    //  parent.addEventListener(
+    //    "wheel",
+    //    (e) => {
+    //      e.preventDefault();
+    //      e.stopPropagation();
+    //      return false;
+    //    },
+    //    { passive: false }
+    //  );
+  };
+
   const handleCartClick = async (id, url) => {
     let data = await addToCart(id, url);
     console.log(CartItems);
@@ -59,7 +87,20 @@ const BuyItem = ({ url }) => {
 
         <h3>Price: Rs.{BookData.price}</h3>
         <div className={styles.btns}>
-          <button className={`btn-primary ${styles.buyBtn}`}>Buy Now</button>
+          <button
+            className={`btn-primary ${styles.buyBtn}`}
+            onClick={(e) => {
+              let { bookName, imageURL, price } = BookData;
+              handleConfirmPurchase(e, {
+                bookName,
+                imageURL,
+                price,
+                _id: slug,
+              });
+            }}
+          >
+            Buy Now
+          </button>
           <button className={`btn-primary ${styles.cartBtn}`}>
             <FontAwesomeIcon
               onClick={() => {
@@ -111,6 +152,14 @@ const BuyItem = ({ url }) => {
           </button>
         </div>
       </div>
+      {ConfirmPurchaseOptions.show && (
+        <Purchase
+          bookName={ConfirmPurchaseOptions.bookName}
+          bookImage={ConfirmPurchaseOptions.bookImage}
+          price={ConfirmPurchaseOptions.price}
+          bookId={ConfirmPurchaseOptions.bookId}
+        />
+      )}
     </div>
   );
 };
