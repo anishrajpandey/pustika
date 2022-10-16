@@ -171,4 +171,4 @@ export async function getServerSideProps() {
   };
 }
 export default BuyItem;
-// d
+//
