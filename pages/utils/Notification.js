@@ -7,7 +7,7 @@ const Notification = () => {
   const fetchNotification = async () => {
     const res = await fetch(`${process.env.PAGE_URL}/api/getNotification`, {
       method: "POST",
-      body: JSON.stringify({ id: UserData._id }),
+      body: JSON.stringify({ id: UserData?._id }),
     });
     const { notifications } = await res.json();
     setNotifications(notifications);
@@ -22,8 +22,8 @@ const Notification = () => {
         {Notifications.map((e) => {
           return (
             <li key={Math.random()}>
-              User <span className={styles.highlight}> {e.buyerName}</span>{" "}
-              wants to buy the book{" "}
+              <span className={styles.highlight}> {e.buyerName}</span> wants to
+              buy the book{" "}
               <span className={styles.highlight}> {e.bookName}</span> from you.
             </li>
           );

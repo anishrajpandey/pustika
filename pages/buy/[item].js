@@ -152,7 +152,7 @@ const BuyItem = ({ url }) => {
           bookImage={ConfirmPurchaseOptions.bookImage}
           price={ConfirmPurchaseOptions.price}
           bookId={ConfirmPurchaseOptions.bookId}
-          buyerId={UserData._id}
+          buyerId={UserData?._id}
           sellerId={ConfirmPurchaseOptions.sellerId}
         />
       )}

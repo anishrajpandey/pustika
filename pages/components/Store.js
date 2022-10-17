@@ -90,31 +90,6 @@ const Store = ({ url }) => {
             </div>
           );
         })}
-        <div className={styles.item}>
-          <Link href={"/components/Purchase"} passHref>
-            <div className={styles.imageContainer}>
-              <Image
-                src={"/book-images/A Brief History of Time.webp"}
-                layout={"fill"}
-                alt="Product image not available"
-              ></Image>
-            </div>
-          </Link>
-          <p className={styles.BookName}>A Brief History of Time</p>
-          <p className={styles.price}>Rs. 1999</p>
-          <div className={styles.buttons}>
-            <Link href={"/components/Purchase"}>
-              <button>Buy</button>
-            </Link>
-            <FontAwesomeIcon
-              onClick={(el) => {
-                handleCartClick(e._id, url);
-              }}
-              className={styles.cartIcon}
-              icon={faCartShopping}
-            ></FontAwesomeIcon>
-          </div>
-        </div>
       </div>
       {ConfirmPurchaseOptions.show && (
         <div className={styles.confirmOrderContainer}>
@@ -123,7 +98,7 @@ const Store = ({ url }) => {
             bookImage={ConfirmPurchaseOptions.bookImage}
             price={ConfirmPurchaseOptions.price}
             bookId={ConfirmPurchaseOptions.bookId}
-            buyerId={UserData._id}
+            buyerId={UserData?._id}
             sellerId={ConfirmPurchaseOptions.sellerId}
           />
         </div>

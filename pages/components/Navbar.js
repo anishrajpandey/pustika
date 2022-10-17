@@ -111,14 +111,14 @@ const Navbar = ({ url }) => {
           <Link href={"/components/Account"}>
             <div className={styles.imageContainer}>
               <Image
-                src={UserData.userImage || "/assets/userImage.png"}
+                src={UserData?.userImage || "/assets/userImage.png"}
                 layout={"fill"}
                 alt="profile picture not found"
               ></Image>
             </div>
           </Link>
 
-          <div className={styles.name}>{UserData.name}</div>
+          <div className={styles.name}>{UserData?.name}</div>
           <div className={styles.logout} onClick={handleLogout}>
             <HiOutlineLogout />
           </div>

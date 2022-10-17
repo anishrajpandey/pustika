@@ -40,7 +40,7 @@ const Account = ({ pageurl }) => {
       method: "POST",
       body: JSON.stringify({ username }),
     });
-    return await userData.json();
+    return await UserData?.json();
   };
   const handleClick = (e) => {
     if (e.target.id === "signup") {
@@ -187,7 +187,7 @@ const Account = ({ pageurl }) => {
       );
       var { secure_url } = await data.json();
     } else {
-      var secure_url = ChangedUserData?.userImage || UserData.userImage;
+      var secure_url = ChangedUserData?.userImage || UserData?.userImage;
     }
 
     console.log(JSON.stringify({ ...ChangedUserData, userImage: secure_url }));
@@ -201,13 +201,13 @@ const Account = ({ pageurl }) => {
     setUserData({ ...ChangedUserData, userImage: secure_url });
     console.log(
       "hereee",
-      ChangedUserData.email,
-      (UserData.password, "secret123")
+      ChangedUserData?.email,
+      (UserData?.password, "secret123")
     );
     // handleLogin(
     //   false,
-    //   ChangedUserData.email,
-    //   jsonwebtoken.verify(ChangedUserData.password, "secret123")
+    //   ChangedUserData?.email,
+    //   jsonwebtoken.verify(ChangedUserData?.password, "secret123")
     // );
   };
   function authenticateWithJWT() {
@@ -237,7 +237,7 @@ const Account = ({ pageurl }) => {
                 <Image
                   src={
                     ChangedUserData?.userImage ||
-                    UserData.userImage ||
+                    UserData?.userImage ||
                     "/assets/userImage.png"
                   }
                   width={"150"}

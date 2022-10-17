@@ -55,7 +55,7 @@ const SellBooks = ({ pageURL }) => {
         description: Description,
         price: Price,
         imageURL: imgurl,
-        sellerid: UserData._id,
+        sellerid: UserData?._id,
       }),
     });
     let resjson = await res.json();
