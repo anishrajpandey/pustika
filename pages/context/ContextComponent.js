@@ -9,6 +9,7 @@ const ContextComponent = (props) => {
     show: false,
     bookName: "",
     bookId: "",
+    sellerId: "",
     bookImage: "",
     price: 0,
   });

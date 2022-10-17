@@ -26,6 +26,7 @@ const Store = ({ url }) => {
     setCartItems,
     ConfirmPurchaseOptions,
     setConfirmPurchaseOptions,
+    UserData,
   } = useContext(Context);
   const handleCartClick = async (id, url) => {
     let data = await addToCart(id, url);
@@ -33,13 +34,17 @@ const Store = ({ url }) => {
     console.log(data);
     localStorage.setItem("cart", JSON.stringify({ CartItems }));
   };
-  const handleConfirmPurchase = (e, { bookName, imageURL, price, _id }) => {
+  const handleConfirmPurchase = (
+    e,
+    { bookName, imageURL, price, _id, seller }
+  ) => {
     setConfirmPurchaseOptions({
       show: true,
       bookName,
       bookImage: imageURL,
       price,
       bookId: _id,
+      sellerId: seller._id,
     });
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
@@ -118,6 +123,8 @@ const Store = ({ url }) => {
             bookImage={ConfirmPurchaseOptions.bookImage}
             price={ConfirmPurchaseOptions.price}
             bookId={ConfirmPurchaseOptions.bookId}
+            buyerId={UserData._id}
+            sellerId={ConfirmPurchaseOptions.sellerId}
           />
         </div>
       )}

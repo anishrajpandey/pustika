@@ -1,6 +1,8 @@
 import users from "../../models/user";
 import connectToDb from "./../../connectMongo";
 export default async function handler(req, res) {
+  await connectToDb();
+
   if (JSON.parse(JSON.stringify(req.body)).delete) {
     const sellerData = await users.updateMany(
       {},
@@ -8,9 +10,9 @@ export default async function handler(req, res) {
     );
     res.json({ sellerData });
   } else {
-    await connectToDb();
-    const sellerid = JSON.parse(JSON.stringify(req.body)).sellId;
-    const buyerid = JSON.parse(JSON.stringify(req.body)).buyId;
+    const sellerid = JSON.parse(req.body).sellId;
+    const buyerid = JSON.parse(req.body).buyId;
+    console.log(sellerid, buyerid);
     const buyerData = await users.findById(buyerid);
     const sellerData = await users.findById(sellerid);
     console.log(buyerData.name);
@@ -25,7 +27,7 @@ export default async function handler(req, res) {
 
     res.json({
       buyername: buyerData.name,
-      sellernotificationns: sellerData.notifications,
+      sellernotifications: sellerData.notifications,
     });
   }
 }

@@ -4,7 +4,15 @@ import { useState, useContext } from "react";
 import Alert from "../utils/Alert";
 import Context from "../../utils/Context";
 
-const Purchase = ({ bookImage, bookName, price, bookId }) => {
+const Purchase = ({
+  bookImage,
+  bookName,
+  price,
+  bookId,
+  buyerId,
+
+  sellerId,
+}) => {
   const [Loading, setLoading] = useState(false);
   const [ShowAlert, setShowAlert] = useState(false);
   const [AlertMessage, setAlertMessage] = useState("Default");
@@ -19,9 +27,15 @@ const Purchase = ({ bookImage, bookName, price, bookId }) => {
     e.target.innerText = "Loading...";
     e.target.disabled = true;
 
+    console.log("🤔:  buyerId,  sellerId,", { buyerId, sellerId });
     //todo //code for actually sending notifications
-    // let res=await fetch(``)
-    console.log(process.env.PAGE_URL);
+    let res = await fetch(`${process.env.PAGE_URL}/api/purchase`, {
+      method: "POST",
+      body: JSON.stringify({
+        sellId: sellerId,
+        buyId: buyerId,
+      }),
+    });
 
     //to define property of alert message
     if (true) {
