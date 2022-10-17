@@ -46,7 +46,6 @@ const Store = ({ url }) => {
       bookId: _id,
       sellerId: seller.id,
     });
-    console.log(seller.id, ConfirmPurchaseOptions.sellerId, "<=Seller id");
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 

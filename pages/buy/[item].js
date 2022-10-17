@@ -24,26 +24,19 @@ const BuyItem = ({ url }) => {
   let {
     query: { item: slug },
   } = Router;
-  const handleConfirmPurchase = (e, { bookName, imageURL, price, _id }) => {
+  const handleConfirmPurchase = (
+    e,
+    { bookName, imageURL, price, _id, sellerId }
+  ) => {
     setConfirmPurchaseOptions({
       show: true,
       bookName,
       bookImage: imageURL,
       price,
       bookId: _id,
+      sellerId,
     });
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    //  let parent =
-    //    e.target.parentElement.parentElement.parentElement.parentElement;
-    //  parent.addEventListener(
-    //    "wheel",
-    //    (e) => {
-    //      e.preventDefault();
-    //      e.stopPropagation();
-    //      return false;
-    //    },
-    //    { passive: false }
-    //  );
   };
 
   const handleCartClick = async (id, url) => {
@@ -96,6 +89,7 @@ const BuyItem = ({ url }) => {
                 imageURL,
                 price,
                 _id: slug,
+                sellerId: BookData.seller.id,
               });
             }}
           >
@@ -158,6 +152,8 @@ const BuyItem = ({ url }) => {
           bookImage={ConfirmPurchaseOptions.bookImage}
           price={ConfirmPurchaseOptions.price}
           bookId={ConfirmPurchaseOptions.bookId}
+          buyerId={UserData._id}
+          sellerId={ConfirmPurchaseOptions.sellerId}
         />
       )}
     </div>
