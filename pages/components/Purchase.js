@@ -14,6 +14,39 @@ const Purchase = ({ bookImage, bookName, price, bookId }) => {
     success: AlertSuccess,
   };
   const { setConfirmPurchaseOptions } = useContext(Context);
+  async function handleConfirmPurchase(e) {
+    setLoading(true);
+    e.target.innerText = "Loading...";
+    e.target.disabled = true;
+
+    //todo //code for actually sending notifications
+    // let res=await fetch(``)
+    console.log(process.env.PAGE_URL);
+
+    //to define property of alert message
+    if (true) {
+      setAlertMessage("Notification Sent to the Seller");
+      setAlertSuccess(true);
+    } else {
+      setAlertMessage("Some Error Occured. Try Again  ");
+      setAlertSuccess(false);
+    }
+    setTimeout(() => {
+      setLoading(false);
+      setShowAlert(true);
+      e.target.disabled = false;
+      e.target.innerText = "Confirm Purchase";
+    }, 4000);
+    setTimeout(() => {
+      setShowAlert(false);
+      setConfirmPurchaseOptions((prev) => {
+        return {
+          ...prev,
+          show: false,
+        };
+      });
+    }, 9000);
+  }
   return (
     <div className={styles.main}>
       <div className={styles.mainContainer}>
@@ -27,35 +60,7 @@ const Purchase = ({ bookImage, bookName, price, bookId }) => {
           <button
             className="btn-primary"
             onClick={(e) => {
-              setLoading(true);
-              e.target.innerText = "Loading...";
-              e.target.disabled = true;
-
-              //todo //code for actually sending notifications
-
-              //to define property of alert message
-              if (true) {
-                setAlertMessage("Notification Sent to the Seller");
-                setAlertSuccess(true);
-              } else {
-                setAlertMessage("Some Error Occured. Try Again  ");
-                setAlertSuccess(false);
-              }
-              setTimeout(() => {
-                setLoading(false);
-                setShowAlert(true);
-                e.target.disabled = false;
-                e.target.innerText = "Confirm Purchase";
-              }, 4000);
-              setTimeout(() => {
-                setShowAlert(false);
-                setConfirmPurchaseOptions((prev) => {
-                  return {
-                    ...prev,
-                    show: false,
-                  };
-                });
-              }, 9000);
+              handleConfirmPurchase(e);
             }}
           >
             Confirm Purchase
