@@ -1,12 +1,5 @@
 import mongoose from "mongoose";
-// const notificationSchema = new mongoose.Schema({
-//   purchaseNotifications: [
-//     {
-//       buyerName: String,
-//       buyerId: String,
-//     },
-//   ],
-// });
+
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -20,6 +13,8 @@ const userSchema = new mongoose.Schema(
       {
         buyerName: String,
         buyerId: String,
+        bookId: String,
+        bookName: String,
       },
     ],
   },

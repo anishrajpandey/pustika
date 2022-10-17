@@ -10,7 +10,6 @@ const Purchase = ({
   price,
   bookId,
   buyerId,
-
   sellerId,
 }) => {
   const [Loading, setLoading] = useState(false);
@@ -34,6 +33,7 @@ const Purchase = ({
       body: JSON.stringify({
         sellId: sellerId,
         buyId: buyerId,
+        bookId,
       }),
     });
 
