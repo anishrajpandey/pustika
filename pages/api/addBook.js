@@ -24,5 +24,3 @@ export default async function addTest(req, res) {
     res.json({ error });
   }
 }
-// hello ti
-a;
