@@ -24,4 +24,3 @@ export default async function addTest(req, res) {
     res.json({ error });
   }
 }
-// hello world anish raj this is me typing random things
