@@ -24,6 +24,3 @@ export default async function addTest(req, res) {
     res.json({ error });
   }
 }
-// prescription lots of opinion please dont leave me dont tell me how u me let your cameo fill to me take my soul idont wwant it anymore i just want to be ignored for a second of attention an
-// i dont want it anymore just want to be known just take my soul
-// we all starving for a second of attention and dying need obsession need attention
