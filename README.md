@@ -5,4 +5,3 @@ If you wanna support me, or my work,follow me or star this repo!
 ## Made With ❤️ using NEXT JS
 
 [Visit Here](https://pustika.vercel.app)
-<br/>:)🤣🤣🤣(●'◡'●)(*/ω＼*)☆*: .｡. o(≧▽≦)o .｡.:*☆(●'◡'●)╰(*°▽°*)╯ΝΜ©
